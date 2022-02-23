@@ -4,8 +4,8 @@ const Contacts = () => {
 
     return (
         <div className="Contacts">
-            <div className='InfoContacts'>
-                <img scr="../../public/img/pizza5.png" />
+            
+                <img src="../../img/pizza7.png" />
                 <div className='infoTxt'>
                     <h4>Our Contacts:</h4>
                     <p>Office phone: +595 98 22 32 134</p>
@@ -13,7 +13,7 @@ const Contacts = () => {
                     <p>address: str. Ivan Djambazov 32 enter B</p>
                 </div>
 
-            </div>
+            
 
         </div>
     )

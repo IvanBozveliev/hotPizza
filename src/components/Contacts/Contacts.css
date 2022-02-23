@@ -1,22 +1,25 @@
 .Contacts{
-    background-color: red;
-}
-
-.InfoContacts{
+    background-color: #d1411e;
     text-align: left;
-    color: black;
-    background-color: white;
-    font-weight: bold;
-    
     height: 400px;
-    /* padding: 20px; */
 }
 
+.Contacts > img{
+    width: 550px;
+    height: 400px;
+    /* background-color: black; */
+    margin-left: 100px;
+   
+}
 
 
 .infoTxt{
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
     float: right;
     margin-top: 73px;
-    margin-right: 120px;
-    text-decoration: underline;
+    margin-right: 220px;
+    text-decoration: none;
+    text-align: left;
 }
