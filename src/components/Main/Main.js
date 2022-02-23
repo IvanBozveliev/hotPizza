@@ -2,10 +2,15 @@ import './Main.css';
 
 
 const Main = () => {
+
+  const leftClick = (e) => {
+     console.log(e.target)
+  }
+
   return (
     <div className='container'>
-     {/* <button id='startBtn'>Start</button>
-     <button id='endBtn'>End</button> */}
+     <img id='imgLeft' src='../../../img/arrowsleft.png' onClick={leftClick}/>
+     
     <div className='gridDiv'>
      
       <div>
@@ -28,7 +33,7 @@ const Main = () => {
         <button>Order</button>
       </div>
     </div>
-    
+    <img src='../../../img/arrowr.png' id='imgRight' />
     </div>
    
   )
