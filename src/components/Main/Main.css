@@ -1,12 +1,11 @@
 .gridDiv {
     display: grid;
-    gap: 12px;
+    gap: 15px;
     grid-template-columns: 250px 250px 250px;
     grid-template-rows: 260px;
     /* background-color: rgb(124, 219, 219); */
     justify-content: center;
-    margin-top: 30px;
-    padding: 20px;
+    padding-top: 35px;
 
 }
 
@@ -17,6 +16,7 @@
     border-radius: 10px;
     padding-top: 10px;
     text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
 }
 
 .imageDiv{
@@ -24,9 +24,17 @@
     height: 150px;
 }
 
-.container{
+/* .container{
     display: block;
     text-align: center;
+    
+} */
+
+.container{
+    height: 600px;
+    display: block;
+    text-align: center;
+    background-color: #d1411e;
 }
 
 #startBtn{

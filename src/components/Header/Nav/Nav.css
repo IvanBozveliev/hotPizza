@@ -18,3 +18,23 @@
     color: black;
     font-size: 20px;
 }
+
+.Logo{
+    display: flex;
+    width: 300px;
+    float: left;
+}
+
+.Logo > p{
+    font-weight: bold;
+    font-size: 22px;
+    text-decoration: none;
+    font-family: fangsong;
+}
+.Logo> img{
+    vertical-align: middle;
+    width: 60px;
+    height: 60px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
