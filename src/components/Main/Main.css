@@ -1,0 +1,38 @@
+.gridDiv {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 250px 250px 250px;
+    grid-template-rows: 260px;
+    /* background-color: rgb(124, 219, 219); */
+    justify-content: center;
+    margin-top: 30px;
+    padding: 20px;
+
+}
+
+.gridDiv > div{
+    overflow: hidden;
+    border: 1px solid black;
+    background-color: rgb(245 241 235);
+    border-radius: 10px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.imageDiv{
+    width: 250px;
+    height: 150px;
+}
+
+.container{
+    display: block;
+    text-align: center;
+}
+
+#startBtn{
+    float: left;
+}
+
+#endBtn{
+    float: right;
+}

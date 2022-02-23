@@ -1,0 +1,22 @@
+.Contacts{
+    background-color: red;
+}
+
+.InfoContacts{
+    text-align: left;
+    color: black;
+    background-color: white;
+    font-weight: bold;
+    
+    height: 400px;
+    /* padding: 20px; */
+}
+
+
+
+.infoTxt{
+    float: right;
+    margin-top: 73px;
+    margin-right: 120px;
+    text-decoration: underline;
+}
