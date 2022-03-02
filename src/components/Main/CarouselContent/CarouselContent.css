@@ -1,0 +1,16 @@
+.gridDiv {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 250px 250px 250px;
+    grid-template-rows: 260px;
+    background-color: rgb(124, 219, 219);
+    justify-content: center;
+    margin-top: 45px;
+    padding: 20px;
+
+}
+
+.gridDiv > div{
+    overflow: hidden;
+    border: 1px solid black;
+}

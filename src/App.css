@@ -1,6 +1,3 @@
-/* .App { 
-  background-image: url('../public/img/logo.png');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center; 
-} */
+.App { 
+  overflow-x: hidden;
+}

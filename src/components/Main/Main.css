@@ -9,57 +9,6 @@
 
 }
 
-.gridDiv>div {
-    overflow: hidden;
-    border: 1px solid black;
-    background-color: rgb(245 241 235);
-    border-radius: 10px;
-    padding-top: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
-    position: relative;
-    animation-name: slide;
-    animation-duration: 3s;
-    animation-direction: normal;
-
-}
-
-@keyframes slide {
-    /* 0% {
-        left: 0px;
-        top: 0px;
-    }
-
-    25% {
-        left: 0px;
-        top: 0px;
-    }
-
-    50% {
-        background-color: red;
-        left: 0px;
-        top: 0px;
-    } */
-
-    0% {
-        transform: rotate(0);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.imageDiv {
-    width: 250px;
-    height: 150px;
-}
-
-/* .container{
-    display: block;
-    text-align: center;
-    
-} */
 
 .container {
     height: 600px;
@@ -70,7 +19,7 @@
 }
 
 #imgLeft {
-    float: right;
+    float: left;
     margin-right: 100px;
     margin-top: 100px;
     cursor: pointer;
