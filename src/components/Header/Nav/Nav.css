@@ -48,3 +48,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1411e', end
     margin-left: 20px;
     margin-right: 10px;
 }
+
+.allLinks{
+    display: flex;
+    float: right;
+}
