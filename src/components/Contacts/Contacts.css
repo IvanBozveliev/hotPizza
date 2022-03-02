@@ -1,7 +1,11 @@
 .Contacts{
-    background-color: #d1411e;
+    /* background-color: #d1411e; */
+    background-color: white;
     text-align: left;
     height: 400px;
+    /* background-image: url('../../../public/img/pizza-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; */
 }
 
 .Contacts > img{
@@ -14,12 +18,22 @@
 
 
 .infoTxt{
+    margin: auto;
     font-weight: bold;
     font-size: 20px;
-    color: black;
+    color: rgb(3, 3, 3);
+    padding: 20px;
     float: right;
-    margin-top: 73px;
+    
     margin-right: 220px;
     text-decoration: none;
     text-align: left;
+}
+
+/* .infoTxt :nth-last-child(1){
+    text-decoration: underline;
+} */
+
+.infoTxt > p, h4 {
+    text-decoration: underline;
 }

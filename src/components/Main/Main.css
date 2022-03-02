@@ -11,11 +11,14 @@
 
 
 .container {
-    height: 600px;
+    height: 400px;
     display: flex;
     text-align: center;
-    background-color: #d1411e;
-    justify-content: center;
+    background-color: #ffffff;
+    /* background-image: url('../../../public/img/pizza-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    justify-content: center; 
 }
 
 #imgLeft {

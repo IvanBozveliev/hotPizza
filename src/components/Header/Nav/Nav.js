@@ -10,8 +10,9 @@ const Nav = () => {
         <p>Pizza Borano</p>
       </div>
 
-      <a href="#">About</a>
-      <a href="#">Order</a>
+      <Link to="#">About</Link>
+      <Link to="#">Order</Link>
+      <Link to="/login">Login</Link>
       <Link to="contacts">Contacts</Link>
       <Link to="/">Home</Link>
 

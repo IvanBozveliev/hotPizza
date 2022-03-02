@@ -1,0 +1,44 @@
+.loginContent {
+    display: grid;
+    grid-template-columns: 270px;
+    background-color: #d1411e;
+    width: 331px;
+    height: 266px;
+    margin: auto;
+    margin-top: 15px;
+    border: 1px solid black;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+#loginForm{
+    display: block;
+    margin: auto;
+    padding-left: 30px;
+
+}
+
+input[type=text]{
+    box-sizing: border-box;
+    padding: 3px 20px;
+    margin: 8px 0;
+}
+
+input[type=password]{
+    box-sizing: border-box;
+    padding: 3px 20px;
+    margin: 8px 0;
+}
+
+input[type="submit"]{
+    margin-top: 8px;
+    border: none;
+    box-sizing: border-box;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    margin-left: 76px;
+    padding: 10px;
+   
+}

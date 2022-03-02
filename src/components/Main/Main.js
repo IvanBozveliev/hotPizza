@@ -34,12 +34,12 @@ const Main = () => {
 
   return (
     <div className='container'>
-     <img id='imgLeft' src='../../../img/arrowsleft.png' onClick={leftClick}/>
+     <img id='imgLeft' src='../../../img/leftArrow.png' onClick={leftClick}/>
      
     <div className='gridDiv'>
       {state.map(x => <Card key={x.id} img={x.img} title={x.title} currentStyle={style} /> )} 
     </div>
-    <img src='../../../img/arrowr.png' id='imgRight' onClick={rightClick}/>
+    <img src='../../../img/rightArrow.png' id='imgRight' onClick={rightClick}/>
     </div>
    
   )
