@@ -1,39 +1,61 @@
-.Contacts{
-    /* background-color: #d1411e; */
-    background-color: white;
-    text-align: left;
-    height: 400px;
-    /* background-image: url('../../../public/img/pizza-background.jpg');
-    background-repeat: no-repeat;
-    background-size: cover; */
-}
-
-.Contacts > img{
-    width: 450px;
-    height: 400px;
-    /* background-color: black; */
-    margin-left: 100px;
-   
-}
-
-
-.infoTxt{
+.Contacts {
+    background-color: #cf401e;
+    border: 2px solid black;
+    border-radius: 10px;
     margin: auto;
+    margin-top: 20px;
+    margin-bottom: 120px;
+    /* text-align: center; */
+    height: 400px;
+    width: 946px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+
+
+
+.infoTxt {
+
     font-weight: bold;
     font-size: 20px;
     color: rgb(3, 3, 3);
     padding: 20px;
-    float: right;
-    
-    margin-right: 220px;
-    text-decoration: none;
     text-align: left;
 }
 
-/* .infoTxt :nth-last-child(1){
+.infoTxt>p, h4 {
     text-decoration: underline;
-} */
+}
 
-.infoTxt > p, h4 {
-    text-decoration: underline;
+
+@media only screen and (max-width: 960px) {
+    .Contacts {
+        background-color: #cf401e;
+        border: 2px solid black;
+        border-radius: 10px;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 120px;
+        text-align: center;
+        height: 400px;
+        width: auto;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .Contacts>img {
+        width: 300px;
+    }
+
+    .infoTxt {
+
+        font-weight: bold;
+        font-size: 16px;
+        color: rgb(3, 3, 3);
+        padding: 20px;
+        text-align: left;
+    }
 }

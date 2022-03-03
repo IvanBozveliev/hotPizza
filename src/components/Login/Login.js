@@ -10,7 +10,7 @@ let Login = () => {
                 <input type='text' name='username' id='inputText'/>
                 <label htmlFor='inputPass'>Password:</label>
                 <input type='password' name='password' id='inputPass' />
-                <input type='submit' value='Submit' />
+                <input type='submit' value='Login' />
             </form>
         </div>
 
