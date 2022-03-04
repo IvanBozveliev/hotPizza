@@ -17,23 +17,19 @@ const Main = () => {
 
   useEffect(() => {
 
-    if (0 > counter || counter >= allCards.length) {
-      return;
-    } else {
-      if (prevCounter < counter) {
+    if (0 > counter || counter >= allCards.length) return;
 
-        setStyle('rightStyle');
-        setPrevCounter(counter);
+    if (prevCounter < counter) {
 
-      } else if (prevCounter > counter) {
-        setStyle('leftStyle')
-        setPrevCounter(counter);
-      }
+      setStyle('rightStyle');
+      setPrevCounter(counter);
 
-      setState(allCards[counter]);
+    } else if (prevCounter > counter) {
+      setStyle('leftStyle')
+      setPrevCounter(counter);
     }
-
-
+   
+    setState(allCards[counter]);
 
   }, [counter])
 
