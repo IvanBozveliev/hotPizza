@@ -10,7 +10,7 @@ const Header = () => {
       <header className="headerBar">
         <img src={`../../img/${pizza}`} />
       </header>
-      <Nav/>
+      <Nav />
     </>
 
   )

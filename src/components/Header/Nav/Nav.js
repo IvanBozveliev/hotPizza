@@ -18,8 +18,8 @@ const Nav = () => {
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link> 
         <Link to="#">About</Link>
-        <Link to="#">Order</Link>
-     
+        <img src='../../img/cart-black.png' id='cart'/>
+        <div id='numCart'>4</div>
       </div>
 
 

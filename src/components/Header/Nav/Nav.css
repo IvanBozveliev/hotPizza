@@ -53,3 +53,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1411e', end
     display: flex;
     float: right;
 }
+
+#cart{
+    width: 40px;
+    height: 36px;
+    margin-top: 10px;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+#numCart{
+    background-color: red;
+    color: white;
+    width: 20px;
+    height: 16px;
+    border-radius: 20px;
+    position: fixed;
+    text-align: center;
+    margin-left: 489px;
+    padding: 3px;
+    padding-bottom: 8px;
+    border: 1px solid black;
+    display: none;
+}

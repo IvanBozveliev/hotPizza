@@ -16,7 +16,7 @@ const Main = () => {
 
   
   useEffect(() => {
-    console.log(counter)
+    
     if (0 > counter){
       counter = 0;
       return;
