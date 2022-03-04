@@ -1,6 +1,7 @@
 let index = 0;
 let cards = [];
 
+
 const cardsInfo = [
 
     { id: 1, img: '../../../img/pizza5.png', title: 'pizza' },

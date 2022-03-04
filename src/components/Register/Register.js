@@ -5,7 +5,7 @@ const Register = () => {
     return(
         <div className='registerContent'>
             <h2>Register</h2>
-            <form  method='POST' id='loginForm'>
+            <form method='POST' id='loginForm'>
                 <label htmlFor='inputText'>Username:</label>
                 <input type='text' name='username' id='inputText'/>
                 <label htmlFor='inputPass'>Password:</label>

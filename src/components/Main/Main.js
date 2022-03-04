@@ -1,20 +1,20 @@
 import './Main.css';
 import Card from './Card/Card.js';
-import { useEffect, useState } from 'react';
 import { carouselFunction } from './CarouselLogic.js';
+
+import { useEffect, useState } from 'react';
+
 
 let allCards = carouselFunction();
 
 const Main = () => {
 
-  let cards = allCards.slice(0, 3);
-
-  let [state, setState] = useState(cards);
+  let [state, setState] = useState([]);
   let [counter, setCounter] = useState(0);
   let [prevCounter, setPrevCounter] = useState(0);
   let [style, setStyle] = useState('mainStyle');
 
-
+  
   useEffect(() => {
 
     if (0 > counter || counter >= allCards.length) return;
@@ -28,13 +28,12 @@ const Main = () => {
       setStyle('leftStyle')
       setPrevCounter(counter);
     }
-   
-    setState(allCards[counter]);
 
-  }, [counter])
+    setState(allCards[counter])
 
+  }, [counter, prevCounter])
 
-
+ 
   return (
     <div className='container'>
       <div className='carousel'>
@@ -51,4 +50,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default Main;
