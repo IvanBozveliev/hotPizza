@@ -16,8 +16,15 @@ const Main = () => {
 
   
   useEffect(() => {
-
-    if (0 > counter || counter >= allCards.length) return;
+    console.log(counter)
+    if (0 > counter){
+      counter = 0;
+      return;
+    }
+    if(counter >= allCards.length){
+       counter = allCards.length-1;
+       return;
+    } 
 
     if (prevCounter < counter) {
 
