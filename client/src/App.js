@@ -5,6 +5,7 @@ import Contacts from './components/Contacts/Contacts.js';
 import Login from './components/Login/Login.js';
 import Register from './components/Register/Register.js';
 import CreatePizza from './components/CreatePizza/CreatePizza.js';
+import About from './components/About/About.js';
 
 import { Routes, Route } from 'react-router-dom';
 
@@ -23,6 +24,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/create-pizza' element={<CreatePizza />} />
+          <Route path='/about' element={<About />} />
         </Routes>
       {/* </div> */}
 

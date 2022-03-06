@@ -17,7 +17,7 @@ const Nav = () => {
         <Link to="contacts">Contacts</Link>
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link> 
-        <Link to="#">About</Link>
+        <Link to="/about">About</Link>
         <Link to="/create-pizza">Create Pizza</Link>
         <img src='../../img/cart-black.png' id='cart'/>
         <div id='numCart'>4</div>
