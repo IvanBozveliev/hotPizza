@@ -71,7 +71,7 @@
      .gridDiv {
         display: grid;
         grid-template-columns: 250px;
-        grid-template-rows: 260px;
+        grid-template-rows: 280px;
         justify-content: center;
         padding-top: 35px;
     }
