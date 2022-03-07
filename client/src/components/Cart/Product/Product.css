@@ -1,0 +1,53 @@
+.divProduct{
+    background-color: rgb(245 241 235);
+    width: auto;
+    height: 80px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: grid;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+
+.divProduct:hover{
+    background-color: rgb(196, 193, 189);
+    width: auto;
+    height: 80px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: grid;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+
+#checkboxId:hover{
+
+   cursor: pointer;
+}
+
+.infoDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.infoDiv>p{
+    text-decoration: overline;
+}
+
+.infoDiv > input{
+    margin-right: 20px;
+}
+
+.infoDiv > img{
+    width: 70px;
+    margin-left: 20px;
+}
+
+#titlePizza{
+    color:rgb(7, 7, 7);
+    font-weight: bold;
+    text-decoration: overline;
+}
