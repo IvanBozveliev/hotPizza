@@ -54,10 +54,22 @@
 }
 
 .imgCart{
+    background-image: url('../../../../public/img/addCart.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 29px;
+    cursor: pointer;
+    width: 40px;
+    height: 30px;
+}
+
+.imgCart:active{
+    background-image: url('../../../../public/img/addCart-blue.png');
     margin-bottom: 29px;
     cursor: pointer;
     
 }
+
 .cardInfo{
     display: flex;
     justify-content: center;

@@ -55,10 +55,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1411e', end
 }
 
 #cart{
-    width: 40px;
-    height: 36px;
-    margin-top: 10px;
-    margin-right: 30px;
+    background-image: url('../../../../public/img/cart-black.png');
+    background-size: cover;
+    width: 35px;
+    height: 35px;
+    margin-right: -20px;
+    cursor: pointer;
+}
+
+#cart:active{
+    background-image: url('../../../../public/img/cart-white.png');
+    width: 35px;
+    height: 35px;
+    margin-right: -20px;
     cursor: pointer;
 }
 
@@ -68,11 +77,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1411e', end
     width: 20px;
     height: 16px;
     border-radius: 20px;
-    position: fixed;
+    position: relative;
     text-align: center;
-    margin-left: 489px;
+    margin-right: 20px;
+    /* margin-top: -60px; */
     padding: 3px;
     padding-bottom: 8px;
     border: 1px solid black;
-    display: none;
+    display: block;
+    cursor: pointer;
 }

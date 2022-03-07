@@ -6,6 +6,7 @@ import Login from './components/Login/Login.js';
 import Register from './components/Register/Register.js';
 import CreatePizza from './components/CreatePizza/CreatePizza.js';
 import About from './components/About/About.js';
+import Cart from './components/Cart/Cart';
 
 import { Routes, Route } from 'react-router-dom';
 
@@ -25,6 +26,7 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/create-pizza' element={<CreatePizza />} />
           <Route path='/about' element={<About />} />
+          <Route path='/cart' element={<Cart />} />
         </Routes>
       {/* </div> */}
 

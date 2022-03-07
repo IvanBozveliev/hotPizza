@@ -19,7 +19,7 @@ const Nav = () => {
         <Link to="/register">Register</Link> 
         <Link to="/about">About</Link>
         <Link to="/create-pizza">Create Pizza</Link>
-        <img src='../../img/cart-black.png' id='cart'/>
+        <Link to="/cart"><div id='cart' /></Link>
         <div id='numCart'>4</div>
       </div>
 
