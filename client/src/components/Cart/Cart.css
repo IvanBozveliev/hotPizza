@@ -40,3 +40,7 @@
     cursor: pointer;
     background-color: rgb(3, 161, 16);
 }
+
+#cartTitle{
+    font-weight: bold;
+}

@@ -4,6 +4,7 @@ const Cart = () => {
 
     return (
         <div className="cartBackground">
+            <p id='cartTitle'>MY PRODUCTS:</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, obcaecati totam asperiores debitis consequuntur illo perferendis labore unde exercitationem? Placeat ad ipsam commodi vitae nihil quos atque corporis est impedit.</p>
             
             <div id='totalDiv'>
