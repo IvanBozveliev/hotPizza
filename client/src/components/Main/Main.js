@@ -54,7 +54,7 @@ const Main = () => {
 
 
   return (
-    // <div className='container'>
+    
       <div className='carousel'>
         <img id='imgLeft' src='../../../img/leftArrow.png' onClick={() => setCounter(--counter)} />
 
@@ -63,8 +63,6 @@ const Main = () => {
         </div>
         <img src='../../../img/rightArrow.png' id='imgRight' onClick={() => setCounter(++counter)} />
       </div>
-
-    // </div>
 
   )
 }

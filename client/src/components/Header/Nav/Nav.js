@@ -9,16 +9,17 @@ const Nav = () => {
       <div className='Logo'>
         <img src='../../img/logo1.png' />
         <p>Pizza Borano</p>
-        <p>Welcome, Ivan</p>
+        {/* <p>Welcome, Ivan</p> */}
       </div>
 
       <div className='allLinks'>
         
         <Link to="/">Home</Link>
+        <Link to="/create-pizza">Create Pizza</Link>
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link> 
         <Link to="/about">About</Link>
-        <Link to="/create-pizza">Create Pizza</Link>
+        <Link to="/#">Logout</Link>
         <Link to="/cart"><div id='cart' /></Link>
         <div id='numCart'>4</div>
 
