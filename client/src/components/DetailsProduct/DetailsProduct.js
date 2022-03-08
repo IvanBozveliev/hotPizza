@@ -17,6 +17,9 @@ const DetailsProduct = () => {
             setText('')
             setImage(true)
         }, 500)
+        
+        // user.cart.push(product)
+        
     }
 
     useEffect(() => {
