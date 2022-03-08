@@ -67,12 +67,16 @@
     background-image: url('../../../../public/img/addCart-blue.png');
     margin-bottom: 29px;
     cursor: pointer;
-    
+
 }
 
 .cardInfo{
+    /* display: flex;
+    justify-content: center; */
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 9px;
+    margin-top: -8px;
 }
 
 .pCard{
@@ -82,26 +86,39 @@
     font-weight: bold;
 }
 
-#detailsId{
+#detailsBtn{
     border: none;
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: black;
     color: white;
-    width: 55px;
-    height: 27px;
+    width: 47px;
+    height: 24px;
     cursor: pointer;
-    margin-right: 10px;
+    margin-right: 9px;
+    text-decoration: none;
+    text-align: center;
+    padding: 3px;
 }
 
-#detailsId:hover{
+#detailsBtn:hover{
     border: none;
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: rgb(61, 60, 60);
-    border:1px solid black;
     color: white;
-    width: 55px;
-    height: 27px;
+    width: 47px;
+    height: 24px;
     cursor: pointer;
-    margin-right: 10px;
-    padding: auto;
+    margin-right: 9px;
+    text-decoration: none;
+    text-align: center;
+    padding: 3px;
+}
+
+#txt{
+    /* color: rgb(5, 158, 25); */
+    color: rgb(36, 37, 36);
+    margin-left: 0px;
+    margin-top: 2px;
+    font-weight: bold;
+    cursor: pointer;
 }

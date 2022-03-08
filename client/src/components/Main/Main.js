@@ -59,7 +59,7 @@ const Main = () => {
         <img id='imgLeft' src='../../../img/leftArrow.png' onClick={() => setCounter(--counter)} />
 
         <div className='gridDiv'>
-          {state.map(x => <Card key={x._id} img={x.imageUrl} title={x.title} currentStyle={style} price={x.price} />)}
+          {state.map(x => <Card key={x._id} id={x._id} img={x.imageUrl} title={x.title} currentStyle={style} price={x.price} />)}
         </div>
         <img src='../../../img/rightArrow.png' id='imgRight' onClick={() => setCounter(++counter)} />
       </div>

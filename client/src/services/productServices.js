@@ -15,3 +15,9 @@ export function postProduct(data){
     })
      .then(res => res.json())
 }
+
+export const getOneProduct = (id) => {
+ 
+   return fetch(link + `/${id}`)
+            .then(res => res.json())
+}

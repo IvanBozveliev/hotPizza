@@ -6,6 +6,7 @@ import Register from './components/Register/Register.js';
 import CreatePizza from './components/CreatePizza/CreatePizza.js';
 import About from './components/About/About.js';
 import Cart from './components/Cart/Cart';
+import Details from './components/DetailsProduct/DetailsProduct';
 
 import { Routes, Route } from 'react-router-dom';
 
@@ -25,6 +26,7 @@ function App() {
           <Route path='/create-pizza' element={<CreatePizza />} />
           <Route path='/about' element={<About />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/details/:id' element={<Details />} />
         </Routes>
       </div>
 
