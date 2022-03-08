@@ -3,8 +3,8 @@
     background-size: 550px; 
     overflow: hidden;
 }
-/* 
+
 .mainContent{
-  height: 100%;
-  margin-top: 40px;
-} */
+  height: auto;
+  margin-bottom: 40px;
+}

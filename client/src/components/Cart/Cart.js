@@ -8,15 +8,6 @@ const Cart = () => {
             <p id='cartTitle'>MY PRODUCTS:</p>
             <Product />
             <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
 
             {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, obcaecati totam asperiores debitis consequuntur illo perferendis labore unde exercitationem? Placeat ad ipsam commodi vitae nihil quos atque corporis est impedit.</p> */}
             
