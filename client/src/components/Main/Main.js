@@ -1,7 +1,7 @@
 import './Main.css';
 import Card from './Card/Card.js';
 // import { carouselFunction } from './CarouselLogic.js';
-import { getAll } from '../../services/productServices.js';
+import { getAllProducts } from '../../services/productServices.js';
 
 import { useEffect, useState } from 'react';
 
@@ -18,7 +18,7 @@ const Main = () => {
 
   useEffect(() => {
   
-    getAll()
+    getAllProducts()
       .then(cardsInfo => {
 
         while (index < cardsInfo.length) {
@@ -59,7 +59,7 @@ const Main = () => {
         <img id='imgLeft' src='../../../img/leftArrow.png' onClick={() => setCounter(--counter)} />
 
         <div className='gridDiv'>
-          {state.map(x => <Card key={x.id} img={x.imageUrl} title={x.title} currentStyle={style} />)}
+          {state.map(x => <Card key={x._id} img={x.imageUrl} title={x.title} currentStyle={style} price={x.price} />)}
         </div>
         <img src='../../../img/rightArrow.png' id='imgRight' onClick={() => setCounter(++counter)} />
       </div>

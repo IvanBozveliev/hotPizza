@@ -2,7 +2,7 @@ const Product = require('../models/Product');
 
 function create(data) {
  
-   if (data.title == '' || data.description == '' || data.imageUrl == '') {
+   if (data.title == '' || data.description == '' || data.imageUrl == '' || data.price == '') {
       throw ({message: 'You can not have empty fields!'})
    }
 
@@ -17,7 +17,11 @@ function create(data) {
    if(!/^https?:\/\//g.test(data.imageUrl)){
        throw ({message:'The image should be start with http or https'})
    }
-
+   
+   if(+data.price == 0){
+      throw ({message:'The price should be bigger than zero'})
+   }
+   
    let product = new Product({ ...data});
    return product.save();
 }

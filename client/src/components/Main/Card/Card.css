@@ -81,3 +81,27 @@
     color: black;
     font-weight: bold;
 }
+
+#detailsId{
+    border: none;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    width: 55px;
+    height: 27px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#detailsId:hover{
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(61, 60, 60);
+    border:1px solid black;
+    color: white;
+    width: 55px;
+    height: 27px;
+    cursor: pointer;
+    margin-right: 10px;
+    padding: auto;
+}

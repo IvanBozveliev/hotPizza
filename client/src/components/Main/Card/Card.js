@@ -3,6 +3,7 @@ import './Card.css';
 const Card = ({
     img,
     title,
+    price,
     currentStyle
 }) => {
     return (
@@ -10,12 +11,15 @@ const Card = ({
             <img className='imageDiv' src={img} />
             <h5>{title}</h5>
             <div className='cardInfo'>
-                <div className='imgCart'  />
-                <p className='pCard'>price: 12$</p>
+
+                <button id='detailsId'>Details</button>
+                <div className='imgCart' />
+                <p className='pCard'>price: {price} lv.</p>
+
             </div>
 
-            {/* <button>Details</button>
-            <button>Order</button> */}
+
+            {/* <button>Order</button> */}
         </div>
     )
 }

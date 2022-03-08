@@ -1,10 +1,26 @@
 import './CreatePizza.css';
+import * as productServices from '../../services/productServices.js';
 
 const CreatePizza = () => {
+
+    const createHandler = (e) => {
+        e.preventDefault();
+
+        let formData = new FormData(e.currentTarget);
+        let title = formData.get('username');
+        let description = formData.get('description');
+        let imageUrl = formData.get('image');
+        let price = formData.get('price');
+
+        productServices.postProduct({title, description, imageUrl, price})
+         .then(result => console.log(result))
+         .catch(err => console.log(err))
+    }
+
     return (
         <div className='createPizza'>
             <h2>Create Pizza</h2>
-            <form method='POST' id='loginForm'>
+            <form method='POST' id='loginForm' onSubmit={createHandler}>
                 <label htmlFor='inputText'>Title:</label>
                 <input type='text' name='username' id='inputText' />
                 <label htmlFor='inputDescription'>Description:</label>
