@@ -21,8 +21,7 @@ module.exports = function (){
                    req.user = decoded;
                    res.locals.user = decoded;
                    res.locals.isAuthenticated = true;
-                   console.log(req.user)
-                   console.log(res.user)
+                  
                 //    res.locals.isEnroll = false;
                 }
             })

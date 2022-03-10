@@ -85,3 +85,19 @@ input[type="submit"]:hover {
     cursor: pointer;
 
 }
+
+#errorDiv{
+ 
+    height: 80px;
+    background-color: #e23c3c;
+    border-bottom: 1px solid #c02121;
+    border-top: 1px solid #c02121;
+}
+
+#errorDiv > p{
+    color: black;
+    text-align: center;
+    padding: auto;
+    padding-top: 10px;
+    font-weight: bold;
+}
