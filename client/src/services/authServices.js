@@ -25,3 +25,8 @@ export const login = (userData) => {
         .then(response => response.json())
 
 }
+
+export const logout = () => {
+    return fetch(url +'/logout')
+      .then(res => res.json())
+}

@@ -8,3 +8,7 @@ export const getLocalStorage = () =>{
     return JSON.parse(result);
     
 }
+
+export const removeLocalStorage = (user) => {
+    return localStorage.removeItem(user)
+}

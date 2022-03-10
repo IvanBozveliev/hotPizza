@@ -19,7 +19,7 @@ const Nav = () => {
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link> 
         <Link to="/about">About</Link>
-        <Link to="/#">Logout</Link>
+        <Link to="/logout">Logout</Link>
         <Link to="/cart"><div id='cart' /></Link>
         <div id='numCart'>4</div>
 

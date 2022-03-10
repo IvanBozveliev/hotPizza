@@ -9,6 +9,7 @@ import Cart from './components/Cart/Cart';
 import Details from './components/DetailsProduct/DetailsProduct';
 import AllProducts from './components/AllProducts/AllProducts.js';
 import EditProduct from './components/EditProduct/EditProduct.js';
+import Logout from './components/Logout/Logout';
 
 import { Routes, Route } from 'react-router-dom';
 
@@ -31,6 +32,7 @@ function App() {
           <Route path='/details/:id' element={<Details />} />
           <Route path='/all-products' element={<AllProducts />} />
           <Route path='/details/edit/:id' element={<EditProduct />} />
+          <Route path='/logout' element={<Logout />} />
         </Routes>
       </div>
 

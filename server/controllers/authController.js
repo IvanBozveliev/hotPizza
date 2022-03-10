@@ -65,7 +65,6 @@ router.post('/register',  async (req, res) => {
 });
 
 router.get('/logout', isAuthenticated, (req, res) => {
-    // res.clearCookie(COOKIE_NAME)
     res.status(200).json({ok: true});
 });
 
