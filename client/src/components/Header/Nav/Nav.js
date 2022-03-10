@@ -1,8 +1,11 @@
 import './Nav.css';
-
+import {getLocalStorage} from '../../../services/storageService';
 import { Link } from 'react-router-dom';
 
 const Nav = () => {
+  const user = getLocalStorage();
+
+console.log(user)
   return (
     <div className='navDiv'>
 
@@ -19,7 +22,8 @@ const Nav = () => {
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link> 
         <Link to="/about">About</Link>
-        <Link to="/logout">Logout</Link>
+        <Link to="/#" id='feedback'>Feedback</Link>
+        <Link to="/logout" id='logout'>Logout</Link>
         <Link to="/cart"><div id='cart' /></Link>
         <div id='numCart'>4</div>
 

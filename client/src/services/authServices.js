@@ -1,3 +1,5 @@
+import {getLocalStorage} from './storageService';
+
 const url = 'http://localhost:5000/api/auth';
 
 export const register = (userData) => {
@@ -27,6 +29,13 @@ export const login = (userData) => {
 }
 
 export const logout = () => {
-    return fetch(url +'/logout')
+    return fetch(url +'/logout',{
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + getLocalStorage()?.token,
+            'Content-Type': 'application/json',
+
+        },
+    })
       .then(res => res.json())
 }

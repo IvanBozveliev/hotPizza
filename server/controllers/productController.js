@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const router = Router();
-const isMine = require('../middlewares/isMine');
+
+const isAuthorization = require('../middlewares/isAuthorization');
 const isAuthenticated = require('../middlewares/isAuthenticated');
 const productService = require('../services/productService');
 
@@ -15,7 +16,7 @@ router.get('/:productId', async (req, res) => {
     res.json(product);
 });
 
-router.post("/" , isAuthenticated, async (req, res) =>{
+router.post("/" , isAuthenticated, isAuthorization, async (req, res) =>{
 
     try{
         await productService.create({...req.body});
@@ -27,7 +28,7 @@ router.post("/" , isAuthenticated, async (req, res) =>{
            
 });
 
-router.put("/:productId", async (req, res) => {
+router.put("/:productId", isAuthenticated, isAuthorization, async (req, res) => {
     
     try{
         await productService.updateOne(req.params.productId, req.body);
@@ -38,7 +39,7 @@ router.put("/:productId", async (req, res) => {
   
 });
 
-router.delete("/:productId",async (req, res) => {
+router.delete("/:productId", isAuthenticated, isAuthorization, async (req, res) => {
     await productService.deleteOne(req.params.productId);
     res.json({ok: true})
 });

@@ -32,6 +32,9 @@ const EditProduct = () => {
             .then(result => {
                 if (result.message) {
                     setError(result.message)
+                    setTimeout(() => {
+                        setError('')
+                    },2000)
                 } else {
                     navigate(`/details/${id}`)
                 }
