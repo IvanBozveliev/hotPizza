@@ -1,15 +1,12 @@
 import './Main.css';
 import Card from './Card/Card.js';
-// import { carouselFunction } from './CarouselLogic.js';
 import { getAllProducts } from '../../services/productServices.js';
-
 import { useEffect, useState } from 'react';
 
 let index = 0; 
 let cards = [];
 
 const Main = () => {
-
   let [state, setState] = useState([]);
   let [counter, setCounter] = useState(0);
   let [prevCounter, setPrevCounter] = useState(0);

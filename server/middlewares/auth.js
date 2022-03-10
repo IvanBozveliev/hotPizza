@@ -4,10 +4,10 @@ const {COOKIE_NAME, SECRET} = require('../config/config');
 module.exports = function (){
     return (req, res, next) =>{
 
-        // let token = req.cookies[COOKIE_NAME];
+        let token2 = req.headers['authorization'];
         
-        let token = req.headers['authorization']?.split(' ')[1] || null; 
-        
+        let token = req.headers['authorization']?.split(' ')[1] || undefined; 
+        console.log(token2)
         if(token == 'undefined'){
             token = false;
         }

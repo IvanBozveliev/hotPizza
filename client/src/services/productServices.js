@@ -1,4 +1,7 @@
+import {getLocalStorage} from './storageService';
+
 let link = 'http://localhost:5000/api/products';
+
 
 export function getAllProducts(){
    return fetch(link)
@@ -9,11 +12,14 @@ export function postProduct(data){
     return fetch(link,{
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Authorization': 'Bearer ' + getLocalStorage()?.token,
+            'Content-Type': 'application/json',
+
         },
         body: JSON.stringify(data)
     })
      .then(res => res.json())
+     .catch(error => console.log(`error`))
 }
 
 export const getOneProduct = (id) => {

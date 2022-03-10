@@ -12,4 +12,5 @@ router.use('/api/auth', authController);
 //     res.sendFile(path.join(__dirname,'public', 'index.html'))
 // });
 
+
 module.exports = router;
