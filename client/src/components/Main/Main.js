@@ -2,8 +2,9 @@ import './Main.css';
 import Card from './Card/Card.js';
 import { getAllProducts } from '../../services/productServices.js';
 import { useEffect, useState } from 'react';
+import {Link} from 'react-router-dom';
 
-let index = 0; 
+let index = 0;
 let cards = [];
 
 const Main = () => {
@@ -14,7 +15,7 @@ const Main = () => {
 
 
   useEffect(() => {
-  
+
     getAllProducts()
       .then(cardsInfo => {
 
@@ -37,7 +38,7 @@ const Main = () => {
 
           setStyle('rightStyle');
           setPrevCounter(counter);
-    
+
         } else if (prevCounter > counter) {
           setStyle('leftStyle')
           setPrevCounter(counter);
@@ -51,6 +52,7 @@ const Main = () => {
 
 
   return (
+    <>
     
       <div className='carousel'>
         <img id='imgLeft' src='../../../img/leftArrow.png' onClick={() => setCounter(--counter)} />
@@ -60,6 +62,10 @@ const Main = () => {
         </div>
         <img src='../../../img/rightArrow.png' id='imgRight' onClick={() => setCounter(++counter)} />
       </div>
+      <div id='divList'><Link to='all-products' id='list'>All Products</Link></div>
+      
+    </>
+
 
   )
 }

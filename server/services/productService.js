@@ -31,27 +31,16 @@ function getOne(id) {
    return Product.findById(id).lean();
 }
 
-async function getAll(query) {
+async function getAll() {
    
-   let products = await Product.find();
+   return await Product.find();
   
-   // if(query.mushType == 'edible'){
-   //    products = products.filter(x => x.mushType == 'edible');
-     
-   // }
-   
-   // if(query.mushType == 'poison'){
-   //    products = products.filter(x => x.mushType == 'poison');
-      
-   // }
-   
-   return products
 }
 
 
 
 function updateOne(productId, data) {
-   if (data.title == '' || data.description == '' || data.imageUrlOne == '' || data.imageUrlTwo == '' || data.culinary == '' || data.identification == '') {
+   if (data.title == '' || data.description == '' || data.imageUrl == '') {
       throw ({message: 'You can not have empty fields!'})
    }
 

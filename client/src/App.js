@@ -7,6 +7,8 @@ import CreatePizza from './components/CreatePizza/CreatePizza.js';
 import About from './components/About/About.js';
 import Cart from './components/Cart/Cart';
 import Details from './components/DetailsProduct/DetailsProduct';
+import AllProducts from './components/AllProducts/AllProducts.js';
+import EditProduct from './components/EditProduct/EditProduct.js';
 
 import { Routes, Route } from 'react-router-dom';
 
@@ -27,6 +29,8 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/details/:id' element={<Details />} />
+          <Route path='/all-products' element={<AllProducts />} />
+          <Route path='/details/edit/:id' element={<EditProduct />} />
         </Routes>
       </div>
 

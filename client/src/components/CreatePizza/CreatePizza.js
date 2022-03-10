@@ -6,9 +6,9 @@ import { useNavigate } from 'react-router-dom';
 const CreatePizza = () => {
     const navigate = useNavigate();
     let [error, setError] = useState('');
+
     const createHandler = (e) => {
         e.preventDefault();
-
 
         let formData = new FormData(e.currentTarget);
         let title = formData.get('username');

@@ -11,8 +11,10 @@ const DetailsProduct = () => {
     let params = useParams();
 
     function clicked() {
+
         setText('Added');
-        setImage(false)
+        setImage(false);
+
         setTimeout(() => {
             setText('')
             setImage(true)
@@ -31,12 +33,14 @@ const DetailsProduct = () => {
         <div id='detailsId'>
             <h2>{product.title}</h2>
             <img src={product.imageUrl} id='detailsImage' />
-            <p>{product.description}</p>
+            <p><b>{product.description}</b></p>
             <p id='price'>Price: {product.price} lv.</p>
             <div id='detailBtns'>
             {image &&<div className='imgCartDetails' onClick={() => clicked()}/>}
                 {text ? <p id='txtDetails'>{text}</p> : ''}
                 <Link to='/' id="detailsBackBtn">Back</Link>
+                <Link to={`/details/edit/${product._id}`} id="detailsEditBtn">Edit</Link>
+                <button id="detailsDeleteBtn">Delete</button>
             </div>
 
         </div>

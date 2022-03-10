@@ -27,3 +27,17 @@ export const getOneProduct = (id) => {
    return fetch(link + `/${id}`)
             .then(res => res.json())
 }
+
+export const putOneProduct = (id, product) => {
+
+    return fetch(link + `/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Authorization': 'Bearer ' + getLocalStorage()?.token,
+            'Content-Type': 'application/json',
+
+        },
+        body: JSON.stringify(product)
+    })
+    .then(res => res.json())
+}

@@ -34,6 +34,38 @@
     height: 80px;
 }
 
+#list{
+    /* font-size: 22px;
+    background-color: aliceblue;
+    text-decoration: none;
+    padding: 8px;
+    color: black;
+    border: 3px solid black ;
+    border-radius: 12px; */
+
+    font-size: 22px;
+    background-color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 10px;
+    color: rgb(0, 0, 0);
+}
+
+#list:hover{
+    font-size: 22px;
+    background-color: rgb(245 241 235);
+    text-decoration: none;
+    padding: 10px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+
+}
+
+#divList{
+    text-align: center;
+    margin-top: 70px;
+    
+}
 @media only screen and (max-width: 1073px){
     .gridDiv{
         display: grid;
