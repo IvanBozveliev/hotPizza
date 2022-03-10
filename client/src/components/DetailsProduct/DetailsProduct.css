@@ -21,7 +21,7 @@
 
 #detailsImage{
     width: 400px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: auto;
 }
 /* Buttons  */
@@ -117,13 +117,16 @@
 
 #txtDetails{
     color: rgb(36, 37, 36);
-    margin-right: 13px;
+    margin-right: 12px;
     margin-top: 2px;
     font-weight: bold;
     cursor: pointer;
  
 }
 
+#some{
+    margin: auto;
+}
 /* Modal */
 
 .modal{
