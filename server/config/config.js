@@ -8,7 +8,7 @@ const config = {
     SECRET: 'TOP',
     SECRET2: 'TOP2',
     SALT_ROUNDS: 10
-
+ 
 }
 
 module.exports = config;

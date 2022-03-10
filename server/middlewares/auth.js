@@ -15,12 +15,14 @@ module.exports = function (){
         if(token){
             jwt.verify(token, SECRET, function(err, decoded) {
                 if(err){
-                    res.clearCookie(COOKIE_NAME)
+                    // res.clearCookie(COOKIE_NAME)
                     return res.status(400).json({message: 'Your token is not valid'})
                 }else{
                    req.user = decoded;
                    res.locals.user = decoded;
                    res.locals.isAuthenticated = true;
+                   console.log(req.user)
+                   console.log(res.user)
                 //    res.locals.isEnroll = false;
                 }
             })

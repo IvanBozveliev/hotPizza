@@ -8,6 +8,7 @@ let isGuest = require('../middlewares/isGuest');
 let isAuthenticated = require('../middlewares/isAuthenticated');
 
 router.post('/login', isGuest, async (req, res) => {
+    
     const { username, password } = req.body;
 
     try {
@@ -25,7 +26,7 @@ router.post('/login', isGuest, async (req, res) => {
         }
 
         let {token, user} = await authService.login(username, password)
-        res.cookie(COOKIE_NAME, token)
+        // res.cookie(COOKIE_NAME, token)
         res.status(200).json({username, token, id: user._id}) 
     } catch (error) {
         res.status(400).send(error)
@@ -50,8 +51,7 @@ router.post('/register', isGuest, async (req, res) => {
         if (!/[a-zA-Z0-9]{3,}/.test(password)) {
             throw ({message: 'Password must be at least 3 characters long and consist only latin letters and digits!'})
         }
-  
-
+       
         await authService.register( username, password)
 
         let {token, user} = await authService.login( username, password)

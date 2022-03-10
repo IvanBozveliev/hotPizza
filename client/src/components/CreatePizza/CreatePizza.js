@@ -1,10 +1,13 @@
 import './CreatePizza.css';
 import * as productServices from '../../services/productServices.js';
 
-const CreatePizza = () => {
+import {useNavigate} from 'react-router-dom';
 
+const CreatePizza = () => {
+    const navigate = useNavigate();
     const createHandler = (e) => {
         e.preventDefault();
+        
 
         let formData = new FormData(e.currentTarget);
         let title = formData.get('username');
@@ -13,7 +16,10 @@ const CreatePizza = () => {
         let price = formData.get('price');
 
         productServices.postProduct({title, description, imageUrl, price})
-         .then(result => console.log(result))
+         .then(result => {
+            
+            navigate('/')
+         })
          .catch(err => console.log(err))
     }
 
