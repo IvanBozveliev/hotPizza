@@ -6,6 +6,7 @@
     padding-top: 35px;
 }
 
+
 .allLists{
     display: flex;
     text-align: center;
@@ -37,7 +38,19 @@
     .gridDivList{
         display: grid;
         gap: 15px;
-        grid-template-columns: 250px ;
+        grid-template-columns: 250px 250px;
+        justify-content: center;
+        padding-top: 35px;
+    }
+
+
+}
+
+@media only screen and (max-width: 537px){
+    .gridDivList{
+        display: grid;
+        gap: 15px;
+        grid-template-columns: 250px;
         justify-content: center;
         padding-top: 35px;
     }

@@ -41,3 +41,13 @@ export const putOneProduct = (id, product) => {
     })
     .then(res => res.json())
 }
+
+export const deleteOneProduct = (id) => {
+   return fetch(link + `/${id}`, {
+       method: 'DELETE',
+       headers: {
+        'Authorization': 'Bearer ' + getLocalStorage()?.token,
+        'Content-Type': 'application/json',
+    },
+   });
+}

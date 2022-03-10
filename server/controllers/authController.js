@@ -1,13 +1,13 @@
 const { Router } = require('express');
-const { COOKIE_NAME } = require('../config/config')
+// const { COOKIE_NAME } = require('../config/config')
 const router = Router();
 
 const authService = require('../services/authService');
 
-let isGuest = require('../middlewares/isGuest');
+// let isGuest = require('../middlewares/isGuest');
 let isAuthenticated = require('../middlewares/isAuthenticated');
 
-router.post('/login', isGuest, async (req, res) => {
+router.post('/login', async (req, res) => {
     
     const { username, password } = req.body;
 
@@ -34,7 +34,7 @@ router.post('/login', isGuest, async (req, res) => {
     }
 });
 
-router.post('/register', isGuest, async (req, res) => {
+router.post('/register',  async (req, res) => {
 
     const { username, password, repeatPassword} = req.body;
 
@@ -56,7 +56,7 @@ router.post('/register', isGuest, async (req, res) => {
 
         let {token, user} = await authService.login( username, password)
 
-        res.cookie(COOKIE_NAME, token)
+        // res.cookie(COOKIE_NAME, token)
         res.status(200).json({username, token, id: user._id})
 
     } catch (error) {
@@ -64,8 +64,8 @@ router.post('/register', isGuest, async (req, res) => {
     }
 });
 
-router.get('/logout', (req, res) => {
-    res.clearCookie(COOKIE_NAME)
+router.get('/logout', isAuthenticated, (req, res) => {
+    // res.clearCookie(COOKIE_NAME)
     res.status(200).json({ok: true});
 });
 
