@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom'
 
 const DetailsProduct = () => {
     const [product, setProduct] = useState({});
+    const [modal, setModal] = useState(false);
+
     let [image, setImage] = useState(true);
     let [text, setText] = useState('');
 
@@ -18,10 +20,11 @@ const DetailsProduct = () => {
                 if (result.message) {
 
                 } else {
-                   navigate('/')
+                    navigate('/')
                 }
             })
     }
+
 
     function clicked() {
 
@@ -43,20 +46,36 @@ const DetailsProduct = () => {
     }, []);
 
     return (
-        <div id='detailsId'>
-            <h2>{product.title}</h2>
-            <img src={product.imageUrl} id='detailsImage' />
-            <p><b>{product.description}</b></p>
-            <p id='price'>Price: {product.price} lv.</p>
-            <div id='detailBtns'>
-                {image && <div className='imgCartDetails' onClick={() => clicked()} />}
-                {text ? <p id='txtDetails'>{text}</p> : ''}
-                <Link to='/' id="detailsBackBtn">Back</Link>
-                <Link to={`/details/edit/${product._id}`} id="detailsEditBtn">Edit</Link>
-                <button id="detailsDeleteBtn" onClick={() => deleteHandler(product._id)}>Delete</button>
-            </div>
+        <>
+            {modal ? (
 
-        </div>
+                <div className='modal'>
+                    <div className='modalContent'>
+                        <p id='txtModal'>Do you want to delete this product?</p>
+                        <button id="modalDel" onClick={() => deleteHandler(product._id)}>Delete</button>
+                        <button id='modalCancel' onClick={() => setModal(false)}>Cancel</button>
+                    </div>
+
+                </div>)
+                : ''
+            }
+
+            <div id='detailsId'>
+                <h2>{product.title}</h2>
+                <img src={product.imageUrl} id='detailsImage' />
+                <p><b>{product.description}</b></p>
+                <p id='price'>Price: {product.price} lv.</p>
+                <div id='detailBtns'>
+                    {image && <div className='imgCartDetails' onClick={() => clicked()} />}
+                    {text ? <p id='txtDetails'>{text}</p> : ''}
+                    <Link to='/' id="detailsBackBtn">Back</Link>
+                    <Link to={`/details/edit/${product._id}`} id="detailsEditBtn">Edit</Link>
+                    <button id="detailsDeleteBtn" onClick={() => setModal(true)}>Delete</button>
+                </div>
+
+            </div>
+        </>
+
     )
 }
 
