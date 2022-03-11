@@ -23,7 +23,7 @@
     grid-template-columns: 270px;
     background-color: #d1411e;
     width: 831px;
-    height: 328px;
+    height: auto;
     margin: auto;
     margin-top: 25px;
     border: 2px solid black;
@@ -32,4 +32,29 @@
     justify-content: center;
     /* margin-bottom: 280px; */
     padding: 20px;
+}
+
+.usersDiv{
+    background-color: rgb(243, 243, 243);
+    width: 800px;
+    height: 80px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: grid;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+}
+
+.usersDiv:hover{
+    background-color: rgb(196, 193, 189);
+    width: 800px;
+    height: 80px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: grid;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
 }
