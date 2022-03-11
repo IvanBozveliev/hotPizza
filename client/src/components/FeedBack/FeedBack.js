@@ -39,7 +39,7 @@ const FeedBack = () => {
     <div className='feedbackContent'>
       <h2>Feedback</h2>
       <form id='feedbackForm' method='POST' onSubmit={handleFeedback}>
-        <textarea className='textarea' name='comment' placeholder="Are you happy from us? Type..." />
+        <textarea className='textarea' name='comment' placeholder="Are you happy with us? Type..." />
         <input type='submit' id='submitBtn' value="Comment" />
       </form>
       <h3>Comments:</h3>
