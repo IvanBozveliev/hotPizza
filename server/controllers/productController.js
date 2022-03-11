@@ -17,7 +17,7 @@ router.get('/:productId', async (req, res) => {
 });
 
 router.post("/" , isAuthenticated, isAuthorization, async (req, res) =>{
-
+   
     try{
         await productService.create({...req.body});
         res.json({ok: true})

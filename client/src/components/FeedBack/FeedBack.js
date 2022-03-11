@@ -1,45 +1,60 @@
 import './FeedBack.css';
+import { getLocalStorage } from '../../services/storageService';
+import * as feedbackServices from '../../services/feedbackServices';
+import { useEffect, useState } from 'react';
+
+
+import Comment from './Comment/Comment';
 
 const FeedBack = () => {
+  
+  let [commentsArr, setCommentsArr] = useState([]);
+  let userInfo = getLocalStorage();
+
+
+  useEffect(() => {
+    feedbackServices.getAllComments()
+      .then(comments => setCommentsArr(comments))
+  }, []);
+  
+
+  const handleFeedback = (e) => {
+    e.preventDefault()
+
+    let formData = new FormData(e.currentTarget);
+    let comment = formData.get('comment');
+    let user = userInfo.username;
+    let creator = userInfo.id;
+
+    feedbackServices.postComment({ comment, user, creator })
+      .then(() => {
+        feedbackServices.getAllComments()
+         .then(newData => setCommentsArr(newData))
+      })
+
+  }
+
+ 
   return (
     <div className='feedbackContent'>
       <h2>Feedback</h2>
-      <form id='feedbackForm'>
-        <textarea className='textarea' placeholder="Are you happy from us? Type..." />
-        <input type='submit' value="Comment" />
+      <form id='feedbackForm' method='POST' onSubmit={handleFeedback}>
+        <textarea className='textarea' name='comment' placeholder="Are you happy from us? Type..." />
+        <input type='submit' id='submitBtn' value="Comment" />
       </form>
       <h3>Comments:</h3>
-      <div className='comments'>
 
-        <div className='contentComments'>
-          <h5 id='titleComment'>Ivan Petrov</h5>
-          <p id='pComment'>I like this restourant!I like this restourant!I like this restourant!</p>
-          <p id='dateComment'>Date: 20/12/22 23:34</p>
-          <button id='editbtn'>Edit</button>
-          <button id='deletebtn'>Delete</button>
-        </div>
-      </div>
-      <div className='comments'>
+      {commentsArr.length !== 0 ?
+        (commentsArr.map(commentData =>
+          <Comment
+            key={commentData._id}
+            id={commentData._id}
+            user={commentData.user}
+            comment={commentData.comment}
+            date={commentData.date} />)
+        ) : <p>Still don`t have comments...</p>
+      }
 
-        <div className='contentComments'>
-          <h5 id='titleComment'>Ivan Petrov</h5>
-          <p id='pComment'>I like this restourant!I like this restourant!I like this restourant!</p>
-          <p id='dateComment'>Date: 20/12/22 23:34</p>
-          <button id='editbtn'>Edit</button>
-          <button id='deletebtn'>Delete</button>
-        </div>
-      </div>
-      <div className='comments'>
-
-        <div className='contentComments'>
-          <h5 id='titleComment'>Ivan Petrov</h5>
-          <p id='pComment'>I like this restourant!I like this restourant!I like this restourant!</p>
-          <p id='dateComment'>Date: 20/12/22 23:34</p>
-          <button id='editbtn'>Edit</button>
-          <button id='deletebtn'>Delete</button>
-        </div>
-      </div>
-      {/* <p>Still don`t have...</p> */}
     </div>
   )
 }

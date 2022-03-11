@@ -1,11 +1,11 @@
 import './Nav.css';
-import {getLocalStorage} from '../../../services/storageService';
+// import {getLocalStorage} from '../../../services/storageService';
 import { Link } from 'react-router-dom';
 
 const Nav = () => {
-  const user = getLocalStorage();
+//   const user = getLocalStorage();
 
-console.log(user)
+// console.log(user)
   return (
     <div className='navDiv'>
 

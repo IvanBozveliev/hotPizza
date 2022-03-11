@@ -38,7 +38,6 @@ async function getAll() {
 }
 
 
-
 function updateOne(productId, data) {
    if (data.title == '' || data.description == '' || data.imageUrl == '') {
       throw ({message: 'You can not have empty fields!'})
