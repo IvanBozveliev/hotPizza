@@ -22,7 +22,8 @@ console.log(user)
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link> 
         <Link to="/about">About</Link>
-        <Link to="/#" id='feedback'>Feedback</Link>
+        <Link to="/feedback" id='feedback'>Feedback</Link>
+        <Link to="/users" >Users</Link>
         <Link to="/logout" id='logout'>Logout</Link>
         <Link to="/cart"><div id='cart' /></Link>
         <div id='numCart'>4</div>

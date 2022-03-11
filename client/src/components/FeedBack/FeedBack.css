@@ -1,0 +1,102 @@
+.feedbackContent{
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 270px;
+    background-color: #d1411e;
+    width: 831px;
+    height: auto;
+    margin: auto;
+    margin-top: 25px;
+    border: 2px solid black;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+    /* margin-bottom: 280px; */
+    padding: 10px;
+}
+
+#feedbackForm{
+    border: 1px solid black;
+    padding: 30px;
+    background-color: lavender;
+    width: 640px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.textarea{
+    border: 2px solid black;
+    resize: none;
+    width: 400px;
+    height: 60px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+textarea::-webkit-scrollbar {
+    width: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background: #ddd9d9;
+    cursor: pointer;
+   
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background: rgb(231, 230, 230);
+    border-radius: 10px;
+    border: 1px solid black;
+    cursor: pointer;   
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+    background: rgb(192, 191, 191);
+    width: 15px;
+    cursor: pointer;
+}
+
+.comments{
+ 
+      width: 660px;
+      background-color: rgb(243, 243, 243);
+      padding-left: 10px;
+      margin-bottom: 20px;
+      border: 1px solid black;
+      align-content: center;
+      /* flex-direction: row; */
+      align-items: center;
+      height: auto;
+      padding: 20px;
+  
+}
+
+#pComment{
+   margin-right: 20px;
+}
+
+.contentComments{
+   display: flex;
+   align-items: center;
+}
+
+#titleComment{
+    /* margin-top: -116px; */
+    margin-right: 8px;
+}
+
+#dateComment{
+    width: 200px;
+    margin-right: 10px;
+}
+
+#deletebtn{
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+#editbtn{
+    cursor: pointer;
+}
