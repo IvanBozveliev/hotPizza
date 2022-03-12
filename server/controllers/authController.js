@@ -39,9 +39,15 @@ router.post('/register',  async (req, res) => {
     const { username, password, repeatPassword} = req.body;
 
     try {
+
+       
         
         if (password == '' || username == '' || repeatPassword == '') {
             throw ({message: 'Invalid inputs!'})
+        }
+
+        if(username.length > 16){
+            throw ({message: 'Username should be more short!'})
         }
 
         if (password !== repeatPassword) {
