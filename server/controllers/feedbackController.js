@@ -11,9 +11,10 @@ router.get('/', (req, res) => {
         .then(comments => res.json(comments))
 });
 
-router.post('/', (req, res) => {
+router.post('/', isAuthenticated, (req, res) => {
     feedbackService.createComment(req.body)
         .then(() => res.json({ ok: true }))
+        .catch(error => res.status(400).json({message: `${error}`}))
 });
 
 router.get('/:id', (req, res) => {

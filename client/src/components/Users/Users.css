@@ -34,4 +34,13 @@
     padding: 20px;
 }
 
+.userContent > h3{
+    /* background-color: black; */
+    color: rgb(2, 2, 2);
+    padding: 8px;
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 60px;
+}
+
 

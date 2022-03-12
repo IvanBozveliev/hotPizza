@@ -16,6 +16,7 @@ const Users = () => {
     
     return (
         <div className='userContent'>
+            <h3>List of Users</h3>
            {users.map(user => <UserCard key={user._id} id={user._id} roles={user.roles} username={user.username}/>)}
         </div>
     )

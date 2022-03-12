@@ -16,12 +16,13 @@
 }
 
 #feedbackForm{
-    border: 1px solid black;
+    border: 2px solid black;
     padding: 30px;
     background-color: lavender;
     width: 640px;
     display: flex;
     justify-content: space-between;
+    border-radius: 12px;
 }
 
 .textarea{
