@@ -1,5 +1,5 @@
-.usersDiv{
-    background-color: rgb(243, 243, 243);
+.usersDiv {
+    background-color: rgb(221 220 220);
     width: 800px;
     height: 50px;
     border: 2px solid black;
@@ -11,8 +11,8 @@
     padding-left: 15px;
 }
 
-.usersDiv:hover{
-    background-color: rgb(196, 193, 189);
+.usersDiv:hover {
+    background-color: rgb(243, 243, 243);
     width: 800px;
     height: 50px;
     border: 2px solid black;
@@ -23,13 +23,13 @@
     padding-bottom: 15px;
 }
 
-.usersInfo{
+.usersInfo {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-#delUserBtn{
+#delUserBtn {
     background-color: rgb(223, 15, 15);
     width: 15px;
     height: 15px;
@@ -38,7 +38,7 @@
     border: 1px solid black;
 }
 
-#delUserBtn:hover{
+#delUserBtn:hover {
     background-color: rgb(247 6 6);
     width: 15px;
     height: 15px;
@@ -47,26 +47,159 @@
     border: 1px solid black;
     cursor: pointer;
 }
-#txtDel{
-    margin: auto;
-    margin-top: -4px;
-    font-weight: bold;
-}
 
-#txtDel:hover{
+#txtDel {
     margin: auto;
     margin-top: -4px;
     font-weight: bold;
     color: white;
 }
 
-#currentRole{
+#txtDel:hover {
+    margin: auto;
+    margin-top: -4px;
+    font-weight: bold;
+    color: black;
+}
+
+#currentRole {
     width: 50px;
     background-color: green;
     font-weight: bold;
     text-align: center;
+    color: white;
+    border: 1px solid;
+    padding: 2px;
 }
 
-#userName{
-   width: 200px;
+#userName {
+    width: 200px;
+}
+
+/* Buttons Logic */
+#allBtns {
+    display: flex;
+    justify-content: space-evenly;
+    width: 280px;
+    background-color: white;
+    padding: 6px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+#allBtns:hover {
+    display: flex;
+    justify-content: space-evenly;
+    width: 280px;
+    background-color: rgb(221 220 220);
+    padding: 6px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+/* #client {
+    background-color: rgb(23, 167, 10);
+    border: none;
+    border: 1px solid black;
+    color: white;
+    height: 30px;
+    border-radius: 20px;
+    /* pointer-events: none; 
+} */
+
+#client {
+    background-color: rgb(42 197 28);
+    border: none;
+    border: 1px solid black;
+    color: rgb(7, 7, 7);
+    height: 30px;
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+#editor {
+    background-color: rgb(42 197 28);
+    border: none;
+    border: 1px solid black;
+    color: rgb(7, 7, 7);
+    height: 30px;
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+#admin {
+    background-color: rgb(42 197 28);
+    border: none;
+    border: 1px solid black;
+    color: rgb(7, 7, 7);
+    height: 30px;
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+
+#clientBtn {
+    background-color: rgb(255, 44, 62);
+    border: none;
+    border: 1px solid black;
+    color: rgb(7, 7, 7);
+    height: 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: line-through;
+}
+
+#clientBtn:hover {
+    background-color: rgb(253, 10, 31);
+    border: none;
+    border: 1px solid black;
+    color: rgb(248, 248, 248);
+    height: 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#editorBtn {
+    background-color: rgb(255, 44, 62);
+    border: none;
+    border: 1px solid black;
+    color: rgb(7, 7, 7);
+    height: 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: line-through;
+}
+
+#editorBtn:hover {
+    background-color: rgb(253, 10, 31);
+    border: none;
+    border: 1px solid black;
+    color: rgb(248, 248, 248);
+    height: 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#adminBtn {
+    background-color: rgb(255, 44, 62);
+    border: none;
+    border: 1px solid black;
+    color: rgb(7, 7, 7);
+    height: 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: line-through;
+}
+
+#adminBtn:hover {
+    background-color: rgb(253, 10, 31);
+    border: none;
+    border: 1px solid black;
+    color: rgb(248, 248, 248);
+    height: 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
 }
