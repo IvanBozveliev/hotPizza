@@ -1,6 +1,7 @@
 import './Main.css';
 import Card from './Card/Card.js';
 import { getAllProducts } from '../../services/productServices.js';
+import AllProducts from '../AllProducts/AllProducts.js';
 import { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 
@@ -8,6 +9,8 @@ let index = 0;
 let cards = [];
 
 const Main = () => {
+
+  let [show, setShow] = useState(false);
   let [state, setState] = useState([]);
   let [counter, setCounter] = useState(0);
   let [prevCounter, setPrevCounter] = useState(0);
@@ -53,7 +56,7 @@ const Main = () => {
 
   return (
     <>
-    
+     
       <div className='carousel'>
         <img id='imgLeft' src='../../../img/leftArrow.png' onClick={() => setCounter(--counter)} />
 
@@ -62,8 +65,9 @@ const Main = () => {
         </div>
         <img src='../../../img/rightArrow.png' id='imgRight' onClick={() => setCounter(++counter)} />
       </div>
-      <div id='divList'><Link to='all-products' id='list'>All Products</Link></div>
-      
+      <div id='divList' onClick={() => show ? setShow(false) : setShow(true)}>All Products</div>
+      {show ? <AllProducts /> : ''}
+      <div id='allProductsDiv'><AllProducts/></div>
     </>
 
 

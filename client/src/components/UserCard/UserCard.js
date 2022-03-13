@@ -17,7 +17,7 @@ const UserCard = ({
                     <button id={roles == 'admin' ? roles : 'adminBtn'}>admin</button>
                 </div>
 
-                <p id='delUserBtn'><p id='txtDel'>X</p></p>
+                <div id='delUserBtn'><p id='txtDel'>X</p></div>
             </div>
 
         </div>
