@@ -155,3 +155,16 @@ textarea::-webkit-scrollbar-thumb:hover {
     cursor: pointer;
 
 }
+
+
+@media only screen and (max-width: 890px){
+    .feedbackContent{
+        width: auto;
+    }
+    #feedbackForm{
+        width: 500px;
+    }
+    .comments{
+        width: 525px;
+    }
+}
