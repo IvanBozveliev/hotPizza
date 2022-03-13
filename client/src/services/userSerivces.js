@@ -7,7 +7,9 @@ export const getAllUsers = () => {
 
 
 export const deleteOneUser = (id) => {
-   return fetch(link + `/${id}`)
+   return fetch(link + `/${id}`,{
+           method: 'DELETE'
+   })
            .then(res => res.json())
 }
 
