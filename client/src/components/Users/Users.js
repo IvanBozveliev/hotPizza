@@ -6,6 +6,10 @@ import UserCard from '../UserCard/UserCard';
 const Users = () => {
     
     const [users, setUsers] = useState([]);
+    
+    const filteredUsers = (newUsers) => {
+        setUsers(newUsers)
+    }
 
     useEffect( () => {
        useServices.getAllUsers()
@@ -17,7 +21,7 @@ const Users = () => {
     return (
         <div className='userContent'>
             <h3>List of Users</h3>
-           {users.map(user => <UserCard key={user._id} id={user._id} roles={user.roles} username={user.username}/>)}
+           {users.map(user => <UserCard key={user._id} user={user} id={user._id} filteredUsers={filteredUsers} />)}
         </div>
     )
 }

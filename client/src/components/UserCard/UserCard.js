@@ -1,16 +1,17 @@
 import './UserCard.css';
 import * as userServices from '../../services/userSerivces';
+import * as storageService from '../../services/storageService';
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const UserCard = ({
-    username,
+    user, 
     id,
-    roles
+    filteredUsers
 }) => {
     const [modal, setModal] = useState(false);
-    let navigate = useNavigate();
+    let userRole = storageService.getLocalStorage()?.role;
 
     const deleteHandler = (id) => {
         setModal(false)
@@ -22,8 +23,7 @@ const UserCard = ({
             } else {
                 userServices.getAllUsers()
                  .then(result => {
-                    let {username, roles, id} = result
-                    navigate('/users')
+                    filteredUsers(result)
                  })
                
             }
@@ -46,15 +46,15 @@ const UserCard = ({
             }
             <div className="usersDiv">
                 <div className='usersInfo'>
-                    <h4 id='userName'>{username}</h4>
-                    <p id='currentRole'>{roles}</p>
+                    <h4 id='userName'>{user.username}</h4>
+                    <p id='currentRole'>{user.roles}</p>
                     <div id='allBtns'>
-                        <button id={roles === 'client' ? roles : 'clientBtn'} onClick={() => console.log('work')}>client</button>
-                        <button id={roles === 'editor' ? roles : 'editorBtn'} onClick={() => console.log('work')}>editor</button>
-                        <button id={roles === 'admin' ? roles : 'adminBtn'} onClick={() => console.log('work')}>admin</button>
+                        <button id={user.roles === 'client' ? user.roles : 'clientBtn'} onClick={() => console.log('work')}>client</button>
+                        <button id={user.roles === 'editor' ? user.roles : 'editorBtn'} onClick={() => console.log('work')}>editor</button>
+                        <button id={user.roles === 'admin' ? user.roles : 'adminBtn'} onClick={() => console.log('work')}>admin</button>
                     </div>
-
-                    <div id='delUserBtn' onClick={() => setModal(true)}><p id='txtDel'>X</p></div>
+                    
+                   {userRole == 'admin' && <div id='delUserBtn' onClick={() => setModal(true)}><p id='txtDel'>X</p></div>} 
                 </div>
 
             </div>
