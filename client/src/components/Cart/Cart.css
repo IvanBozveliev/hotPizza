@@ -60,6 +60,13 @@
     font-weight: bold;
 }
 
+#cartText{
+    color: white;
+    text-align:center;
+    font-weight: bold;
+    font-size: 22px;
+}
+
 
 @media only screen and (max-width: 850px){
     .cartBackground{

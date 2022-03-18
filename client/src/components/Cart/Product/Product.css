@@ -1,4 +1,4 @@
-.divProduct{
+.divProduct {
     background-color: rgb(243, 243, 243);
     width: auto;
     height: 80px;
@@ -10,7 +10,7 @@
     padding-bottom: 15px;
 }
 
-.divProduct:hover{
+.divProduct:hover {
     background-color: rgb(196, 193, 189);
     width: auto;
     height: 80px;
@@ -22,32 +22,75 @@
     padding-bottom: 15px;
 }
 
-#checkboxId:hover{
+#checkboxId:hover {
 
-   cursor: pointer;
+    cursor: pointer;
 }
 
-.infoDiv{
+.infoDiv {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.infoDiv>p{
+.infoDiv>p {
     text-decoration: overline;
 }
 
-.infoDiv > input{
+.infoDiv>input {
     margin-right: 20px;
 }
 
-.infoDiv > img{
+.infoDiv>img {
     width: 70px;
     margin-left: 20px;
 }
 
-#titlePizza{
-    color:rgb(7, 7, 7);
+#titlePizza {
+    color: rgb(7, 7, 7);
     font-weight: bold;
     text-decoration: overline;
+}
+
+
+@media only screen and (max-width: 660px) {
+
+    .divProduct {
+        background-color: rgb(196, 193, 189);
+        width: auto;
+        border: 2px solid black;
+        border-radius: 10px;
+        display: grid;
+        gap: 10px;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        height: auto;
+    }
+
+    .divProduct:hover {
+        background-color: rgb(196, 193, 189);
+        width: auto;
+        border: 2px solid black;
+        border-radius: 10px;
+        display: grid;
+        gap: 10px;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        height: auto;
+    }
+
+    .infoDiv {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+
+
+    .infoDiv>img {
+        width: 170px;
+        margin-left: 0px;
+        margin-top: 20px;
+    }
+
 }

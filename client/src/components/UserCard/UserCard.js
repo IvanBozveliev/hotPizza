@@ -3,7 +3,7 @@ import * as userServices from '../../services/userSerivces';
 import * as storageService from '../../services/storageService';
 
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 
 const UserCard = ({
     user, 
@@ -54,7 +54,7 @@ const UserCard = ({
                         <button id={user.roles === 'admin' ? user.roles : 'adminBtn'} onClick={() => console.log('work')}>admin</button>
                     </div>
                     
-                   {userRole == 'admin' && <div id='delUserBtn' onClick={() => setModal(true)}><p id='txtDel'>X</p></div>} 
+                   {userRole === 'admin' && <div id='delUserBtn' onClick={() => setModal(true)}><p id='txtDel'>X</p></div>} 
                 </div>
 
             </div>

@@ -46,7 +46,7 @@ const Main = () => {
           setStyle('leftStyle')
           setPrevCounter(counter);
         }
-
+     
         setState(cards[counter])
       })
 
@@ -56,12 +56,12 @@ const Main = () => {
 
   return (
     <>
-     
+    
       <div className='carousel'>
         <img id='imgLeft' src='../../../img/leftArrow.png' onClick={() => setCounter(--counter)} />
 
         <div className='gridDiv'>
-          {state.map(x => <Card key={x._id} id={x._id} img={x.imageUrl} title={x.title} currentStyle={style} price={x.price} />)}
+          {state.length !== 0 && state.map(x => <Card key={x._id} id={x._id} img={x.imageUrl} title={x.title} currentStyle={style}  />)}
         </div>
         <img src='../../../img/rightArrow.png' id='imgRight' onClick={() => setCounter(++counter)} />
       </div>
