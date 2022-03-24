@@ -4,13 +4,13 @@ import AllProducts from '../AllProducts/AllProducts.js';
 import { useEffect, useState } from 'react';
 
 import { fetchProducts } from '../../actions/productsActions';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 let index = 0;
 let cards = [];
 
 const Main = (props) => {
-  
+
   let [show, setShow] = useState(false);
   let [state, setState] = useState([]);
   let [counter, setCounter] = useState(0);
@@ -19,58 +19,62 @@ const Main = (props) => {
 
 
   useEffect(() => {
-   
+
 
     props.fetchProducts();
 
-    let cardsInfo = props.products.data;
-   
-        while (index < cardsInfo.length) {
 
-          cards.push(cardsInfo.slice(index, index + 3));
-          index += 3;
-        }
 
-        if (0 > counter) {
-          counter = 0;
-          return;
-        }
-        if (counter >= cards.length) {
-          counter = cards.length - 1;
-          return;
-        }
+    (() => {
+      let cardsInfo = props.products.data;
 
-        if (prevCounter < counter) {
+      while (index < cardsInfo.length) {
 
-          setStyle('rightStyle');
-          setPrevCounter(counter);
+        cards.push(cardsInfo.slice(index, index + 3));
+        index += 3;
+      }
+    
+      if (0 > counter) {
+      
+        setCounter(0);
+        return;
+      }
+      if (counter >= cards.length) {
+        setCounter(cards.length - 1);
+        return;
+      }
 
-        } else if (prevCounter > counter) {
-          setStyle('leftStyle')
-          setPrevCounter(counter);
-        }
+      if (prevCounter < counter) {
      
-        setState(cards[counter])
-   
+        setStyle('rightStyle');
+        setPrevCounter(counter);
 
+      } else if (prevCounter > counter) {
+      
+        setStyle('leftStyle')
+        setPrevCounter(counter);
+      }
+
+      setState(cards[counter])
+    })()
 
   }, [counter, prevCounter])
 
 
   return (
     <>
-    
+
       <div className='carousel'>
         <img id='imgLeft' src='../../../img/leftArrow.png' onClick={() => setCounter(--counter)} />
 
         <div className='gridDiv'>
-          {state.length !== 0 && state.map(x => <Card key={x._id} id={x._id} img={x.imageUrl} title={x.title} currentStyle={style}  />)}
+          {state.length > 0 && state.map(x => <Card key={x._id} id={x._id} img={x.imageUrl} title={x.title} currentStyle={style} price={x.price} />)}
         </div>
         <img src='../../../img/rightArrow.png' id='imgRight' onClick={() => setCounter(++counter)} />
       </div>
       <div id='divList' onClick={() => show ? setShow(false) : setShow(true)}>All Products</div>
       {show ? <AllProducts /> : ''}
-      <div id='allProductsDiv'><AllProducts/></div>
+      <div id='allProductsDiv'><AllProducts /></div>
     </>
 
 
@@ -84,4 +88,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps,{fetchProducts})(Main)
+export default connect(mapStateToProps, { fetchProducts })(Main)
