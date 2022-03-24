@@ -15,7 +15,7 @@ const Card = ({
 
     let [text, setText] = useState('');
     let [image, setImage] = useState(true);
-    let userId = storageService.getLocalStorage().id;
+    let userId = storageService.getLocalStorage()?.id;
     
     function addToCart() {
 

@@ -11,11 +11,9 @@ import Details from './components/DetailsProduct/DetailsProduct';
 import EditProduct from './components/EditProduct/EditProduct.js';
 import Users from './components/Users/Users';
 import FeedBack from './components/FeedBack/FeedBack.js';
-
 import Logout from './components/Logout/Logout';
 
 import { Routes, Route } from 'react-router-dom';
-
 
 import './App.css';
 

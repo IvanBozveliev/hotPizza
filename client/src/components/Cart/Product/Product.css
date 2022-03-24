@@ -22,8 +22,27 @@
     padding-bottom: 15px;
 }
 
+#checkboxId{
+    width: 21px;
+    background-color: red;
+    border: 1px solid black;
+    text-align: center;
+    padding-bottom: 3px;
+    padding-left: 2px;
+    margin-left: 12px;
+    border-radius: 20px;
+    font-weight: bold;
+}
 #checkboxId:hover {
-
+    width: 21px;
+    background-color: rgb(226, 6, 6);
+    border: 1px solid black;
+    text-align: center;
+    padding-bottom: 3px;
+    padding-left: 2px;
+    margin-left: 12px;
+    border-radius: 20px;
+    font-weight: bold;
     cursor: pointer;
 }
 
@@ -34,7 +53,7 @@
 }
 
 .infoDiv>p {
-    text-decoration: overline;
+    text-decoration: none;
 }
 
 .infoDiv>input {
@@ -42,16 +61,48 @@
 }
 
 .infoDiv>img {
-    width: 70px;
-    margin-left: 20px;
+    width: 100px;
+    margin-left: 10px;
 }
 
 #titlePizza {
     color: rgb(7, 7, 7);
     font-weight: bold;
-    text-decoration: overline;
+    text-decoration: none;
 }
 
+#descriptionProduct{
+    width: 200px;
+}
+
+.btns{
+    width: 22px;
+    height: 23px;
+    background-color: rgb(255 255 255);
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btns:hover {
+    width: 22px;
+    height: 23px;
+    background-color: rgb(221, 219, 219);
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btnsContainer{
+    width: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 32px;
+
+}
 
 @media only screen and (max-width: 660px) {
 

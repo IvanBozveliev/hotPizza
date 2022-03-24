@@ -9,10 +9,15 @@ const Product = ({
             <div className='infoDiv'>
                 <img src={product.imageUrl}></img>
                 <p id='titlePizza'>{product.title}</p>
-                <p>{product.description}</p>
+                <p id='descriptionProduct'>{product.description}</p>
                 <p><b>Price:</b> {product.price}$</p>
-                <p>Piece: 1</p>
-                <input type='checkbox' name='product' id='checkboxId' />
+
+                <div className='btnsContainer'>
+                    <div className='btns'>+</div><p>12</p><div className='btns'>-</div>
+                    <p id='checkboxId'>x</p>
+                </div>
+
+                
             </div>
 
         </div>
