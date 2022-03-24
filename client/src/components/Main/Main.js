@@ -1,15 +1,16 @@
 import './Main.css';
 import Card from './Card/Card.js';
-import { getAllProducts } from '../../services/productServices.js';
 import AllProducts from '../AllProducts/AllProducts.js';
 import { useEffect, useState } from 'react';
-import {Link} from 'react-router-dom';
+
+import { fetchProducts } from '../../actions/productsActions';
+import {connect} from 'react-redux';
 
 let index = 0;
 let cards = [];
 
-const Main = () => {
-
+const Main = (props) => {
+  
   let [show, setShow] = useState(false);
   let [state, setState] = useState([]);
   let [counter, setCounter] = useState(0);
@@ -18,10 +19,12 @@ const Main = () => {
 
 
   useEffect(() => {
+   
 
-    getAllProducts()
-      .then(cardsInfo => {
+    props.fetchProducts();
 
+    let cardsInfo = props.products.data;
+   
         while (index < cardsInfo.length) {
 
           cards.push(cardsInfo.slice(index, index + 3));
@@ -48,7 +51,7 @@ const Main = () => {
         }
      
         setState(cards[counter])
-      })
+   
 
 
   }, [counter, prevCounter])
@@ -74,4 +77,11 @@ const Main = () => {
   )
 }
 
-export default Main;
+const mapStateToProps = state => {
+  return {
+    products: state.products.products
+  }
+}
+
+
+export default connect(mapStateToProps,{fetchProducts})(Main)

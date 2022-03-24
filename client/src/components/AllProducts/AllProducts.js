@@ -18,6 +18,7 @@ const AllProducts = (props) => {
 
   
   useEffect(() => {
+  
      props.fetchProducts()
   }, [])
 
