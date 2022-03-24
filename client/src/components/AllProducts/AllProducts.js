@@ -28,8 +28,8 @@ const AllProducts = (props) => {
     
     <div className='allLists'>
       <div className='gridDivList'>
-    
-        {props.products.length > 0 && props.products.map(product =><Card key={product._id} id={product._id} img={product.imageUrl} title={product.title} currentStyle='mainStyle' price={product.price} /> )} 
+   
+        {props.products.data.length > 0 && props.products.data.map(product =><Card key={product._id} id={product._id} img={product.imageUrl} title={product.title} currentStyle='mainStyle' price={product.price} /> )} 
       </div>
 
     </div>
@@ -39,7 +39,7 @@ const AllProducts = (props) => {
 
 const mapStateToProps = state => {
    return {
-     products: state.products
+     products: state.products.products
    }
 }
 
