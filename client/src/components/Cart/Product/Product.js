@@ -1,9 +1,12 @@
 import './Product.css';
 
 const Product = ({
-    product
+    product,
+    increase,
+    decrease,
+    deleteFunction
 }) => {
-   console.log(product)
+
     return (
         <div className="divProduct">
             <div className='infoDiv'>
@@ -13,8 +16,14 @@ const Product = ({
                 <p><b>Price:</b> {product.price}$</p>
 
                 <div className='btnsContainer'>
-                    <div className='btns'>+</div><p>{product.quantitiy}</p><div className='btns'>-</div>
-                    <p id='checkboxId'>x</p>
+
+                    <div className='btns' onClick={() => increase(product)}>+</div>
+
+                        <p>{product.quantity}</p>
+
+                    <div className='btns' onClick={() => decrease(product)}>-</div>
+
+                    <p id='checkboxId' onClick={() => deleteFunction(product._id)}>x</p>
                 </div>
 
                 

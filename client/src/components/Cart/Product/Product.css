@@ -54,6 +54,7 @@
 
 .infoDiv>p {
     text-decoration: none;
+    width: 100px;
 }
 
 .infoDiv>input {

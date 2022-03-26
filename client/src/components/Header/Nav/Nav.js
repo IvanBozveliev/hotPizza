@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 
 const Nav = (props) => {
 //   const user = getLocalStorage();
-console.log(props)
 // console.log(user)
   return (
     <div className='navDiv'>
