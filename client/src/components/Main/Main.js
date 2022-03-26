@@ -3,6 +3,7 @@ import Card from './Card/Card.js';
 import AllProducts from '../AllProducts/AllProducts.js';
 import { useEffect, useState } from 'react';
 
+import { AddCart } from '../../actions/cartActions';
 import { fetchProducts } from '../../actions/productsActions';
 import { connect } from 'react-redux';
 
@@ -16,7 +17,6 @@ const Main = (props) => {
   let [counter, setCounter] = useState(0);
   let [prevCounter, setPrevCounter] = useState(0);
   let [style, setStyle] = useState('mainStyle');
-
 
   useEffect(() => {
 
@@ -33,9 +33,9 @@ const Main = (props) => {
         cards.push(cardsInfo.slice(index, index + 3));
         index += 3;
       }
-    
+
       if (0 > counter) {
-      
+
         setCounter(0);
         return;
       }
@@ -45,12 +45,12 @@ const Main = (props) => {
       }
 
       if (prevCounter < counter) {
-     
+
         setStyle('rightStyle');
         setPrevCounter(counter);
 
       } else if (prevCounter > counter) {
-      
+
         setStyle('leftStyle')
         setPrevCounter(counter);
       }
@@ -61,6 +61,11 @@ const Main = (props) => {
   }, [counter, prevCounter])
 
 
+  const addToCartProd = (item) => {
+
+    props.AddCart(item)
+  }
+
   return (
     <>
 
@@ -68,7 +73,9 @@ const Main = (props) => {
         <img id='imgLeft' src='../../../img/leftArrow.png' onClick={() => setCounter(--counter)} />
 
         <div className='gridDiv'>
-          {state.length > 0 && state.map(x => <Card key={x._id} id={x._id} img={x.imageUrl} title={x.title} currentStyle={style} price={x.price} />)}
+
+          {state !== undefined && state.length > 0 && state.map(x => <Card key={x._id} currentStyle={style} data={x} addToCart={addToCartProd} />)}
+         
         </div>
         <img src='../../../img/rightArrow.png' id='imgRight' onClick={() => setCounter(++counter)} />
       </div>
@@ -83,9 +90,9 @@ const Main = (props) => {
 
 const mapStateToProps = state => {
   return {
-    products: state.products.products
+    products: state.myProducts.products,
   }
 }
 
 
-export default connect(mapStateToProps, { fetchProducts })(Main)
+export default connect(mapStateToProps, { fetchProducts, AddCart })(Main)

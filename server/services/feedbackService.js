@@ -4,7 +4,7 @@ const getAllComments = async () => {
     let comments = await Feedback.find();
 
     if(comments){
-        console.log(comments)
+   
         comments = comments.sort((a,b) => new Date(b.date ) - new Date(a.date))
     }
     return comments

@@ -3,9 +3,6 @@ let initialState = {
         isLoading: false,
         error: null || "",
         data: []
-    },
-    cart: {
-        data: [],
     }
 }
 

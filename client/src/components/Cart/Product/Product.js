@@ -3,7 +3,7 @@ import './Product.css';
 const Product = ({
     product
 }) => {
-
+   console.log(product)
     return (
         <div className="divProduct">
             <div className='infoDiv'>
@@ -13,7 +13,7 @@ const Product = ({
                 <p><b>Price:</b> {product.price}$</p>
 
                 <div className='btnsContainer'>
-                    <div className='btns'>+</div><p>12</p><div className='btns'>-</div>
+                    <div className='btns'>+</div><p>{product.quantitiy}</p><div className='btns'>-</div>
                     <p id='checkboxId'>x</p>
                 </div>
 

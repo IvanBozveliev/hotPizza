@@ -2,35 +2,40 @@ import './AllProducts.css';
 import Card from '../Main/Card/Card';
 import { getAllProducts } from '../../services/productServices.js';
 import { useEffect, useState } from 'react';
+import { AddCart } from '../../actions/cartActions';
 import { fetchProducts } from '../../actions/productsActions';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 
 const AllProducts = (props) => {
-  
+
   // const AllProducts = ({fetchProducts}) => {
   // let [state, setState] = useState([]);
-  
+
   // useEffect(() => {
   //     getAllProducts() 
   //       .then(result => setState(result))
   // },[])
 
-  
+
   useEffect(() => {
-  
-     props.fetchProducts()
+
+    props.fetchProducts()
   }, [])
 
   // props.products.isLoading.error
-  
+
+  const addToCartProd = (item) => {
+     props.AddCart(item)
+  }
+
   return (
-    
-    
+
+
     <div className='allLists'>
       <div className='gridDivList'>
-   
-        {props.products.data.length > 0 && props.products.data.map(product =><Card key={product._id} id={product._id} img={product.imageUrl} title={product.title} currentStyle='mainStyle' price={product.price} /> )} 
+        {props.products.data.length > 0 && props.products.data.map(product => <Card key={product._id} data={product} currentStyle='mainStyle' addToCart={addToCartProd} />)}
+        {/* {props.products.data.length > 0 && props.products.data.map(product =><Card key={product._id} id={product._id} img={product.imageUrl} title={product.title} currentStyle='mainStyle' price={product.price} /> )}  */}
       </div>
 
     </div>
@@ -39,9 +44,9 @@ const AllProducts = (props) => {
 }
 
 const mapStateToProps = state => {
-   return {
-     products: state.products.products
-   }
+  return {
+    products: state.myProducts.products
+  }
 }
 
 // const mapDispatchToProps = dispatch => {
@@ -54,4 +59,4 @@ const mapStateToProps = state => {
 
 // export default connect(mapStateToProps, {fetchProducts})(AllProducts);
 
-export default connect(mapStateToProps,{fetchProducts})(AllProducts);
+export default connect(mapStateToProps, { fetchProducts, AddCart })(AllProducts);

@@ -1,10 +1,12 @@
 import './Nav.css';
 // import {getLocalStorage} from '../../../services/storageService';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+// import { GetAllProducts } from '../../../actions/cartActions';
 
-const Nav = () => {
+const Nav = (props) => {
 //   const user = getLocalStorage();
-
+console.log(props)
 // console.log(user)
   return (
     <div className='navDiv'>
@@ -26,8 +28,7 @@ const Nav = () => {
         <Link to="/users" >Users</Link>
         <Link to="/logout" id='logout'>Logout</Link>
         <Link to="/cart"><div id='cart' /></Link>
-        <div id='numCart'>4</div>
-
+        <div id='numCart'>{props.cart.counter}</div>
       </div>
 
 
@@ -35,4 +36,9 @@ const Nav = () => {
   )
 }
 
-export default Nav;
+const setStateToProps = (state) => {
+    return {
+      cart: state.cartProducts.cart
+    }
+}
+export default connect(setStateToProps, null)(Nav);
