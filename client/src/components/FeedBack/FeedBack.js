@@ -18,6 +18,9 @@ const FeedBack = () => {
       .then(comments => setCommentsArr(comments))
   }, []);
 
+  const commentsOnHandler = (newComments) => {
+      setCommentsArr(newComments)
+  }
 
   const handleFeedback = (e) => {
     e.preventDefault()
@@ -33,7 +36,7 @@ const FeedBack = () => {
           setError(data.message);
           setTimeout(() => {
             setError('');
-          },2000)
+          }, 2000)
         }
         feedbackServices.getAllComments()
           .then(newData => {
@@ -49,10 +52,14 @@ const FeedBack = () => {
       {error && <div id='errorDiv'><p>{error}</p></div>}
       <div className='feedbackContent'>
         <h2>Feedback</h2>
-        <form id='feedbackForm' method='POST' onSubmit={handleFeedback}>
-          <textarea className='textarea' name='comment' placeholder="Are you happy with us? Type..." />
-          <input type='submit' id='submitBtn' value="Comment" />
-        </form>
+        {userInfo?.username &&
+
+          <form id='feedbackForm' method='POST' onSubmit={handleFeedback}>
+            <textarea className='textarea' name='comment' placeholder="Are you happy with us? Type..." />
+            <input type='submit' id='submitBtn' value="Comment" />
+          </form>
+        }
+
         <h3>Comments:</h3>
 
         {commentsArr.length !== 0 ?
@@ -62,7 +69,8 @@ const FeedBack = () => {
               id={commentData._id}
               user={commentData.user}
               comment={commentData.comment}
-              date={commentData.date} />)
+              date={commentData.date}
+              setNewComments={commentsOnHandler} />)
           ) : <p>Still don`t have comments...</p>
         }
 

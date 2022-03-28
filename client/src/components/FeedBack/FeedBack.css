@@ -167,4 +167,7 @@ textarea::-webkit-scrollbar-thumb:hover {
     .comments{
         width: 525px;
     }
+    .comments:hover{
+        width: 525px;
+    }
 }

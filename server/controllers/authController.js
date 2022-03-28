@@ -27,7 +27,7 @@ router.post('/login', async (req, res) => {
 
         let {token, user} = await authService.login(username, password)
         // res.cookie(COOKIE_NAME, token)
-        res.status(200).json({username, token, id: user._id}) 
+        res.status(200).json({username, token, id: user._id, role: user.roles}) 
     } catch (error) {
         res.status(400).send(error)
 

@@ -13,7 +13,7 @@ const Product = ({
                 <img src={product.imageUrl}></img>
                 <p id='titlePizza'>{product.title}</p>
                 <p id='descriptionProduct'>{product.description}</p>
-                <p><b>Price:</b> {product.price}$</p>
+                <p><b>Price:</b> {product.price} lv</p>
 
                 <div className='btnsContainer'>
 

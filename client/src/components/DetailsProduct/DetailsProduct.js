@@ -4,10 +4,12 @@ import { useParams, Link } from 'react-router-dom';
 import * as productService from '../../services/productServices';
 import * as userService from '../../services/userSerivces';
 import * as storageService from '../../services/storageService';
+import { connect } from 'react-redux';
+import { AddCart } from '../../actions/cartActions';
 
 import { useNavigate } from 'react-router-dom';
 
-const DetailsProduct = () => {
+const DetailsProduct = (props) => {
 
     const [product, setProduct] = useState({});
     const [modal, setModal] = useState(false);
@@ -17,7 +19,7 @@ const DetailsProduct = () => {
 
     let params = useParams();
     let navigate = useNavigate();
-    let userId = storageService.getLocalStorage().id;
+    let user = storageService.getLocalStorage();
 
     const deleteHandler = (id) => {
         productService.deleteOneProduct(id)
@@ -31,7 +33,7 @@ const DetailsProduct = () => {
     }
 
 
-    function addToCart() {
+    function addToCart(product) {
 
         setText('Added');
         setImage(false);
@@ -41,12 +43,8 @@ const DetailsProduct = () => {
             setImage(true)
         }, 500)
 
-        userService.getOne(userId)
-            .then(user => {
-                user.cart.push(product);
-                userService.editOne(userId, user)
-            })
-    
+        props.AddCart(product)
+
 
     }
 
@@ -72,15 +70,27 @@ const DetailsProduct = () => {
 
             <div id='detailsId'>
                 <h2>{product.title}</h2>
-                <img src={product.imageUrl} id='detailsImage' alt='productDetails'/>
+                <img src={product.imageUrl} id='detailsImage' alt='productDetails' />
                 <p><b>{product.description}</b></p>
                 <p id='price'>Price: {product.price} lv.</p>
                 <div id='detailBtns'>
-                    {image && <div className='imgCartDetails' onClick={() => addToCart()} />}
-                    {text ? <p id='txtDetails'>{text}</p> : ''}
+
                     <Link to='/' id="detailsBackBtn">Back</Link>
-                    <Link to={`/details/edit/${product._id}`} id="detailsEditBtn">Edit</Link>
-                    <button id="detailsDeleteBtn" onClick={() => setModal(true)}>Delete</button>
+                    {user &&
+                        <>
+                            {image && <div className='imgCartDetails' onClick={() => addToCart(product)} />}
+                            {text ? <p id='txtDetails'>{text}</p> : ''}
+                            
+                            {user.role !== "user" &&
+                                <>
+                                    <Link to={`/details/edit/${product._id}`} id="detailsEditBtn">Edit</Link>
+                                    <button id="detailsDeleteBtn" onClick={() => setModal(true)}>Delete</button>
+                                </>
+                            }
+
+                        </>
+                    }
+
                 </div>
 
             </div>
@@ -89,4 +99,8 @@ const DetailsProduct = () => {
     )
 }
 
-export default DetailsProduct;
+// const mapStateToProps = (state) => {
+//     cart: state.cartProducts.cart
+// }
+
+export default connect(null, { AddCart })(DetailsProduct);

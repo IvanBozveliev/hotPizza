@@ -63,6 +63,9 @@ border-bottom: 1px solid black;
 .allLinks{
     display: flex;
     float: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
 }
 
 #cart{
@@ -97,4 +100,10 @@ border-bottom: 1px solid black;
     border: 1px solid black;
     display: block;
     cursor: pointer;
+}
+
+.userName{
+    font-size: 20px;
+    margin-right: 12px;
+    margin-top: 14px
 }

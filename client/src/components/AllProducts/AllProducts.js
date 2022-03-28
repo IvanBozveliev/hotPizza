@@ -35,7 +35,6 @@ const AllProducts = (props) => {
     <div className='allLists'>
       <div className='gridDivList'>
         {props.products.data.length > 0 && props.products.data.map(product => <Card key={product._id} data={product} currentStyle='mainStyle' addToCart={addToCartProd} />)}
-        {/* {props.products.data.length > 0 && props.products.data.map(product =><Card key={product._id} id={product._id} img={product.imageUrl} title={product.title} currentStyle='mainStyle' price={product.price} /> )}  */}
       </div>
 
     </div>
@@ -54,9 +53,5 @@ const mapStateToProps = state => {
 //     fetchProducts: dispatch(fetchProducts())
 //   }
 // }
-
-// export default connect(state => ({products: state.shop.products}),{fetchProducts})(AllProducts)
-
-// export default connect(mapStateToProps, {fetchProducts})(AllProducts);
 
 export default connect(mapStateToProps, { fetchProducts, AddCart })(AllProducts);

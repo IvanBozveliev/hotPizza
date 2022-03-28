@@ -16,6 +16,7 @@ import Logout from './components/Logout/Logout';
 import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
+import EditFeedback from './components/EditFeedback/EditFeedback.js';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           {/* <Route path='/all-products' element={<AllProducts />} /> */}
           <Route path='/details/edit/:id' element={<EditProduct />} />
           <Route path='/feedback' element={<FeedBack />} />
+          <Route path='/feedback/edit/:id' element={<EditFeedback />} />
           <Route path='/users' element={<Users />} />
           <Route path='/logout' element={<Logout />} />
         </Routes>

@@ -27,7 +27,7 @@ export const getOneComment = (id) => {
 }
 
 export const putOneComment = (id, comment) => {
-
+   
     return fetch(link + `/${id}`, {
         method: 'PUT',
         headers: {
