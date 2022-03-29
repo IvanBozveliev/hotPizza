@@ -75,7 +75,6 @@ const DetailsProduct = (props) => {
                 <p id='price'>Price: {product.price} lv.</p>
                 <div id='detailBtns'>
 
-                    <Link to='/' id="detailsBackBtn">Back</Link>
                     {user &&
                         <>
                             {image && <div className='imgCartDetails' onClick={() => addToCart(product)} />}
@@ -90,6 +89,7 @@ const DetailsProduct = (props) => {
 
                         </>
                     }
+                    <Link to='/' id="detailsBackBtn">Back</Link>
 
                 </div>
 

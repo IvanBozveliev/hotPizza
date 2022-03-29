@@ -1,12 +1,13 @@
 import './Register.css';
-import * as authServices from '../../services/authServices.js';
-import { setLocalStorage } from '../../services/storageService.js';
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 
-const Register = () => {
+import { useNavigate } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+import {fetchRegisterUser} from '../../actions/userAuthActions';
+ 
+const Register = (props) => {
     let navigate = useNavigate();
-    let [error, setError] = useState('');
+    // let [error, setError] = useState('');
 
     const registerHandler = (e) => {
         e.preventDefault();
@@ -15,24 +16,17 @@ const Register = () => {
         let username = formData.get('username');
         let password = formData.get('password');
         let repeatPassword = formData.get('repeat-password');
+       
+        props.fetchRegisterUser({username, password, repeatPassword})
+           .then(() => {
+              navigate('/')
+           })
 
-        authServices.register({ username, password, repeatPassword })
-            .then(data => {
-                if (data.message) {
-                    setError(data.message);
-                    setTimeout(() => {
-                        setError('')
-                    }, 2000)
-                } else {
-                    setLocalStorage(data);
-                    navigate('/');
-                }
-            })
     }
 
     return (
         <>
-            {error && <div id='errorDiv'><p>{error}</p></div>}
+            {/* {error && <div id='errorDiv'><p>{error}</p></div>} */}
             <div className='registerContent'>
                 <h2>Register</h2>
                 <form method='POST' id='loginForm' onSubmit={registerHandler}>
@@ -50,4 +44,5 @@ const Register = () => {
     )
 }
 
-export default Register;
+
+export default connect(null, {fetchRegisterUser})(Register);
