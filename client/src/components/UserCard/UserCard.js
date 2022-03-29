@@ -1,34 +1,33 @@
 import './UserCard.css';
 import * as userServices from '../../services/userSerivces';
 import * as storageService from '../../services/storageService';
-
+import {connect} from 'react-redux';
 import { useState } from 'react';
-
+import {deleteUser} from '../../actions/usersActions';
 
 const UserCard = ({
     user, 
     id,
-    filteredUsers
 }) => {
     const [modal, setModal] = useState(false);
     let userRole = storageService.getLocalStorage()?.role;
 
-    const deleteHandler = (id) => {
-        setModal(false)
-        userServices.deleteOneUser(id)
-        .then(result => {
+    // const deleteHandler = (id) => {
+    //     setModal(false)
+    //     userServices.deleteOneUser(id)
+    //     .then(result => {
             
-            if (result.message) {
+    //         if (result.message) {
 
-            } else {
-                userServices.getAllUsers()
-                 .then(result => {
-                    filteredUsers(result)
-                 })
+    //         } else {
+    //             userServices.getAllUsers()
+    //              .then(result => {
+    //                 filteredUsers(result)
+    //              })
                
-            }
-        })
-    }
+    //         }
+    //     })
+    // }
 
     return (
         <>
@@ -37,7 +36,8 @@ const UserCard = ({
                 <div className='modal'>
                     <div className='modalContent'>
                         <p id='txtModal'>Do you want to delete this user?</p>
-                        <button id="modalDel" onClick={() => deleteHandler(id)}>Delete</button>
+                        <button id="modalDel" onClick={() => deleteUser(id)}>Delete</button>
+                        {/* <button id="modalDel" onClick={() => deleteHandler(id)}>Delete</button> */}
                         <button id='modalCancel' onClick={() => setModal(false)}>Cancel</button>
                     </div>
 
@@ -63,4 +63,4 @@ const UserCard = ({
     )
 }
 
-export default UserCard;
+export default connect(null, {deleteUser})(UserCard);

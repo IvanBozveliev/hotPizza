@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import {connect} from 'react-redux';
 import {fetchLoginUser} from '../../actions/userAuthActions'
+import { useEffect } from 'react';
 
 let Login = (props) => {
 
@@ -23,10 +24,12 @@ let Login = (props) => {
        
 
     }
-    
-    if(props.isLogged){
-        navigate('/')
-    }
+    useEffect(() => {
+        if(props.isLogged){
+            navigate('/')
+        }
+    }, [props])
+  
 
     return (
         <>      

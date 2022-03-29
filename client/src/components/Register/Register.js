@@ -3,8 +3,8 @@ import './Register.css';
 import { useNavigate } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import {fetchRegisterUser} from '../../actions/userAuthActions';
- 
+import { fetchRegisterUser } from '../../actions/userAuthActions';
+
 const Register = (props) => {
     let navigate = useNavigate();
     // let [error, setError] = useState('');
@@ -16,11 +16,13 @@ const Register = (props) => {
         let username = formData.get('username');
         let password = formData.get('password');
         let repeatPassword = formData.get('repeat-password');
-       
-        props.fetchRegisterUser({username, password, repeatPassword})
-           if(props.isLogged){
-              navigate('/')
-           }
+
+        props.fetchRegisterUser({ username, password, repeatPassword })
+
+    }
+
+    if (props.isLogged) {
+        navigate('/')
     }
     
     return (
@@ -50,4 +52,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {fetchRegisterUser})(Register);
+export default connect(mapStateToProps, { fetchRegisterUser })(Register);
