@@ -21,9 +21,8 @@ const Register = (props) => {
            if(props.isLogged){
               navigate('/')
            }
-
     }
-
+    
     return (
         <>
             {props.error && <div id='errorDiv'><p>{props.error}</p></div>}

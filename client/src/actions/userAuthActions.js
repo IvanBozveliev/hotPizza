@@ -13,6 +13,10 @@ export const fetchRegisterUser = (data) => {
                 })
                 dispatch(fetchUserError())
                 dispatch(setMessage(user.message))
+                setTimeout(() => {
+                    dispatch(clearMessage())
+
+                },3000)
             }else{
                 storageService.setLocalStorage(user)
                 dispatch(fetchUserSuccess(user))
@@ -34,6 +38,10 @@ export const fetchLoginUser = (data) => {
             if(user.message){
                 dispatch(fetchUserError())
                 dispatch(setMessage(user.message))
+                setTimeout(() => {
+                    dispatch(clearMessage())
+
+                },3000)
             }else{
                 storageService.setLocalStorage(user)
                 dispatch(fetchUserSuccess(user))
