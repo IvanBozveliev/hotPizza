@@ -1,30 +1,20 @@
-import {useEffect, useState} from 'react';
-import * as authServices from '../../services/authServices';
+// import {useEffect, useState} from 'react';
+// import * as authServices from '../../services/authServices';
 import { useNavigate } from 'react-router-dom';
-import {removeLocalStorage} from '../../services/storageService';
+// import {removeLocalStorage} from '../../services/storageService';
+import {connect} from 'react-redux';
+import {fetchLogout} from '../../actions/userAuthActions';
 
-const Logout = () => {
+const Logout = (props) => {
     const navigate = useNavigate();
-    let [error, setError] = useState('');
+    // let [error, setError] = useState('');
+    
+    props.fetchLogout()
+      .then(() => {
+          navigate('/login')
+      })
 
-     useEffect(() => {
-         authServices.logout()
-            .then(result => {
-                if(result.message){
-                    setError(result.message)
-                }else{
-                    removeLocalStorage('user')
-                    navigate('/login');
-                }
-            })
-     },[])
-
-     return (
-         <>
-         {error ? <div id='errorDiv'><p>{error}</p></div> : ''}
-         </>
-        
-     )
+     return null
 }
 
-export default Logout;
+export default connect(null, {fetchLogout})(Logout);

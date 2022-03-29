@@ -41,7 +41,8 @@
     border-top: 1px solid #c02121;
     position: absolute;
     width: 100%;
-    top: 273px;
+    /* top: 273px; */
+    top: 216px;
   }
 }
 
@@ -54,7 +55,8 @@
     border-top: 1px solid #c02121;
     position: absolute;
     width: 100%;
-    top: 234px;
+    /* top: 234px; */
+    top: 226px;
   }
   
 }

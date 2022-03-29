@@ -18,15 +18,15 @@ const Register = (props) => {
         let repeatPassword = formData.get('repeat-password');
        
         props.fetchRegisterUser({username, password, repeatPassword})
-           .then(() => {
+           if(props.isLogged){
               navigate('/')
-           })
+           }
 
     }
 
     return (
         <>
-            {/* {error && <div id='errorDiv'><p>{error}</p></div>} */}
+            {props.error && <div id='errorDiv'><p>{props.error}</p></div>}
             <div className='registerContent'>
                 <h2>Register</h2>
                 <form method='POST' id='loginForm' onSubmit={registerHandler}>
@@ -44,5 +44,11 @@ const Register = (props) => {
     )
 }
 
+const mapStateToProps = (state) => {
+    return {
+        isLogged: state.auth.isLoggedIn,
+        error: state.messageReducer.message
+    }
+}
 
-export default connect(null, {fetchRegisterUser})(Register);
+export default connect(mapStateToProps, {fetchRegisterUser})(Register);

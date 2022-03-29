@@ -16,7 +16,7 @@ export function userAuthReducers(state = initialState, action) {
             return {
                ...state,
                isLoggedIn: false,
-               user: null
+               user: null,
             };
         case "LOGOUT": 
             return {

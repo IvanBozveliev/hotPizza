@@ -1,12 +1,16 @@
 import './Login.css';
-import * as authServices from '../../services/authServices.js';
-import { setLocalStorage } from '../../services/storageService.js';
+// import * as authServices from '../../services/authServices.js';
+// import { setLocalStorage } from '../../services/storageService.js';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import {connect} from 'react-redux';
+import {fetchLoginUser} from '../../actions/userAuthActions'
 
-let Login = () => {
+let Login = (props) => {
+
     let navigate = useNavigate();
-    let [error, setError] = useState('')
+    // let [error, setError] = useState('');
+
     const loginHandler = (e) => {
         e.preventDefault();
 
@@ -14,28 +18,19 @@ let Login = () => {
         let formData = new FormData(e.currentTarget);
         let username = formData.get('username');
         let password = formData.get('password');
+        
+        props.fetchLoginUser({username, password})    
+       
 
-        authServices.login({ username, password })
-            .then(data => {
-
-                if (data.message) {
-                    setError(data.message);
-                    setTimeout(()=>{
-                        setError('')
-                    },2000)
-                } else {
-                    setLocalStorage(data);
-                    navigate('/');
-                }
-
-            })
-            .catch(error => console.log(`ERROR: ${error}`))
-
+    }
+    
+    if(props.isLogged){
+        navigate('/')
     }
 
     return (
         <>      
-         {error && <div id='errorDiv'><p>{error}</p></div>}
+         {props.error && <div id='errorDiv'><p>{props.error}</p></div>}
             <div className='loginContent'>
 
                 <h2>Login</h2>
@@ -53,4 +48,10 @@ let Login = () => {
     )
 }
 
-export default Login
+const mapStateToProps = (state) => {
+    return {
+        isLogged: state.auth.isLoggedIn,
+        error: state.messageReducer.message
+    }
+}
+export default connect(mapStateToProps, {fetchLoginUser})(Login)
