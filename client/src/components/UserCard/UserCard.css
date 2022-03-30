@@ -83,129 +83,28 @@
     display: flex;
     justify-content: space-evenly;
     width: 280px;
-    background-color: white;
     padding: 6px;
-    border: 1px solid black;
-    border-radius: 20px;
 }
 
-#allBtns:hover {
+/* #allBtns:hover {
     display: flex;
     justify-content: space-evenly;
     width: 280px;
-    background-color: rgb(221 220 220);
+    background-color: rgb(180, 177, 177);
     padding: 6px;
-    border: 1px solid black;
-    border-radius: 20px;
-}
-
-/* #client {
-    background-color: rgb(23, 167, 10);
-    border: none;
-    border: 1px solid black;
-    color: white;
-    height: 30px;
-    border-radius: 20px;
-    /* pointer-events: none; 
 } */
 
-#client {
-    background-color: rgb(42 197 28);
+.changeRoleBtn{
+    background: none;
     border: none;
-    border: 1px solid black;
-    color: rgb(7, 7, 7);
-    height: 30px;
-    border-radius: 20px;
-    pointer-events: none;
+    font-size: 11px;
+    width: 60px;
 }
-
-#editor {
-    background-color: rgb(42 197 28);
-    border: none;
-    border: 1px solid black;
-    color: rgb(7, 7, 7);
-    height: 30px;
-    border-radius: 20px;
-    pointer-events: none;
-}
-
-#admin {
-    background-color: rgb(42 197 28);
-    border: none;
-    border: 1px solid black;
-    color: rgb(7, 7, 7);
-    height: 30px;
-    border-radius: 20px;
-    pointer-events: none;
-}
-
-
-#clientBtn {
-    background-color: rgb(255, 44, 62);
-    border: none;
-    border: 1px solid black;
-    color: rgb(7, 7, 7);
-    height: 30px;
-    border-radius: 20px;
+.changeRoleBtn:hover{
+    /* background-color: lime; */
     cursor: pointer;
-    text-decoration: line-through;
+    font-size: 18px;
 }
-
-#clientBtn:hover {
-    background-color: rgb(99, 253, 10);
-    border: none;
-    border: 1px solid black;
-    color: rgb(8, 8, 8);
-    height: 30px;
-    border-radius: 20px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-#editorBtn {
-    background-color: rgb(255, 44, 62);
-    border: none;
-    border: 1px solid black;
-    color: rgb(7, 7, 7);
-    height: 30px;
-    border-radius: 20px;
-    cursor: pointer;
-    text-decoration: line-through;
-}
-
-#editorBtn:hover {
-    background-color: rgb(99, 253, 10);
-    border: none;
-    border: 1px solid black;
-    color: rgb(8, 8, 8);
-    height: 30px;
-    border-radius: 20px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-#adminBtn {
-    background-color: rgb(255, 44, 62);
-    border: none;
-    border: 1px solid black;
-    color: rgb(7, 7, 7);
-    height: 30px;
-    border-radius: 20px;
-    cursor: pointer;
-    text-decoration: line-through;
-}
-
-#adminBtn:hover {
-    background-color: rgb(99, 253, 10);
-    border: none;
-    border: 1px solid black;
-    color: rgb(8, 8, 8);
-    height: 30px;
-    border-radius: 20px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
 
 @media only screen and (max-width: 890px){
     .usersDiv{
