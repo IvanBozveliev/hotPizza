@@ -28,12 +28,15 @@ let Login = (props) => {
         if(props.isLogged){
             navigate('/')
         }
+        // }else{
+        //    setError(props.error)
+        // }
     }, [props])
   
 
     return (
         <>      
-         {props.error && <div id='errorDiv'><p>{props.error}</p></div>}
+         {props.error && <div id='errorDiv'><p>{error}</p></div>}
             <div className='loginContent'>
 
                 <h2>Login</h2>
@@ -54,7 +57,7 @@ let Login = (props) => {
 const mapStateToProps = (state) => {
     return {
         isLogged: state.auth.isLoggedIn,
-        error: state.messageReducer.message
+        error: state.auth.error
     }
 }
 export default connect(mapStateToProps, {fetchLoginUser})(Login)

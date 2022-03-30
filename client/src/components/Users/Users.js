@@ -26,4 +26,5 @@ const mapDispatchToProps = () => dispatch =>{
         getAllUsers: dispatch(fetchGetAllUsers())
     }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(Users);

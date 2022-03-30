@@ -11,7 +11,6 @@ export const register = (userData) => {
         },
         body: JSON.stringify(userData)
     })
-        .then(response => response.json())
 
 }
 
@@ -24,7 +23,6 @@ export const login = (userData) => {
         },
         body: JSON.stringify(userData)
     })
-        .then(response => response.json())
 
 }
 

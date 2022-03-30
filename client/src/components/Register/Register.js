@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { fetchRegisterUser } from '../../actions/userAuthActions';
+import { useEffect } from 'react';
 
 const Register = (props) => {
     let navigate = useNavigate();
@@ -21,10 +22,13 @@ const Register = (props) => {
 
     }
 
-    if (props.isLogged) {
-        navigate('/')
-    }
+    useEffect(()=> {
+        if (props.isLogged) {
+            navigate('/')
+        }
     
+    },[props])
+    console.log(props.error)
     return (
         <>
             {props.error && <div id='errorDiv'><p>{props.error}</p></div>}
@@ -48,7 +52,7 @@ const Register = (props) => {
 const mapStateToProps = (state) => {
     return {
         isLogged: state.auth.isLoggedIn,
-        error: state.messageReducer.message
+        error: state.auth.error
     }
 }
 
