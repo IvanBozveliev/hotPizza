@@ -1,6 +1,7 @@
 import * as authServices from '../services/authServices';
 import * as storageService from '../services/storageService';
 import { callApi } from '../services/authApi';
+import { api } from '../services/api';
 
 export const fetchRegisterUser = (data) => {
     return async dispatch => {
@@ -8,70 +9,63 @@ export const fetchRegisterUser = (data) => {
         try {
             dispatch(fetchUser())
             const res = await callApi('/register', 'POST', data)
-            
+
             const user = await res.json();
 
             if (res.ok) {
                 storageService.setLocalStorage(user)
-                dispatch(fetchUserSuccess(user))             
-            } else{
+                dispatch(fetchUserSuccess(user))
+            } else {
                 throw new Error(user.message)
             }
 
-           
+
 
         } catch (error) {
-            dispatch(fetchUserError(error.message))
+            dispatch(userLogoutError(error.message))
         }
     }
 }
 
+
 export const fetchLoginUser = (data) => {
- 
-    return async dispatch => {
+
+    return async (dispatch) => {
 
         try {
 
             dispatch(fetchUser())
 
-            const result = await callApi('/login', 'POST', data)
-            
-            const user = await result.json();
+            const json = await api.post('/auth/login', data);
 
-            if(result.ok) {
+            storageService.setLocalStorage(json)
 
-                storageService.setLocalStorage(user)
+            dispatch(fetchUserSuccess(json))
 
-                dispatch(fetchUserSuccess(user))
 
-            }else{
-                throw new Error(user.message);
-            }
-                
-               
 
         } catch (error) {
-            dispatch(fetchUserError(error.message))
+
+            dispatch(userLogoutError(error.message))
 
         }
 
     }
+
 }
+
 
 export const fetchLogout = () => {
     return async dispatch => {
 
         try {
-            let user = await authServices.logout();
-            if (user.message) {
-                // dispatch(setMessage(user.message))
-            } else {
-                storageService.removeLocalStorage('user')
-                // dispatch(clearMessage())
-                dispatch(fetchUserLogout())
-            }
+            dispatch(userLogout());
+            await api.get('/auth/logout');
+            storageService.removeLocalStorage('user')
+            dispatch(userLogoutSuccess())
+
         } catch (error) {
-            dispatch(fetchUserError(error))
+            dispatch(userLogoutError(error))
         }
 
     }
@@ -90,19 +84,23 @@ const fetchUserSuccess = (user) => {
     }
 }
 
-const fetchUserError = (error) => {
+const userLogoutError = (error) => {
 
     return {
-        type: "FETCH_USER_ERROR",
+        type: "LOGOUT_ERROR",
         error
     }
 }
 
-const fetchUserLogout = () => {
+const userLogoutSuccess = () => {
+    return {
+        type: "LOGOUT_SUCCESS"
+    }
+}
+
+const userLogout = () => {
     return {
         type: "LOGOUT"
     }
 }
-
-
 
