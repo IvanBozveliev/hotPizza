@@ -28,7 +28,7 @@ const Register = (props) => {
         }
     
     },[props])
-    console.log(props.error)
+  
     return (
         <>
             {props.error && <div id='errorDiv'><p>{props.error}</p></div>}

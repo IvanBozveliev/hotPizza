@@ -5,37 +5,6 @@ import { connect } from 'react-redux';
 // import { GetAllProducts } from '../../../actions/cartActions';
 
 const Nav = (props) => {
-  // const user = getLocalStorage()?.username;
-  // const role = getLocalStorage()?.role;
-
-  // const loggedInUser = () => {
-
-  //   return <>
-
-  //     <div className='allLinks'>
-  //       <p className='userName'>Welcome, {user}</p>
-  //       <Link to="/">Home</Link>
-  //       <Link to="/feedback" id='feedback'>Feedback</Link>
-  //       {user && role == 'admin' &&  <Link to="/users" >Users</Link>}
-  //       <Link to="/about">About</Link>
-  //       <Link to="/logout" id='logout'>Logout</Link>
-  //       <Link to="/cart"><div id='cart' /></Link>
-  //       <div id='numCart'>{props.cart.counter}</div>
-  //     </div>
-  //   </>
-
-  // }
-
-  // const loggedOutUser = () => {
-  //   return <div className='allLinks'>
-  //     <Link to="/">Home</Link>
-  //     <Link to="/login">Login</Link>
-  //     <Link to="/register">Register</Link>
-  //     <Link to="/feedback" id='feedback'>Feedback</Link>
-  //     <Link to="/about">About</Link>
-  //   </div>
-
-  // }
 
   return (
 
@@ -79,7 +48,7 @@ const Nav = (props) => {
   )
 }
 
-const setStateToProps = (state) => {
+const mapStateToProps = (state) => {
   return {
     cart: state.cartProducts.cart,
     isLogged: state.auth.isLoggedIn,
@@ -87,4 +56,4 @@ const setStateToProps = (state) => {
     role: state.auth.user?.role
   }
 }
-export default connect(setStateToProps, null)(Nav);
+export default connect(mapStateToProps, null)(Nav);
