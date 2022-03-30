@@ -36,7 +36,7 @@ let Login = (props) => {
 
     return (
         <>      
-         {props.error && <div id='errorDiv'><p>{error}</p></div>}
+         {props.error && <div id='errorDiv'><p>{props.error}</p></div>}
             <div className='loginContent'>
 
                 <h2>Login</h2>
