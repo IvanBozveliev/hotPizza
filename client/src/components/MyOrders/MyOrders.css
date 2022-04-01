@@ -28,6 +28,22 @@
     font-size: 22px;
 }
 
+#clearBtn {
+    color: white;
+    /* float: right; */
+    width: 100px;
+    cursor: pointer;
+    background-color: rgb(182, 12, 12);
+}
+
+#clearBtn:hover {
+    color: white;
+    width: 100px;
+    cursor: pointer;
+    background-color: rgb(126, 4, 4);
+}
+
+
 @media only screen and (max-width: 836px) {
     .myOrdersContent {
         background: rgb(153, 40, 22);

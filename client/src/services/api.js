@@ -48,7 +48,7 @@ export const api = {
                 if (json.error) {
                     throw new Error(json.error.message);
                 }
-                console.log('+++json - ', json)
+                // console.log('+++json - ', json)
                 return json;
 
             })

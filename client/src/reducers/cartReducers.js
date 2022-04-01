@@ -2,6 +2,9 @@ let initialState = {
     cart: {
         data: [],
         counter: 0
+    },
+    orders: {
+        data: []
     }
 }
 
@@ -104,6 +107,13 @@ export const cartReducers = (state = initialState, action) => {
                 cart: {
                     data: [],
                     counter: 0
+                }
+            }
+        case "ADD_TO_ORDERS":
+            return {
+                ...state,
+                orders: {
+                    data: action.payload
                 }
             }
         default:

@@ -2,7 +2,7 @@ import './Cart.css';
 import Product from './Product/Product';
 // import {isAuth} from '../../hoc/isAuth'
 import { connect } from 'react-redux';
-import { getAllCartProducts, increaseQty, decreaseQty, deleteCart, deleteAllCartProducts } from '../../actions/cartActions';
+import { getAllCartProducts, increaseQty, decreaseQty, deleteCart, deleteAllCartProducts, buyProducts } from '../../actions/cartActions';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -29,9 +29,10 @@ const Cart = (props) => {
 
 
     const onHandler = () => {
-        console.log(props.cart.data)
-        setModal(false)
+        let products = props.cart.data;
+        setModal(false);
         props.deleteAllCartProducts();
+        props.buyProducts(products);
     }
     return (
         <>
@@ -85,10 +86,12 @@ const mapStateToProps = (state) => {
     }
 }
 
+
 export default connect(mapStateToProps, {
     getAllCartProducts,
     increaseQty,
     decreaseQty,
     deleteCart,
-    deleteAllCartProducts
+    deleteAllCartProducts,
+    buyProducts
 })(Cart)
