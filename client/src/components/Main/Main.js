@@ -3,7 +3,7 @@ import Card from './Card/Card.js';
 import AllProducts from '../AllProducts/AllProducts.js';
 import { useEffect, useState } from 'react';
 
-import { AddCart } from '../../actions/cartActions';
+import { addCart } from '../../actions/cartActions';
 import { fetchProducts } from '../../actions/productsActions';
 import { connect } from 'react-redux';
 
@@ -63,7 +63,7 @@ const Main = (props) => {
 
   const addToCartProd = (item) => {
 
-    props.AddCart(item)
+    props.addCart(item)
   }
 
   return (
@@ -75,7 +75,7 @@ const Main = (props) => {
         <div className='gridDiv'>
 
           {state !== undefined && state.length > 0 && state.map(x => <Card key={x._id} currentStyle={style} data={x} addToCart={addToCartProd} />)}
-         
+
         </div>
         <img src='../../../img/rightArrow.png' id='imgRight' onClick={() => setCounter(++counter)} />
       </div>
@@ -90,9 +90,9 @@ const Main = (props) => {
 
 const mapStateToProps = state => {
   return {
-    products: state.myProducts.products,
+    products: state.products,
   }
 }
 
 
-export default connect(mapStateToProps, { fetchProducts, AddCart })(Main)
+export default connect(mapStateToProps, { fetchProducts, addCart })(Main)

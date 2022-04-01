@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 const MyOrders = (props) => {
     return (
+
         <div className='myOrdersContent'>
             <h2>My Orders List</h2>
             <p id='TextOrder'>Your order list is empty</p>

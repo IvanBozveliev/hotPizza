@@ -2,18 +2,23 @@ import * as storageService from '../services/storageService';
 import { api } from '../services/api';
 
 export const buyProducts = (products) => {
-    const user = storageService.getLocalStorage()
+    const userData = storageService.getLocalStorage()
 
-    return (dispatch) => {
-        api.get(`/users/${user.id}`)
-            .then(user => {
+    return async (dispatch) => {
 
-                user.orders.push(...products)
-                api.put(`/users/${user._id}`, user)
-                    .then(() => {
-                        dispatch(addOrders(products))
-                    })
-            })
+
+        const user = await api.get(`/users/${userData.id}`);
+        user.orders.push(...products)
+        await api.put(`/users/${user._id}`, user)
+        dispatch(addOrders(products))
+        // .then(user => {
+
+        //     user.orders.push(...products)
+        //     api.put(`/users/${user._id}`, user)
+        //         .then(() => {
+        //             dispatch(addOrders(products))
+        //         })
+        // })
     }
 }
 
@@ -21,7 +26,7 @@ export const deleteOrders = () => {
 
 }
 
-export function AddCart(product) {
+export function addCart(product) {
 
     return {
         type: 'ADD_TO_CART',

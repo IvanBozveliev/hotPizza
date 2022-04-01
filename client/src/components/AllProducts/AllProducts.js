@@ -1,7 +1,7 @@
 import './AllProducts.css';
 import Card from '../Main/Card/Card';
 import { useEffect, useState } from 'react';
-import { AddCart } from '../../actions/cartActions';
+import { addCart } from '../../actions/cartActions';
 import { fetchProducts } from '../../actions/productsActions';
 import { connect } from 'react-redux';
 
@@ -25,7 +25,7 @@ const AllProducts = (props) => {
   // props.products.isLoading.error
 
   const addToCartProd = (item) => {
-    props.AddCart(item)
+    props.addCart(item)
   }
 
   return (
@@ -43,7 +43,7 @@ const AllProducts = (props) => {
 
 const mapStateToProps = state => {
   return {
-    products: state.myProducts.products
+    products: state.products
   }
 }
 
@@ -53,4 +53,4 @@ const mapStateToProps = state => {
 //   }
 // }
 
-export default connect(mapStateToProps, { fetchProducts, AddCart })(AllProducts);
+export default connect(mapStateToProps, { fetchProducts, addCart })(AllProducts);
