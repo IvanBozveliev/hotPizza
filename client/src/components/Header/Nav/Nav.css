@@ -105,5 +105,10 @@ border-bottom: 1px solid black;
 .userName{
     font-size: 20px;
     margin-right: 12px;
-    margin-top: 14px
+    margin-top: 0px;
+   
+}
+
+#userNameLink{
+    color: black;
 }

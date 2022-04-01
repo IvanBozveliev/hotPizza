@@ -133,7 +133,7 @@
   background-color:  rgb(245 241 235);
   width: 500px;
   height: 150px;
-  position: absolute;
+  position: fixed;
   top: 20%;
   left: 50%;
   transform: translate(-50%, 50%);

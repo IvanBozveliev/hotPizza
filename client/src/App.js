@@ -13,6 +13,8 @@ import Users from './components/Users/Users';
 import FeedBack from './components/FeedBack/FeedBack.js';
 import Logout from './components/Logout/Logout';
 import EditFeedback from './components/EditFeedback/EditFeedback.js';
+import MyOrders from './components/MyOrders/MyOrders.js';
+
 import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
@@ -37,6 +39,7 @@ function App() {
           <Route path='/feedback/edit/:id' element={<EditFeedback />} />
           <Route path='/users' element={<Users />} />
           <Route path='/logout' element={<Logout />} />
+          <Route path='/orders' element={<MyOrders />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>

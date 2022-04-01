@@ -29,8 +29,9 @@ const Cart = (props) => {
 
 
     const onHandler = () => {
+        console.log(props.cart.data)
         setModal(false)
-        props.deleteAllCartProducts()
+        props.deleteAllCartProducts();
     }
     return (
         <>
@@ -40,7 +41,7 @@ const Cart = (props) => {
                     <div className='BuyModalContent'>
                         <p id='buyTextModal'>Your payment was successful!</p>
                         <img id="payment" src='../../../../img/payment.png' width={45} height={45} />
-                        <p><b>You`ve paid:</b> {`${totalCart}`} lv</p>
+                        <p><b>You`ve paid: </b> {`${totalCart}`}.00 lv</p>
                         <button id='buymodalCancel' onClick={() => onHandler()}>Return</button>
                         <p id='txtbuy' >You can see your orders <Link to='/orders' onClick={() => onHandler()}>here</Link> </p>
                     </div>
