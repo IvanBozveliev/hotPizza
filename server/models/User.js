@@ -11,9 +11,9 @@ const userSchema = new mongoose.Schema({
         required: true,
     },
     roles: {
-      type: String
+        type: String
     },
-    cart: []
+    orders: []
 
 })
 

@@ -41,7 +41,7 @@ const Register = (props) => {
                     <input type='password' name='password' id='inputPass' />
                     <label htmlFor='inputPass'>Repeat Password:</label>
                     <input type='password' name='repeat-password' id='inputPass' />
-                    {props.isLoading ? <div class="loaderRegister"></div> : <input type='submit' value='Register' />}
+                    {props.isLoading ? <div className="loaderRegister"></div> : <input type='submit' value='Register' />}
                 </form>
             </div>
         </>
