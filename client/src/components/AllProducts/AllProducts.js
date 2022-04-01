@@ -1,6 +1,5 @@
 import './AllProducts.css';
 import Card from '../Main/Card/Card';
-import { getAllProducts } from '../../services/productServices.js';
 import { useEffect, useState } from 'react';
 import { AddCart } from '../../actions/cartActions';
 import { fetchProducts } from '../../actions/productsActions';
@@ -26,7 +25,7 @@ const AllProducts = (props) => {
   // props.products.isLoading.error
 
   const addToCartProd = (item) => {
-     props.AddCart(item)
+    props.AddCart(item)
   }
 
   return (

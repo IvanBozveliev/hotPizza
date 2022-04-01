@@ -45,11 +45,10 @@ let Login = (props) => {
                     <input type='text' name='username' id='inputText' />
                     <label htmlFor='inputPass'>Password:</label>
                     <input type='password' name='password' id='inputPass' />
-                    {props.isLoading ? <label>Loading...</label> : <input type='submit' value='Login' />}
+                    {props.isLoading ? <div class="loader"></div> : <input type='submit' value='Login' />}
                 </form>
             </div>
         </>
-
 
     )
 }

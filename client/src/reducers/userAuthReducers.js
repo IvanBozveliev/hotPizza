@@ -2,20 +2,25 @@ import * as storageService from '../services/storageService';
 
 const user = storageService.getLocalStorage();
 
-let initialState = {
-    isLoggedIn: false,
-    user: null,
-    error: null,
-    isLoading: false,
+// let initialState = {
+//     isLoggedIn: false,
+//     user: null,
+//     error: null,
+//     isLoading: false,
 
-};
+// };
+
+let initialState = user ?
+    { isLoggedIn: true, user, error: null, isLoading: false }
+    :
+    { isLoggedIn: false, user: null, error: null, isLoading: false }
 
 export function userAuthReducers(state = initialState, action) {
 
     switch (action.type) {
         case "FETCH_USER":
             return {
-                ...initialState,
+                ...state,
                 isLoading: true
             };
 
@@ -35,13 +40,9 @@ export function userAuthReducers(state = initialState, action) {
             return {
 
                 ...state,
-
                 isLoggedIn: false,
-
                 user: null,
-
                 error: action.error,
-
                 isLoading: false
 
             };
@@ -71,7 +72,6 @@ export function userAuthReducers(state = initialState, action) {
             }
 
         default:
-
             return state
 
     }

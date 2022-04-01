@@ -1,6 +1,4 @@
-import * as authServices from '../services/authServices';
 import * as storageService from '../services/storageService';
-import { callApi } from '../services/authApi';
 import { api } from '../services/api';
 
 export const fetchRegisterUser = (data) => {
@@ -8,25 +6,16 @@ export const fetchRegisterUser = (data) => {
 
         try {
             dispatch(fetchUser())
-            const res = await callApi('/register', 'POST', data)
 
-            const user = await res.json();
-
-            if (res.ok) {
-                storageService.setLocalStorage(user)
-                dispatch(fetchUserSuccess(user))
-            } else {
-                throw new Error(user.message)
-            }
-
-
+            const user = await api.post('/auth/register', data);
+            storageService.setLocalStorage(user);
+            dispatch(fetchUserSuccess(user));
 
         } catch (error) {
-            dispatch(userLogoutError(error.message))
+            dispatch(fetchUserError(error.message))
         }
     }
 }
-
 
 export const fetchLoginUser = (data) => {
 
@@ -34,26 +23,18 @@ export const fetchLoginUser = (data) => {
 
         try {
 
-            dispatch(fetchUser())
-
+            dispatch(fetchUser());
             const json = await api.post('/auth/login', data);
-
             storageService.setLocalStorage(json)
-
             dispatch(fetchUserSuccess(json))
 
-
-
         } catch (error) {
-
-            dispatch(userLogoutError(error.message))
-
+            dispatch(fetchUserError(error.message))
         }
 
     }
 
 }
-
 
 export const fetchLogout = () => {
     return async dispatch => {
@@ -81,6 +62,13 @@ const fetchUserSuccess = (user) => {
     return {
         type: 'FETCH_USER_SUCCESS',
         payload: user
+    }
+}
+
+const fetchUserError = (error) => {
+    return {
+        type: 'FETCH_USER_ERROR',
+        error
     }
 }
 

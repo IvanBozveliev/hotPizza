@@ -22,13 +22,13 @@ const Register = (props) => {
 
     }
 
-    useEffect(()=> {
+    useEffect(() => {
         if (props.isLogged) {
             navigate('/')
         }
-    
-    },[props])
-  
+
+    }, [props])
+
     return (
         <>
             {props.error && <div id='errorDiv'><p>{props.error}</p></div>}
@@ -41,7 +41,7 @@ const Register = (props) => {
                     <input type='password' name='password' id='inputPass' />
                     <label htmlFor='inputPass'>Repeat Password:</label>
                     <input type='password' name='repeat-password' id='inputPass' />
-                    <input type='submit' value='Register' />
+                    {props.isLoading ? <div class="loaderRegister"></div> : <input type='submit' value='Register' />}
                 </form>
             </div>
         </>
@@ -52,7 +52,8 @@ const Register = (props) => {
 const mapStateToProps = (state) => {
     return {
         isLogged: state.auth.isLoggedIn,
-        error: state.auth.error
+        error: state.auth.error,
+        isLoading: state.auth.isLoading
     }
 }
 

@@ -25,7 +25,7 @@ const login = async (username, password) => {
 
      let isMatch = await bcrypt.compare(password, user.password);
 
-     if (!isMatch) throw { message: 'Password does not match' };
+     if (!isMatch) throw new Error('Password does not match');
 
      let token = jwt.sign({ _id: user._id, username: user.username, roles: user.roles }, SECRET, { expiresIn: '1d' });
 

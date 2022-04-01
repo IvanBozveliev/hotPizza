@@ -13,7 +13,7 @@ const Cart = (props) => {
         totalCart += prod.quantity * prod.price;
     })
 
-   
+
     const increaseQtyFunction = (product) => {
         props.increaseQty(product)
     }
@@ -47,7 +47,7 @@ const Cart = (props) => {
                     <p><b>Total:</b></p>
                     <p id='price'>{totalCart}.00 lv</p>
                     <button id='buy'>BUY</button>
-                    <button id='cancel' onClick={() => props.deleteAllCartProducts()}>CANCEL</button>
+                    <button id='cancel' onClick={() => props.deleteAllCartProducts()}>CLEAR</button>
                 </div>
 
 
