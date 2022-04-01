@@ -67,6 +67,50 @@
     font-size: 22px;
 }
 
+.BuyModal{
+    background-color: rgb(245 241 235);
+    width: 500px;
+    height: 302px;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 8px;
+    z-index: 9;
+}
+
+#buyTextModal{
+    margin-bottom: 22px;
+    /* font-weight: bold; */
+    font-size: 21px;
+}
+
+.BuyModalContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#payment{
+    margin-top: 2px;
+    margin-bottom: 22px;
+}
+
+#buymodalCancel{
+ 
+    background-color: rgb(20, 158, 7);
+    color: #f3f3f3;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 22px;
+}
 
 @media only screen and (max-width: 850px){
     .cartBackground{

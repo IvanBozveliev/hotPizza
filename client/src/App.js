@@ -7,16 +7,16 @@ import CreatePizza from './components/CreatePizza/CreatePizza.js';
 import About from './components/About/About.js';
 import Cart from './components/Cart/Cart';
 import Details from './components/DetailsProduct/DetailsProduct';
-// import AllProducts from './components/AllProducts/AllProducts.js';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 import EditProduct from './components/EditProduct/EditProduct.js';
 import Users from './components/Users/Users';
 import FeedBack from './components/FeedBack/FeedBack.js';
 import Logout from './components/Logout/Logout';
-
+import EditFeedback from './components/EditFeedback/EditFeedback.js';
 import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
-import EditFeedback from './components/EditFeedback/EditFeedback.js';
+
 
 function App() {
   return (
@@ -32,12 +32,12 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/details/:id' element={<Details />} />
-          {/* <Route path='/all-products' element={<AllProducts />} /> */}
           <Route path='/details/edit/:id' element={<EditProduct />} />
           <Route path='/feedback' element={<FeedBack />} />
           <Route path='/feedback/edit/:id' element={<EditFeedback />} />
           <Route path='/users' element={<Users />} />
           <Route path='/logout' element={<Logout />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
 
