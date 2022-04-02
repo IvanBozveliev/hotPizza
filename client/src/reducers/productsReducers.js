@@ -41,6 +41,12 @@ export const productReducers = (state = initialState, action) => {
                 ...state,
                 data: state.data.filter(item => item._id !== action.payload)
             }
+        case "CREATE_PRODUCT":
+            return {
+                ...state,
+                data: [...state.data, action.payload],
+                error: null
+            }
         default:
             return state;
     }

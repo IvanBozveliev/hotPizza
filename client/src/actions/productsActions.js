@@ -45,6 +45,29 @@ export const editProduct = (product) => {
     }
 }
 
+export const createProduct = (product, history) => {
+    return async (dispatch) => {
+
+        try {
+            let productResponse = await api.post(`/products`, product, {
+                'Authorization': 'Bearer ' + getLocalStorage()?.token,
+                'Content-Type': 'application/json',
+            });
+            dispatch(createNewProduct(productResponse))
+            history('/')
+        } catch (error) {
+            dispatch(fetchProductsError(error.message))
+        }
+    }
+}
+
+const createNewProduct = (product) => {
+    return {
+        type: "CREATE_PRODUCT",
+        payload: product
+    }
+}
+
 const removeProduct = (id) => {
     return {
         type: "DELETE_PRODUCT",

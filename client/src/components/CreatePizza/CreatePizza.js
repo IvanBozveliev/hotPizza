@@ -1,11 +1,11 @@
 import './CreatePizza.css';
-import * as productServices from '../../services/productServices.js';
-import {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createProduct } from '../../actions/productsActions';
 
-const CreatePizza = () => {
-    const navigate = useNavigate();
-    let [error, setError] = useState('');
+const CreatePizza = (props) => {
+
+    const history = useNavigate();
 
     const createHandler = (e) => {
         e.preventDefault();
@@ -16,24 +16,13 @@ const CreatePizza = () => {
         let imageUrl = formData.get('image');
         let price = formData.get('price');
 
-        productServices.postProduct({ title, description, imageUrl, price })
-            .then(data => {
-                if (data.message) {
-                    setError(data.message);
-                    setTimeout(() => {
-                        setError('')
-                    }, 2000)
-                } else {
-                    navigate('/')
-                }
+        props.createProduct({ title, description, imageUrl, price }, history)
 
-            })
-            .catch(err => console.log(err))
     }
 
     return (
         <>
-            {error && <div id='errorDiv'><p>{error}</p></div>}
+            {props.error && <div id='errorDiv'><p>{props.error}</p></div>}
             <div className='createPizza'>
                 <h2>Create Pizza</h2>
                 <form method='POST' id='loginForm' onSubmit={createHandler}>
@@ -56,4 +45,11 @@ const CreatePizza = () => {
     )
 }
 
-export default CreatePizza;
+const mapStateToProps = (state) => {
+    return {
+        products: state.products.data,
+        error: state.products.error
+    }
+}
+
+export default connect(mapStateToProps, { createProduct })(CreatePizza);

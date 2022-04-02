@@ -11,7 +11,7 @@ app.use(router);
 app.use(cors());
 
 app.use((err, req, res, next) => {
-    res.status(err.statusCode || 400).json({message: `error:${err}`});
+    res.status(err.statusCode || 400).json({ error: { message: err.message } });
 });
 
 app.use((req, res, next) => {

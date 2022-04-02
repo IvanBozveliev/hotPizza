@@ -2,14 +2,6 @@ import * as storageService from '../services/storageService';
 
 const user = storageService.getLocalStorage();
 
-// let initialState = {
-//     isLoggedIn: false,
-//     user: null,
-//     error: null,
-//     isLoading: false,
-
-// };
-
 let initialState = user ?
     { isLoggedIn: true, user, error: null, isLoading: false }
     :

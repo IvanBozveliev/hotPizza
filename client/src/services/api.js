@@ -2,7 +2,7 @@ const SERVER_DOMAIN = 'http://localhost:5000/api';
 
 export const api = {
 
-    get(endpoint, data, headers, text = false) {
+    get(endpoint, data, headers) {
         return api.request('GET', endpoint, data, headers);
 
     },

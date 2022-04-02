@@ -11,7 +11,6 @@ import ErrorPage from './components/ErrorPage/ErrorPage';
 import EditProduct from './components/EditProduct/EditProduct.js';
 import Users from './components/Users/Users';
 import FeedBack from './components/FeedBack/FeedBack.js';
-import Logout from './components/Logout/Logout';
 import EditFeedback from './components/EditFeedback/EditFeedback.js';
 import MyOrders from './components/MyOrders/MyOrders.js';
 
@@ -38,7 +37,6 @@ function App() {
           <Route path='/feedback' element={<FeedBack />} />
           <Route path='/feedback/edit/:id' element={<EditFeedback />} />
           <Route path='/users' element={<Users />} />
-          <Route path='/logout' element={<Logout />} />
           <Route path='/orders' element={<MyOrders />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>

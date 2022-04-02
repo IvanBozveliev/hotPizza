@@ -1,26 +1,27 @@
 const jwt = require('jsonwebtoken');
-const {COOKIE_NAME, SECRET} = require('../config/config');
+const { COOKIE_NAME, SECRET } = require('../config/config');
 
-module.exports = function (){
-    return (req, res, next) =>{
-        
-        let token = req.headers['authorization']?.split(' ')[1] || undefined; 
-   
-        if(token == 'undefined'){
+module.exports = function () {
+    return (req, res, next) => {
+
+        let token = req.headers['authorization']?.split(' ')[1] || undefined;
+
+        if (token == 'undefined') {
             token = false;
         }
-        
-        if(token){
-            jwt.verify(token, SECRET, function(err, decoded) {
-                if(err){
+
+        if (token) {
+            jwt.verify(token, SECRET, function (err, decoded) {
+                if (err) {
+                    throw new Error('Your token is not valid')
                     // res.clearCookie(COOKIE_NAME)
-                    return res.status(400).json({message: 'Your token is not valid'})
-                }else{
-                   req.user = decoded;
-                   res.locals.user = decoded;
-                   res.locals.isAuthenticated = true;
-                  
-                //    res.locals.isEnroll = false;
+                    // return res.status(400).json({message: 'Your token is not valid'})
+                } else {
+                    req.user = decoded;
+                    res.locals.user = decoded;
+                    res.locals.isAuthenticated = true;
+
+                    //    res.locals.isEnroll = false;
                 }
             })
         }

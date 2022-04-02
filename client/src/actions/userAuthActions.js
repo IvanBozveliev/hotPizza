@@ -36,15 +36,18 @@ export const fetchLoginUser = (data) => {
 
 }
 
-export const fetchLogout = () => {
+export const fetchLogout = (history) => {
     return async dispatch => {
 
         try {
             dispatch(userLogout());
-            await api.get('/auth/logout');
+            await api.get('/auth/logout', null, {
+                'Authorization': 'Bearer ' + storageService.getLocalStorage()?.token,
+                'Content-Type': 'application/json',
+            });
             storageService.removeLocalStorage('user')
             dispatch(userLogoutSuccess())
-
+            history('/login')
         } catch (error) {
             dispatch(userLogoutError(error))
         }
