@@ -1,8 +1,7 @@
-import * as productService from '../services/productServices';
 import { api } from '../services/api';
 import { getLocalStorage } from '../services/storageService';
 
-export const deleteProduct = (id) => {
+export const deleteProduct = (id, history) => {
     return async dispatch => {
         const product = await api.delete(`/products/${id}`, null, {
             'Authorization': 'Bearer ' + getLocalStorage()?.token,
@@ -10,6 +9,7 @@ export const deleteProduct = (id) => {
         })
         if (product.ok) {
             dispatch(removeProduct(id))
+            history('/')
         }
     }
 }
@@ -29,7 +29,7 @@ export const fetchProducts = () => {
     }
 }
 
-export const editProduct = (product) => {
+export const editProduct = (product, history) => {
     return async dispatch => {
         try {
             const response = await api.put(`/products/${product._id}`, product, {
@@ -38,6 +38,7 @@ export const editProduct = (product) => {
             })
             if (response.ok) {
                 dispatch(updateProduct(product))
+                history(`/details/${product._id}`)
             }
         } catch (error) {
 
@@ -49,6 +50,7 @@ export const createProduct = (product, history) => {
     return async (dispatch) => {
 
         try {
+            dispatch(fetchProductsLoading())
             let productResponse = await api.post(`/products`, product, {
                 'Authorization': 'Bearer ' + getLocalStorage()?.token,
                 'Content-Type': 'application/json',

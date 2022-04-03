@@ -1,32 +1,13 @@
 import './EditProduct.css'
-import * as productServices from '../../services/productServices.js';
-import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { editProduct } from '../../actions/productsActions';
 import { connect } from 'react-redux';
-import { usePrevious } from '../../helpers/helpers'
 
 const EditProduct = (props) => {
-    const navigate = useNavigate();
+    const history = useNavigate();
     const { id } = useParams();
-    let [error, setError] = useState('');
 
     const product = props.products.find(product => product._id === id);
-    const previousProduct = usePrevious(product);
-
-    useEffect(() => {
-        const product = props.products.find(product => product._id === id);
-
-        if (previousProduct && (product.price !== previousProduct.price ||
-            product.description !== previousProduct.description ||
-            product.title !== previousProduct.title ||
-            product.imageUrl !== previousProduct.imageUrl)) {
-
-            navigate(`/details/${id}`)
-        }
-    }, [props.products])
-
-
 
     const editHandler = (e) => {
         e.preventDefault();
@@ -42,7 +23,7 @@ const EditProduct = (props) => {
 
         }
 
-        props.editProduct(product)
+        props.editProduct(product, history)
 
     }
 
@@ -50,7 +31,7 @@ const EditProduct = (props) => {
     if (product) {
         return (
             <>
-                {error && <div id='errorDiv'><p>{error}</p></div>}
+
                 <div className='editContent'>
                     <h2>Edit Pizza</h2>
                     <form method='POST' id='editForm' onSubmit={editHandler}>

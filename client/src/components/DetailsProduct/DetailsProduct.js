@@ -8,41 +8,21 @@ import { connect } from 'react-redux';
 import { addCart } from '../../actions/cartActions';
 import { deleteProduct } from '../../actions/productsActions';
 import { useNavigate } from 'react-router-dom';
-import { usePrevious } from '../../helpers/helpers';
 
 const DetailsProduct = (props) => {
 
-    const [prd, setProduct] = useState({});
     const [modal, setModal] = useState(false);
 
     let [image, setImage] = useState(true);
     let [text, setText] = useState('');
 
     let params = useParams();
-    let navigate = useNavigate();
-
-    // let pro = storageService.getLocalStorage();
+    let history = useNavigate();
 
     const product = props.products.find(prod => prod._id === params.id);
-    // const previousProduct = usePrevious(product);
-
-    useEffect(() => {
-        if (!props.products.find(item => item._id === params.id)) {
-            navigate('/')
-        }
-    }, [props.products])
 
     const deleteHandler = () => {
-        props.deleteProduct(product._id)
-        // productService.deleteOneProduct(id)
-        //     .then(result => {
-        //         if (result.message) {
-
-        //         } else {
-        //             navigate('/')
-        //         }
-        //     })
-
+        props.deleteProduct(product._id, history)
     }
 
 
@@ -60,11 +40,6 @@ const DetailsProduct = (props) => {
 
 
     }
-
-    useEffect(() => {
-        productService.getOneProduct(params.id)
-            .then(item => setProduct(item))
-    }, [params.id]);
 
     if (product) {
         return (

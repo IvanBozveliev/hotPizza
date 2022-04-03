@@ -20,10 +20,7 @@ const Main = (props) => {
 
   useEffect(() => {
 
-
     props.fetchProducts();
-
-
 
     (() => {
       let cardsInfo = props.products.data;
@@ -81,7 +78,6 @@ const Main = (props) => {
       </div>
       <div id='divList' onClick={() => show ? setShow(false) : setShow(true)}>All Products</div>
       {show ? <AllProducts /> : ''}
-      <div id='allProductsDiv'><AllProducts /></div>
     </>
 
 

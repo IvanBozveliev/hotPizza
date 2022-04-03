@@ -35,7 +35,7 @@ const CreatePizza = (props) => {
                     <label htmlFor='inputImage'>Price:</label>
                     <input type='number' name='price' id='inputImage' />
                     <div>
-                        <input type='submit' value='Create' />
+                        {props.isLoading ? <div className="loader" ></div> : <input type='submit' value='Create' />}
                     </div>
 
                 </form>
@@ -48,6 +48,7 @@ const CreatePizza = (props) => {
 const mapStateToProps = (state) => {
     return {
         products: state.products.data,
+        isLoading: state.products.isLoading,
         error: state.products.error
     }
 }

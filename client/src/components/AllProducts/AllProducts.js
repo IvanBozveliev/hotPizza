@@ -8,15 +8,6 @@ import { connect } from 'react-redux';
 
 const AllProducts = (props) => {
 
-  // const AllProducts = ({fetchProducts}) => {
-  // let [state, setState] = useState([]);
-
-  // useEffect(() => {
-  //     getAllProducts() 
-  //       .then(result => setState(result))
-  // },[])
-
-
   useEffect(() => {
 
     props.fetchProducts()
@@ -46,11 +37,5 @@ const mapStateToProps = state => {
     products: state.products
   }
 }
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     fetchProducts: dispatch(fetchProducts())
-//   }
-// }
 
 export default connect(mapStateToProps, { fetchProducts, addCart })(AllProducts);
