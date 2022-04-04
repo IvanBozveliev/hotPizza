@@ -1,25 +1,23 @@
 import './FeedBack.css';
 import { getLocalStorage } from '../../services/storageService';
-import * as feedbackServices from '../../services/feedbackServices';
-import { useEffect, useState } from 'react';
-
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getCommentsAction, createCommentAction, deleteCommentAction, editCommentAction } from '../../actions/feedbackActions';
+import { useNavigate } from 'react-router-dom';
 
 import Comment from './Comment/Comment';
 
-const FeedBack = () => {
+const FeedBack = (props) => {
 
-  let [commentsArr, setCommentsArr] = useState([]);
-  let [error, setError] = useState('');
   let userInfo = getLocalStorage();
-
+  let history = useNavigate();
 
   useEffect(() => {
-    feedbackServices.getAllComments()
-      .then(comments => setCommentsArr(comments))
-  }, []);
+    props.getCommentsAction();
+  }, [])
 
-  const commentsOnHandler = (newComments) => {
-      setCommentsArr(newComments)
+  const deleteCommentHandler = (commentId) => {
+    props.deleteCommentAction(commentId)
   }
 
   const handleFeedback = (e) => {
@@ -27,29 +25,18 @@ const FeedBack = () => {
 
     let formData = new FormData(e.currentTarget);
     let comment = formData.get('comment');
-    let user = userInfo?.username;
-    let creator = userInfo?.id;
+    let user = props.auth.username;
+    let creator = props.auth.id;
+    let date = new Date().toString().slice(0, 24);
 
-    feedbackServices.postComment({ comment, user, creator })
-      .then((data) => {
-        if (data.message) {
-          setError(data.message);
-          setTimeout(() => {
-            setError('');
-          }, 2000)
-        }
-        feedbackServices.getAllComments()
-          .then(newData => {
-            setCommentsArr(newData)
-          })
-      })
+    props.createCommentAction({ comment, user, creator, date })
 
   }
 
 
   return (
     <>
-      {error && <div id='errorDiv'><p>{error}</p></div>}
+      {props.error && <div id='errorDiv'><p>{props.error}</p></div>}
       <div className='feedbackContent'>
         <h2>Feedback</h2>
         {userInfo?.username &&
@@ -62,15 +49,16 @@ const FeedBack = () => {
 
         <h3>Comments:</h3>
 
-        {commentsArr.length !== 0 ?
-          (commentsArr.map(commentData =>
+        {props.comments.length !== 0 ?
+          (props.comments.map(commentData =>
             <Comment
               key={commentData._id}
               id={commentData._id}
               user={commentData.user}
               comment={commentData.comment}
               date={commentData.date}
-              setNewComments={commentsOnHandler} />)
+              deleteComment={deleteCommentHandler}
+            />)
           ) : <p>Still don`t have comments...</p>
         }
 
@@ -80,4 +68,17 @@ const FeedBack = () => {
   )
 }
 
-export default FeedBack;
+const mapStateToProps = (state) => {
+  return {
+    comments: state.feedback.data,
+    auth: state.auth.user,
+    error: state.feedback.error
+  }
+}
+
+export default connect(mapStateToProps, {
+  getCommentsAction,
+  createCommentAction,
+  deleteCommentAction,
+  editCommentAction
+})(FeedBack);

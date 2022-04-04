@@ -13,8 +13,9 @@ router.get('/', (req, res) => {
 
 router.post('/', isAuthenticated, (req, res) => {
     feedbackService.createComment(req.body)
-        .then(() => res.json({ ok: true }))
-        .catch(error => res.status(400).json({message: `${error}`}))
+        // .then(() => res.json({ ok: true }))
+        .then(comment => res.json(comment))
+        .catch(error => res.status(400).json({ message: `${error}` }))
 });
 
 router.get('/:id', (req, res) => {
@@ -23,9 +24,10 @@ router.get('/:id', (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
+
     try {
         await feedbackService.editOneComment(req.params.id, req.body)
-        return res.json({ok: true});
+        return res.json({ ok: true });
     } catch (error) {
         res.json(400).send({ message: 'something went wrong' })
     }
@@ -34,7 +36,7 @@ router.put('/:id', async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
     await feedbackService.deleteOneComment(req.params.id);
-    res.json({ok: true})
+    res.json({ ok: true })
 });
 
 

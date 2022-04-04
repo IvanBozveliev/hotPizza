@@ -24,6 +24,7 @@ export const api = {
 
     request(method, endpoint, data, headers = {}) {
         const url = `${SERVER_DOMAIN}${endpoint}`;
+
         return fetch(url, {
             method,
             headers: {

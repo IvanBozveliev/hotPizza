@@ -1,42 +1,52 @@
 import "./EditFeedback.css";
-import * as feedbackServices from '../../services/feedbackServices';
+import { editCommentAction } from "../../actions/feedbackActions";
+import { useState } from "react";
+import { useNavigate, useParams } from 'react-router-dom';
+import { connect } from "react-redux";
 
-import { useEffect, useState } from "react";
-import {useNavigate, useParams} from 'react-router-dom';
+const EditFeedback = (props) => {
 
-const EditFeedback = () => {
-  
-  const [commentData, setCommentData] = useState('');
-  const {id} = useParams();
-  const navigate = useNavigate();
+  const history = useNavigate();
+  const { commentId } = useParams();
 
-  useEffect(() => { 
-    feedbackServices.getOneComment(id)
-      .then(result => setCommentData(result))
-  }, []);
+  const currentComment = props.comments.find(comment => comment.id === commentId);
 
 
   const onEditFeedbackHandler = (e) => {
-     e.preventDefault();
-    
-     let formData = new FormData(e.currentTarget);
-     let comment = formData.get('commentContent');
-     
-     feedbackServices.putOneComment(id, {comment})
-       .then(() => {
-           navigate('/feedback')
-       })
+    e.preventDefault();
+
+    let formData = new FormData(e.currentTarget);
+    let comment = formData.get('commentContent');
+
+    const newComment = {
+      ...currentComment,
+      comment: comment
+    }
+
+    props.editCommentAction(currentComment._id, newComment, history)
+
   }
 
-  return (
-    <div className="editFeedback">
-       <h2>Edit Comment</h2>
-       <form onSubmit={onEditFeedbackHandler} id='formEditFeedback'>
-           <textarea name='commentContent' id='textAreaStyle' defaultValue={commentData.comment}></textarea>
-           <button type="submit" id='submitBtnEditFeedback'>Send</button>
-       </form>
-    </div>
-  )
+  if (currentComment) {
+    return (
+      <div className="editFeedback">
+        <h2>Edit Comment</h2>
+        <form onSubmit={onEditFeedbackHandler} id='formEditFeedback'>
+          <textarea name='commentContent' id='textAreaStyle' defaultValue={currentComment.comment}></textarea>
+          <button type="submit" id='submitBtnEditFeedback'>Send</button>
+        </form>
+      </div>
+    )
+  }
+
+  return null
+
 }
 
-export default EditFeedback
+const mapStateToProps = (state) => {
+  return {
+    comments: state.feedback.data
+  }
+}
+
+export default connect(mapStateToProps, { editCommentAction })(EditFeedback)
