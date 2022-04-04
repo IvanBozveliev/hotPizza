@@ -42,9 +42,10 @@ export const productReducers = (state = initialState, action) => {
                 data: state.data.filter(item => item._id !== action.payload)
             }
         case "CREATE_PRODUCT":
+
             return {
                 ...state,
-                data: [...state.data, action.payload],
+                data: state.data.concat(action.payload),
                 error: null
             }
         default:

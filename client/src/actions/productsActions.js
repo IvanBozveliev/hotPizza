@@ -55,8 +55,12 @@ export const createProduct = (product, history) => {
                 'Authorization': 'Bearer ' + getLocalStorage()?.token,
                 'Content-Type': 'application/json',
             });
-            dispatch(createNewProduct(productResponse))
-            history('/')
+
+            if (productResponse.ok) {
+                dispatch(createNewProduct(product))
+                history('/')
+            }
+
         } catch (error) {
             dispatch(fetchProductsError(error.message))
         }

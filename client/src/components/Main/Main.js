@@ -7,8 +7,7 @@ import { addCart } from '../../actions/cartActions';
 import { fetchProducts } from '../../actions/productsActions';
 import { connect } from 'react-redux';
 
-let index = 0;
-let cards = [];
+
 
 const Main = (props) => {
 
@@ -17,16 +16,16 @@ const Main = (props) => {
   let [counter, setCounter] = useState(0);
   let [prevCounter, setPrevCounter] = useState(0);
   let [style, setStyle] = useState('mainStyle');
+  let cardsInfo = props.products.data;
 
   useEffect(() => {
 
+    let index = 0;
+    let cards = [];
 
     props.fetchProducts();
 
-
-
     (() => {
-      let cardsInfo = props.products.data;
 
       while (index < cardsInfo.length) {
 
@@ -79,8 +78,12 @@ const Main = (props) => {
         </div>
         <img src='../../../img/rightArrow.png' id='imgRight' onClick={() => setCounter(++counter)} />
       </div>
-      <div id='divList' onClick={() => show ? setShow(false) : setShow(true)}>All Products</div>
-      {show ? <AllProducts /> : ''}
+
+      <div id='divList'>
+        <p id='productsList' onClick={() => show ? setShow(false) : setShow(true)}>All Products</p>
+        {show ? <AllProducts /> : ''}
+      </div>
+
       <div id='allProductsDiv'><AllProducts /></div>
     </>
 
