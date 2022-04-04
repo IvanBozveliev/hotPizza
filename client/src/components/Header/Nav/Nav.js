@@ -28,7 +28,7 @@ const Nav = (props) => {
             <>
               <p className='userName'><Link to='/orders' id='userNameLink'>Welcome, {props.user}</Link></p>
               <Link to="/">Home</Link>
-              <Link to="/create-pizza">Create Pizza</Link>
+              {props.user && (props.role == 'admin' || props.role == 'editor') && <Link to="/create-pizza">Create Pizza</Link>}
               <Link to="/about">About</Link>
               <Link to="/feedback" id='feedback'>Feedback</Link>
               {props.user && props.role == 'admin' && <Link to="/users" >Users</Link>}

@@ -3,23 +3,19 @@ import { useState } from 'react';
 
 
 const UserCard = ({
-    user, 
-    id,
-    role,
-    deleteUserById
+    user,
+    deleteUserById,
+    editUserRole
 }) => {
+
     const [modal, setModal] = useState(false);
     const roles = ['client', 'editor', 'admin'];
-    
-    let result = roles.filter(x => x !== role);
-    
+
     const onClickBtn = (e) => {
-        
-        user.roles = e.target.innerText
-        console.log(user)
 
-
-    } 
+        user.roles = e.target.innerText;
+        editUserRole(user._id, user)
+    }
 
     return (
         <>
@@ -28,7 +24,7 @@ const UserCard = ({
                 <div className='modal'>
                     <div className='modalContent'>
                         <p id='txtModal'>Do you want to delete this user?</p>
-                        <button id="modalDel" onClick={() => deleteUserById(id)}>Delete</button>
+                        <button id="modalDel" onClick={() => deleteUserById(user._id)}>Delete</button>
                         <button id='modalCancel' onClick={() => setModal(false)}>Cancel</button>
                     </div>
 
@@ -38,15 +34,14 @@ const UserCard = ({
             <div className="usersDiv">
                 <div className='usersInfo'>
                     <h4 id='userName'>{user.username}</h4>
-                    <p id='currentRole'>{role}</p>
+                    <p id={`${user.roles}`}>{user.roles}</p>
                     <div id='allBtns'>
-                        {result.map(x => <button key={x} onClick={onClickBtn} className='changeRoleBtn'>{x}</button>)}
-                        {/* <button id={role === 'client' ? role : 'clientBtn'} onClick={() => console.log('work')}>client</button>
-                        <button id={role === 'editor' ? role : 'editorBtn'} onClick={() => console.log('work')}>editor</button>
-                        <button id={role === 'admin' ? role : 'adminBtn'} onClick={() => console.log('work')}>admin</button> */}
+
+                        {roles.map(btnRoles => <button key={btnRoles} onClick={onClickBtn} className='changeRoleBtn'>{btnRoles}</button>)}
+
                     </div>
-                    
-                   {role === 'admin' && <div id='delUserBtn' onClick={() => setModal(true)}><p id='txtDel'>X</p></div>} 
+
+                    {<div id='delUserBtn' onClick={() => setModal(true)}><p id='txtDel'>X</p></div>}
                 </div>
 
             </div>

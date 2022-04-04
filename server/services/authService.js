@@ -13,7 +13,7 @@ const register = async (username, password) => {
      let salt = await bcrypt.genSalt(SALT_ROUNDS);
      let hash = await bcrypt.hash(password, salt);
 
-     let user = new User({ username, password: hash, roles: 'admin' });
+     let user = new User({ username, password: hash, roles: 'client' });
      return user.save();
 }
 

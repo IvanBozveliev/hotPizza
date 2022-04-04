@@ -1,12 +1,12 @@
-import * as storageService from '../../../services/storageService'
-import * as feedbackService from '../../../services/feedbackServices';
+import * as storageService from '../../../services/storageService';
 import { useNavigate } from 'react-router-dom';
 
 const Comment = ({
-    user,
+    // user,
+    // data,
     comment,
-    date,
-    id,
+    // date,
+    // id,
     deleteComment
 }) => {
 
@@ -17,15 +17,15 @@ const Comment = ({
         <div className='comments'>
 
             <div className='contentComments'>
-                <h5 id='titleComment'>{user}</h5>
-                <p id='pComment'>{comment}</p>
-                <p id='dateComment'>{date}</p>
+                <h5 id='titleComment'>{comment.user}</h5>
+                <p id='pComment'>{comment.comment}</p>
+                <p id='dateComment'>{comment.date}</p>
 
                 {userName &&
-                    userName == user ?
+                    userName == comment.user ?
                     <>
-                        <button id='editbtn' onClick={() => navigate(`/feedback/edit/${id}`)}>Edit</button>
-                        <button id='deletebtn' onClick={() => deleteComment(id)}>Delete</button>
+                        <button id='editbtn' onClick={() => navigate(`/feedback/edit/${comment._id}`)}>Edit</button>
+                        <button id='deletebtn' onClick={() => deleteComment(comment._id)}>Delete</button>
                     </>
                     : ''
                 }

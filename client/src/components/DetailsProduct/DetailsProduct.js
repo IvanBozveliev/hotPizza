@@ -69,7 +69,7 @@ const DetailsProduct = (props) => {
                                 {image && <div className='imgCartDetails' onClick={() => addToCart(product)} />}
                                 {text ? <p id='txtDetails'>{text}</p> : ''}
 
-                                {props.user.role !== "user" &&
+                                {(props.user.role === "editor" || props.user.role === 'admin') &&
                                     <>
                                         <Link to={`/details/edit/${product._id}`} id="detailsEditBtn">Edit</Link>
                                         <button id="detailsDeleteBtn" onClick={() => setModal(true)}>Delete</button>

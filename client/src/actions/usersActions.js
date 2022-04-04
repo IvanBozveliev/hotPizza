@@ -1,62 +1,76 @@
-import * as userServices from '../services/userSerivces';
-import { usersApi } from '../services/usersApi';
-// export function getUser(userId){
-
-//     return{
-//         type: "GET_USER",
-//         id: userId
-//     }
-// }
-
-// export function getAllUsers(users){
-
-//     return{
-//         type: "GET_ALL_USERS",
-//         payload: users
-//     }
-// }
-
-// export function editUser(userId, userData){
-//     return {
-//         type: "EDIT_USER",
-//         id: userId,
-//         userData
-//     }
-// }
+import { getLocalStorage } from '../services/storageService';
+import { api } from '../services/api';
 
 export const fetchDeleteUser = (id) => {
-  
-   return (dispatch) => {
-      usersApi(id, 'DELETE', null)
-         .then(res => res.json())
-         .then(() => dispatch(deleteUser(id)))
-   }
+
+    return async (dispatch) => {
+        try {
+            let response = await api.delete(`/users/${id}`, null, {
+                'Authorization': 'Bearer ' + getLocalStorage()?.token,
+                'Content-Type': 'application/json',
+            })
+
+            if (response.ok) {
+                dispatch(deleteUser(id))
+            }
+        } catch (error) {
+            dispatch(usersError(error))
+        }
+    }
 }
 
 export const fetchGetAllUsers = () => {
     return async dispatch => {
         try {
-           let users = await userServices.getAllUsers()
-           dispatch({type: 'FETCH_USERS_SUCCESS', payload: users})
-        }catch(error){
-           dispatch({type: 'FETCH_USERS_ERRORS', error})
+            let users = await api.get('/users')
+
+            dispatch({ type: 'USERS_SUCCESS', payload: users })
+        } catch (error) {
+            dispatch({ type: 'USERS_ERROR', error })
         }
     }
 }
 
-function deleteUser(userId){
+export const fetchPutUser = (id, userData) => {
+    return async dispatch => {
+        try {
+            dispatch(isLoading())
+            let user = await api.put(`/users/${id}`, userData, {
+                'Authorization': 'Bearer ' + getLocalStorage()?.token,
+                'Content-Type': 'application/json',
+            })
 
-    return {
-        type: 'DELETE_USER',
-        id: userId
+            dispatch(editUser(user))
+        } catch (error) {
+            dispatch(usersError(error))
+        }
     }
 }
 
+const isLoading = () => {
+    return {
+        type: 'LOADING_USERS'
+    }
+}
 
+const editUser = (user) => {
+    return {
+        type: 'EDIT_USER',
+        payload: user
+    }
+}
 
-// const fetchUsersSuccess = users => {
-//     return {
-//         type: 'FETCH_USERS_SUCCESS',
-//         payload: users
-//     }
-// }
+const deleteUser = (userId) => {
+
+    return {
+        type: 'DELETE_USER',
+        payload: userId
+    }
+}
+
+const usersError = (error) => {
+    return {
+        type: 'USERS_ERROR',
+        error
+    }
+}

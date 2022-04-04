@@ -62,9 +62,29 @@
     color: black;
 }
 
-#currentRole {
+#admin {
     width: 60px;
     background-color: green;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    border: 1px solid;
+    padding: 2px;
+}
+
+#editor {
+    width: 60px;
+    background-color: rgb(145 155 6);
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    border: 1px solid;
+    padding: 2px;
+}
+
+#client {
+    width: 60px;
+    background-color: rgb(38, 0, 128);
     font-weight: bold;
     text-align: center;
     color: white;
@@ -94,24 +114,25 @@
     padding: 6px;
 } */
 
-.changeRoleBtn{
+.changeRoleBtn {
     background: none;
     border: none;
     font-size: 11px;
     width: 60px;
 }
-.changeRoleBtn:hover{
+
+.changeRoleBtn:hover {
     /* background-color: lime; */
     cursor: pointer;
     font-size: 18px;
 }
 
-@media only screen and (max-width: 890px){
-    .usersDiv{
+@media only screen and (max-width: 890px) {
+    .usersDiv {
         width: 550px;
     }
 
-    .usersDiv:hover{
+    .usersDiv:hover {
         width: 550px;
     }
 }

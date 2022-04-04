@@ -33,7 +33,6 @@ const FeedBack = (props) => {
 
   }
 
-
   return (
     <>
       {props.error && <div id='errorDiv'><p>{props.error}</p></div>}
@@ -53,10 +52,7 @@ const FeedBack = (props) => {
           (props.comments.map(commentData =>
             <Comment
               key={commentData._id}
-              id={commentData._id}
-              user={commentData.user}
-              comment={commentData.comment}
-              date={commentData.date}
+              comment={commentData}
               deleteComment={deleteCommentHandler}
             />)
           ) : <p>Still don`t have comments...</p>

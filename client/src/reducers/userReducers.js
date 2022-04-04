@@ -6,22 +6,38 @@ let initialState = {
 
 export const reducerUsers = (state = initialState, action) => {
     switch (action.type) {
-        case "FETCH_USERS_SUCCESS":
+        case "LOADING_USERS":
             return {
                 ...state,
-                data: action.payload
-            };
-        case "FETCH_USERS_ERRORS":
+                isLoading: true
+            }
+        case "USERS_SUCCESS":
             return {
-               ...state,
-               error: action.error
+                ...state,
+                data: action.payload,
+                isLoading: false
             };
+        case "USERS_ERRORS":
+            return {
+                ...state,
+                error: action.error,
+                isLoading: false
+            };
+        case "EDIT_USER":
+            const currentUser = action.payload;
+            const updatedArr = state.data.map(user => user._id === currentUser._id ? currentUser : user)
+            return {
+                ...state,
+                data: updatedArr,
+                isLoading: false
+            }
         case "DELETE_USER":
-            let userId = action.id;
-            let users = state.data.filter(user => user._id !== userId)
+            const userId = action.payload;
+            const users = state.data.filter(user => user._id !== userId)
             return {
-              ...state,
-              data: users
+                ...state,
+                data: users,
+                isLoading: false
             }
         default: return state
     }
