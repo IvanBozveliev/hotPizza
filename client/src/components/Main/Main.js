@@ -17,45 +17,42 @@ const Main = (props) => {
   let [prevCounter, setPrevCounter] = useState(0);
   let [style, setStyle] = useState('mainStyle');
   let cardsInfo = props.products.data;
+  let index = 0;
+  let cards = [];
 
   useEffect(() => {
 
-    let index = 0;
-    let cards = [];
-
     props.fetchProducts();
 
-    (() => {
+    while (index < cardsInfo.length) {
 
-      while (index < cardsInfo.length) {
+      cards.push(cardsInfo.slice(index, index + 3));
+      index += 3;
+    }
 
-        cards.push(cardsInfo.slice(index, index + 3));
-        index += 3;
-      }
+    if (0 > counter) {
 
-      if (0 > counter) {
+      setCounter(0);
+      return;
+    }
+    if (counter >= cards.length) {
+      setCounter(cards.length - 1);
+      return;
+    }
 
-        setCounter(0);
-        return;
-      }
-      if (counter >= cards.length) {
-        setCounter(cards.length - 1);
-        return;
-      }
+    if (prevCounter < counter) {
 
-      if (prevCounter < counter) {
+      setStyle('rightStyle');
+      setPrevCounter(counter);
 
-        setStyle('rightStyle');
-        setPrevCounter(counter);
+    } else if (prevCounter > counter) {
 
-      } else if (prevCounter > counter) {
+      setStyle('leftStyle')
+      setPrevCounter(counter);
+    }
 
-        setStyle('leftStyle')
-        setPrevCounter(counter);
-      }
+    setState(cards[counter])
 
-      setState(cards[counter])
-    })()
 
   }, [counter, prevCounter])
 
