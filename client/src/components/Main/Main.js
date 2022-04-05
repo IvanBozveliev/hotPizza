@@ -17,12 +17,15 @@ const Main = (props) => {
   let [prevCounter, setPrevCounter] = useState(0);
   let [style, setStyle] = useState('mainStyle');
   let cardsInfo = props.products.data;
-  let index = 0;
-  let cards = [];
+
 
   useEffect(() => {
-
     props.fetchProducts();
+  }, [])
+
+  useEffect(() => {
+    let index = 0;
+    let cards = [];
 
     while (index < cardsInfo.length) {
 
@@ -41,7 +44,7 @@ const Main = (props) => {
     }
 
     if (prevCounter < counter) {
-
+      console.log(`prev--${prevCounter}`)
       setStyle('rightStyle');
       setPrevCounter(counter);
 
