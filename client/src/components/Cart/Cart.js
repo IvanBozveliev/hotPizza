@@ -85,7 +85,7 @@ const Cart = (props) => {
 const mapStateToProps = (state) => {
     return {
         cart: state.cartProducts.cart,
-        userId: state.auth.user.id
+        userId: state.auth.user?.id
     }
 }
 
@@ -96,5 +96,6 @@ export default connect(mapStateToProps, {
     decreaseQty,
     deleteCart,
     deleteAllCartProducts,
-    createOrders
+    createOrders,
+
 })(Cart)
