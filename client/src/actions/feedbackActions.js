@@ -71,7 +71,7 @@ export const editCommentAction = (commentId, comment, history) => {
                 history(`/feedback`)
             }
         } catch (error) {
-            dispatch(errorComments(error))
+            dispatch(errorComments(error.message))
         }
     }
 }

@@ -1,8 +1,9 @@
 import './Cart.css';
 import Product from './Product/Product';
-// import {isAuth} from '../../hoc/isAuth'
 import { connect } from 'react-redux';
-import { getAllCartProducts, increaseQty, decreaseQty, deleteCart, deleteAllCartProducts, buyProducts } from '../../actions/cartActions';
+import { increaseQty, decreaseQty, deleteCart, deleteAllCartProducts } from '../../actions/cartActions';
+import { createOrders } from '../../actions/orderActions';
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -30,9 +31,10 @@ const Cart = (props) => {
 
     const onHandler = () => {
         let products = props.cart.data;
+
         setModal(false);
         props.deleteAllCartProducts();
-        props.buyProducts(products);
+        props.createOrders(products, props.userId, totalCart.toFixed(2));
     }
     return (
         <>
@@ -68,7 +70,7 @@ const Cart = (props) => {
 
                 <div id='totalDiv'>
                     <p><b>Total:</b></p>
-                    <p id='price'>{totalCart}.00 lv</p>
+                    <p id='price'>{totalCart.toFixed(2)} lv</p>
                     <button id='buy' onClick={() => setModal(true)}>BUY</button>
                     <button id='cancel' onClick={() => props.deleteAllCartProducts()}>CLEAR</button>
                 </div>
@@ -82,16 +84,17 @@ const Cart = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        cart: state.cartProducts.cart
+        cart: state.cartProducts.cart,
+        userId: state.auth.user.id
     }
 }
 
 
 export default connect(mapStateToProps, {
-    getAllCartProducts,
+
     increaseQty,
     decreaseQty,
     deleteCart,
     deleteAllCartProducts,
-    buyProducts
+    createOrders
 })(Cart)

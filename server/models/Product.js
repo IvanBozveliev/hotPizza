@@ -6,7 +6,7 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    description:{
+    description: {
         type: String,
         required: true,
     },
@@ -18,7 +18,7 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: true
     }
-   
+
 })
 
 module.exports = mongoose.model('Product', productSchema)

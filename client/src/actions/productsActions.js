@@ -24,7 +24,7 @@ export const fetchProducts = () => {
 
             dispatch(fetchProductsSuccess(products))
         } catch (error) {
-            dispatch(fetchProductsError(error))
+            dispatch(fetchProductsError(error.message))
         }
     }
 }

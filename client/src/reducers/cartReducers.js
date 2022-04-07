@@ -3,9 +3,6 @@ let initialState = {
         data: [],
         counter: 0
     },
-    orders: {
-        data: []
-    }
 }
 
 export const cartReducers = (state = initialState, action) => {
@@ -19,7 +16,9 @@ export const cartReducers = (state = initialState, action) => {
                     title: action.payload.title,
                     imageUrl: action.payload.imageUrl,
                     price: action.payload.price,
-                    description: action.payload.description
+                    description: action.payload.description,
+                    creator: action.payload.creator,
+                    isReady: action.payload.isReady
                 }
 
                 state.cart.data.push(product)
@@ -43,7 +42,9 @@ export const cartReducers = (state = initialState, action) => {
                         title: action.payload.title,
                         imageUrl: action.payload.imageUrl,
                         price: action.payload.price,
-                        description: action.payload.description
+                        description: action.payload.description,
+                        creator: action.payload.creator,
+                        isReady: action.payload.isReady
                     }
 
                     state.cart.data.push(prod);
@@ -57,10 +58,10 @@ export const cartReducers = (state = initialState, action) => {
                     counter: state.cart.counter
                 }
             }
-        case "GET_FROM_CART":
-            return {
-                ...state,
-            }
+        // case "GET_FROM_CART":
+        //     return {
+        //         ...state,
+        //     }
         case "INCREASE_QTY":
 
             state.cart.data.map((currentProduct, key) => {
@@ -107,13 +108,6 @@ export const cartReducers = (state = initialState, action) => {
                 cart: {
                     data: [],
                     counter: 0
-                }
-            }
-        case "ADD_TO_ORDERS":
-            return {
-                ...state,
-                orders: {
-                    data: action.payload
                 }
             }
         default:

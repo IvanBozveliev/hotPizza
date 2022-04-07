@@ -69,3 +69,61 @@
     }
 
 }
+
+.ordersList {
+    margin: auto;
+    width: 800px;
+    /* height: 200px; */
+    background-color: rgb(243, 243, 243);
+    border: 1px solid black;
+    margin-bottom: 22px;
+}
+
+ul {
+    list-style: none;
+    margin-right: 22px;
+    margin-left: -20px;
+}
+
+.listOrders {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: 372px 200px 200px;
+    border: 1px solid;
+    background: rgb(196 193 189);
+    margin: auto;
+}
+
+.listOrders:hover {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: 372px 200px 200px;
+    border: 1px solid;
+    background: rgb(165, 164, 163);
+    margin: auto;
+    cursor: pointer;
+}
+
+.myProductsList {
+    background-color: #f3f3f3;
+    width: 220px;
+    margin: auto;
+    padding: 4px;
+    border: 1px solid;
+    margin-top: 10px;
+}
+
+.myProductsList>p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.status {
+    margin-top: -6px;
+    margin-right: 212px;
+    color: rgb(128, 0, 0)
+}

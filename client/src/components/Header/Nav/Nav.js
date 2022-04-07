@@ -2,6 +2,7 @@ import './Nav.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchLogout } from '../../../actions/userAuthActions';
+import { getOrdersByUserId } from '../../../actions/orderActions';
 
 const Nav = (props) => {
 
@@ -11,9 +12,11 @@ const Nav = (props) => {
     props.fetchLogout(history)
   }
 
+  const loadOrders = () => {
+    props.getOrdersByUserId(props.user.id)
+  }
+
   return (
-
-
     <>
       <div className='navDiv'>
 
@@ -26,7 +29,11 @@ const Nav = (props) => {
         <div className='allLinks'>
           {props.isLogged ?
             <>
-              <p className='userName'><Link to='/orders' id='userNameLink'>Welcome, {props.user}</Link></p>
+              <p className='userName'>
+                <Link to='/orders' id='userNameLink' onClick={loadOrders}>
+                  Welcome, {props.user.username}
+                </Link>
+              </p>
               <Link to="/">Home</Link>
               {props.user && (props.role == 'admin' || props.role == 'editor') && <Link to="/create-pizza">Create Pizza</Link>}
               <Link to="/about">About</Link>
@@ -60,9 +67,9 @@ const mapStateToProps = (state) => {
   return {
     cart: state.cartProducts.cart,
     isLogged: state.auth.isLoggedIn,
-    user: state.auth.user?.username,
+    user: state.auth.user,
     role: state.auth.user?.role,
     error: state.auth.error
   }
 }
-export default connect(mapStateToProps, { fetchLogout })(Nav);
+export default connect(mapStateToProps, { fetchLogout, getOrdersByUserId })(Nav);

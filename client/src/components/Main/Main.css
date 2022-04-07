@@ -114,6 +114,13 @@
     cursor: pointer;
 }
 
+#logoCarousel {
+    width: 360px;
+    margin-left: 210px;
+    margin-top: 22px;
+
+}
+
 @media only screen and (max-width: 1073px) {
 
     .gridDiv {

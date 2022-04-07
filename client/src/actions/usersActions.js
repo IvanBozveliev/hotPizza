@@ -42,7 +42,7 @@ export const fetchPutUser = (id, userData) => {
 
             dispatch(editUser(user))
         } catch (error) {
-            dispatch(usersError(error))
+            dispatch(usersError(error.message))
         }
     }
 }

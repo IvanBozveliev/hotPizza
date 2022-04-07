@@ -54,11 +54,11 @@ export const api = {
 
             })
 
-        // .catch((error) => {
+            .catch((error) => {
 
-        //     throw error;
+                throw new Error(`Something went wrong`)
 
-        // });
+            });
 
     }
 

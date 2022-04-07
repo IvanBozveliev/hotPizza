@@ -49,7 +49,7 @@ export const fetchLogout = (history) => {
             dispatch(userLogoutSuccess())
             history('/login')
         } catch (error) {
-            dispatch(userLogoutError(error))
+            dispatch(userLogoutError(error.message))
         }
 
     }

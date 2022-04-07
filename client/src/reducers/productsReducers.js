@@ -21,7 +21,8 @@ export const productReducers = (state = initialState, action) => {
             return {
                 ...state,
                 data: action.payload,
-                isLoading: false
+                isLoading: false,
+                error: null,
             }
         case "FETCH_PRODUCTS_ERROR":
             return {
@@ -34,12 +35,14 @@ export const productReducers = (state = initialState, action) => {
             const newData = state.data.map(item => item._id === product._id ? product : item)
             return {
                 ...state,
-                data: newData
+                data: newData,
+                error: null
             }
         case "DELETE_PRODUCT":
             return {
                 ...state,
-                data: state.data.filter(item => item._id !== action.payload)
+                data: state.data.filter(item => item._id !== action.payload),
+                error: null
             }
         case "CREATE_PRODUCT":
 
