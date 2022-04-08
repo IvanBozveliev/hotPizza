@@ -1,3 +1,4 @@
+import { FETCH_USER, FETCH_USER_SUCCESS, FETCH_USER_ERROR, LOGOUT, LOGOUT_ERROR, LOGOUT_SUCCESS } from '../types/actionTypes';
 import * as storageService from '../services/storageService';
 import { api } from '../services/api';
 
@@ -57,20 +58,20 @@ export const fetchLogout = (history) => {
 
 const fetchUser = () => {
     return {
-        type: 'FETCH_USER'
+        type: FETCH_USER
     }
 }
 
 const fetchUserSuccess = (user) => {
     return {
-        type: 'FETCH_USER_SUCCESS',
+        type: FETCH_USER_SUCCESS,
         payload: user
     }
 }
 
 const fetchUserError = (error) => {
     return {
-        type: 'FETCH_USER_ERROR',
+        type: FETCH_USER_ERROR,
         error
     }
 }
@@ -78,20 +79,20 @@ const fetchUserError = (error) => {
 const userLogoutError = (error) => {
 
     return {
-        type: "LOGOUT_ERROR",
+        type: LOGOUT_ERROR,
         error
     }
 }
 
 const userLogoutSuccess = () => {
     return {
-        type: "LOGOUT_SUCCESS"
+        type: LOGOUT_SUCCESS
     }
 }
 
 const userLogout = () => {
     return {
-        type: "LOGOUT"
+        type: LOGOUT
     }
 }
 

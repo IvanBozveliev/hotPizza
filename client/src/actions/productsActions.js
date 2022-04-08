@@ -1,3 +1,4 @@
+import { CREATE_PRODUCT, DELETE_PRODUCT, FETCH_PRODUCTS_LOADING, FETCH_PRODUCTS_SUCCESS, FETCH_PRODUCTS_ERROR, UPDATE_PRODUCT } from '../types/actionTypes';
 import { api } from '../services/api';
 import { getLocalStorage } from '../services/storageService';
 
@@ -69,42 +70,42 @@ export const createProduct = (product, history) => {
 
 const createNewProduct = (product) => {
     return {
-        type: "CREATE_PRODUCT",
+        type: CREATE_PRODUCT,
         payload: product
     }
 }
 
 const removeProduct = (id) => {
     return {
-        type: "DELETE_PRODUCT",
+        type: DELETE_PRODUCT,
         payload: id
     }
 }
 
 const fetchProductsLoading = () => {
     return {
-        type: 'FETCH_PRODUCTS_LOADING'
+        type: FETCH_PRODUCTS_LOADING
     }
 }
 
 const fetchProductsSuccess = products => {
 
     return {
-        type: 'FETCH_PRODUCTS_SUCCESS',
+        type: FETCH_PRODUCTS_SUCCESS,
         payload: products
     }
 }
 
 const fetchProductsError = error => {
     return {
-        type: 'FETCH_PRODUCTS_ERROR',
+        type: FETCH_PRODUCTS_ERROR,
         error
     }
 }
 
 const updateProduct = (product) => {
     return {
-        type: 'UPDATE_PRODUCT',
+        type: UPDATE_PRODUCT,
         payload: product
     }
 }

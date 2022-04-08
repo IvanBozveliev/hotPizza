@@ -1,3 +1,5 @@
+import { ADD_TO_CART, INCREASE_QTY, DECREASE_QTY, DELETE_CART, DELETE_ALL_CART } from '../types/actionTypes';
+
 let initialState = {
     cart: {
         data: [],
@@ -7,7 +9,7 @@ let initialState = {
 
 export const cartReducers = (state = initialState, action) => {
     switch (action.type) {
-        case 'ADD_TO_CART':
+        case ADD_TO_CART:
 
             if (state.cart.length === 0) {
                 let product = {
@@ -58,11 +60,8 @@ export const cartReducers = (state = initialState, action) => {
                     counter: state.cart.counter
                 }
             }
-        // case "GET_FROM_CART":
-        //     return {
-        //         ...state,
-        //     }
-        case "INCREASE_QTY":
+
+        case INCREASE_QTY:
 
             state.cart.data.map((currentProduct, key) => {
                 if (currentProduct._id === action.payload._id) {
@@ -78,7 +77,7 @@ export const cartReducers = (state = initialState, action) => {
                     counter: state.cart.counter
                 }
             }
-        case "DECREASE_QTY":
+        case DECREASE_QTY:
             state.cart.data.map((currentProduct, key) => {
                 if (currentProduct._id === action.payload._id && currentProduct.quantity > 1) {
                     state.cart.data[key].quantity--;
@@ -92,7 +91,7 @@ export const cartReducers = (state = initialState, action) => {
                     counter: state.cart.counter
                 }
             }
-        case "DELETE_CART":
+        case DELETE_CART:
             let product = state.cart.data.find(prod => prod._id == action.id);
 
             return {
@@ -102,7 +101,7 @@ export const cartReducers = (state = initialState, action) => {
                     counter: state.cart.counter - product.quantity,
                 }
             }
-        case "DELETE_ALL_CART":
+        case DELETE_ALL_CART:
             return {
                 ...state,
                 cart: {

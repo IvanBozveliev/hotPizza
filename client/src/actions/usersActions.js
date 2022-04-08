@@ -1,3 +1,4 @@
+import { LOADING_USERS, USERS_SUCCESS, USERS_ERRORS, EDIT_USER, DELETE_USER } from '../types/actionTypes'
 import { getLocalStorage } from '../services/storageService';
 import { api } from '../services/api';
 
@@ -24,9 +25,9 @@ export const fetchGetAllUsers = () => {
         try {
             let users = await api.get('/users')
 
-            dispatch({ type: 'USERS_SUCCESS', payload: users })
+            dispatch({ type: USERS_SUCCESS, payload: users })
         } catch (error) {
-            dispatch({ type: 'USERS_ERROR', error })
+            dispatch({ type: USERS_ERRORS, error })
         }
     }
 }
@@ -49,13 +50,13 @@ export const fetchPutUser = (id, userData) => {
 
 const isLoading = () => {
     return {
-        type: 'LOADING_USERS'
+        type: LOADING_USERS
     }
 }
 
 const editUser = (user) => {
     return {
-        type: 'EDIT_USER',
+        type: EDIT_USER,
         payload: user
     }
 }
@@ -63,14 +64,14 @@ const editUser = (user) => {
 const deleteUser = (userId) => {
 
     return {
-        type: 'DELETE_USER',
+        type: DELETE_USER,
         payload: userId
     }
 }
 
 const usersError = (error) => {
     return {
-        type: 'USERS_ERROR',
+        type: USERS_ERRORS,
         error
     }
 }

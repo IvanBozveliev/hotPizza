@@ -1,3 +1,5 @@
+import { LOADING_ORDERS, POST_ORDERS_SUCCESS, GET_ORDERS_SUCCESS, ORDERS_ERROR, } from '../types/actionTypes';
+
 import { api } from '../services/api';
 import { getLocalStorage } from '../services/storageService';
 import { v4 as uuid } from "uuid";
@@ -48,26 +50,26 @@ export const getOrdersByUserId = (userId) => {
 
 const postOrderSuccess = () => {
     return {
-        type: 'POST_ORDERS_SUCCESS',
+        type: POST_ORDERS_SUCCESS,
     }
 }
 
 const loadingOrders = () => {
     return {
-        type: 'LOADING_ORDERS',
+        type: LOADING_ORDERS,
     }
 }
 
 const ordersError = (error) => {
     return {
-        type: 'ORDERS_ERROR',
+        type: ORDERS_ERROR,
         error
     }
 }
 
 const getOrderSuccess = (orders) => {
     return {
-        type: 'GET_ORDERS_SUCCESS',
+        type: GET_ORDERS_SUCCESS,
         payload: orders
     }
 }

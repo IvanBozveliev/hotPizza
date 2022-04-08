@@ -1,3 +1,4 @@
+import { LOADING_PRODUCTS, GET_PRODUCTS_BY_ORDER_ID_SUCCESS, ORDERED_PRODUCTS_ERROR, } from '../types/actionTypes'
 let initialState = {
     error: null,
     isLoading: false,
@@ -6,14 +7,14 @@ let initialState = {
 
 export const orderedProductsReducers = (state = initialState, action) => {
     switch (action.type) {
-        case 'LOADING_PRODUCTS':
+        case LOADING_PRODUCTS:
             return {
                 ...state,
                 error: null,
                 isLoading: true,
                 data: [],
             }
-        case 'GET_PRODUCTS_BY_ORDER_ID_SUCCESS':
+        case GET_PRODUCTS_BY_ORDER_ID_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
@@ -21,7 +22,7 @@ export const orderedProductsReducers = (state = initialState, action) => {
                 data: action.payload,
             };
 
-        case 'ORDERED_PRODUCTS_ERROR':
+        case ORDERED_PRODUCTS_ERROR:
             return {
                 ...state,
                 error: action.error,

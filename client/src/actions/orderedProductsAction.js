@@ -1,5 +1,7 @@
+import { LOADING_PRODUCTS, GET_PRODUCTS_BY_ORDER_ID_SUCCESS, ORDERED_PRODUCTS_ERROR, } from '../types/actionTypes'
+
 import { api } from '../services/api';
-import { getLocalStorage } from '../services/storageService';
+
 
 export const getProductsByOrderId = (orderId) => {
     return async dispatch => {
@@ -22,7 +24,7 @@ export const getProductsByOrderId = (orderId) => {
 
 const loadingProducts = () => {
     return {
-        type: 'LOADING_PRODUCTS',
+        type: LOADING_PRODUCTS,
     }
 }
 
@@ -31,14 +33,14 @@ const loadingProducts = () => {
 
 const getProductsError = (error) => {
     return {
-        type: 'ORDERED_PRODUCTS_ERROR',
+        type: ORDERED_PRODUCTS_ERROR,
         error
     }
 }
 
 const getProductsByOrderIdSuccess = (orders) => {
     return {
-        type: 'GET_PRODUCTS_BY_ORDER_ID_SUCCESS',
+        type: GET_PRODUCTS_BY_ORDER_ID_SUCCESS,
         payload: orders
     }
 }

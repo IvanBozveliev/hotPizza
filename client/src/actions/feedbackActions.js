@@ -1,3 +1,5 @@
+import { ALL_COMMENTS_SUCCESS, CREATE_COMMENT, DELETE_COMMENT, EDIT_COMMENT, COMMENTS_ERROR, LOADING_COMMENTS } from '../types/actionTypes'
+
 import { api } from '../services/api';
 import { getLocalStorage } from '../services/storageService';
 
@@ -79,41 +81,41 @@ export const editCommentAction = (commentId, comment, history) => {
 
 const loadingComments = () => {
     return {
-        type: 'LOADING_COMMENTS'
+        type: LOADING_COMMENTS
     }
 }
 
 const getAllComments = (comments) => {
     return {
-        type: 'ALL_COMMENTS_SUCCESS',
+        type: ALL_COMMENTS_SUCCESS,
         payload: comments
     }
 }
 
 const createComment = (comment) => {
     return {
-        type: 'CREATE_COMMENT',
+        type: CREATE_COMMENT,
         payload: comment
     }
 }
 
 const deleteComment = (id) => {
     return {
-        type: 'DELETE_COMMENT',
+        type: DELETE_COMMENT,
         payload: id
     }
 }
 
 const editComment = (comment) => {
     return {
-        type: 'EDIT_COMMENT',
+        type: EDIT_COMMENT,
         payload: comment
     }
 }
 
 const errorComments = (error) => {
     return {
-        type: 'COMMENTS_ERROR',
+        type: COMMENTS_ERROR,
         error
     }
 }

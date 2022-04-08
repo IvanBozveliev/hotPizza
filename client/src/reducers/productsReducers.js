@@ -1,3 +1,5 @@
+import { CREATE_PRODUCT, DELETE_PRODUCT, FETCH_PRODUCTS_LOADING, FETCH_PRODUCTS_SUCCESS, FETCH_PRODUCTS_ERROR, UPDATE_PRODUCT } from '../types/actionTypes';
+
 let initialState = {
 
     isLoading: false,
@@ -9,7 +11,7 @@ let initialState = {
 export const productReducers = (state = initialState, action) => {
     switch (action.type) {
 
-        case "FETCH_PRODUCTS_LOADING":
+        case FETCH_PRODUCTS_LOADING:
             return {
                 ...state,
                 isLoading: true,
@@ -17,20 +19,20 @@ export const productReducers = (state = initialState, action) => {
                 data: []
             }
 
-        case 'FETCH_PRODUCTS_SUCCESS':
+        case FETCH_PRODUCTS_SUCCESS:
             return {
                 ...state,
                 data: action.payload,
                 isLoading: false,
                 error: null,
             }
-        case "FETCH_PRODUCTS_ERROR":
+        case FETCH_PRODUCTS_ERROR:
             return {
                 ...state,
                 error: action.error,
                 isLoading: false
             }
-        case "UPDATE_PRODUCT":
+        case UPDATE_PRODUCT:
             const product = action.payload
             const newData = state.data.map(item => item._id === product._id ? product : item)
             return {
@@ -38,13 +40,13 @@ export const productReducers = (state = initialState, action) => {
                 data: newData,
                 error: null
             }
-        case "DELETE_PRODUCT":
+        case DELETE_PRODUCT:
             return {
                 ...state,
                 data: state.data.filter(item => item._id !== action.payload),
                 error: null
             }
-        case "CREATE_PRODUCT":
+        case CREATE_PRODUCT:
 
             return {
                 ...state,
