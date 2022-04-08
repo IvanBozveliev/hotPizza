@@ -1,5 +1,5 @@
 import { FETCH_USER, FETCH_USER_SUCCESS, FETCH_USER_ERROR, LOGOUT, LOGOUT_ERROR, LOGOUT_SUCCESS } from '../types/actionTypes';
-import * as storageService from '../services/storageService';
+import * as storageService from '../../services/storageService';
 
 const user = storageService.getLocalStorage();
 

@@ -1,6 +1,6 @@
 import { LOADING_USERS, USERS_SUCCESS, USERS_ERRORS, EDIT_USER, DELETE_USER } from '../types/actionTypes'
-import { getLocalStorage } from '../services/storageService';
-import { api } from '../services/api';
+import { getLocalStorage } from '../../services/storageService';
+import { api } from '../../services/api';
 
 export const fetchDeleteUser = (id) => {
 

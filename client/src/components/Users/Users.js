@@ -1,7 +1,7 @@
 import './Users.css';
 import UserCard from '../UserCard/UserCard';
 import { connect } from 'react-redux';
-import { fetchDeleteUser, fetchGetAllUsers, fetchPutUser } from "../../actions/usersActions";
+import { fetchDeleteUser, fetchGetAllUsers, fetchPutUser } from "../../redux/actions/usersActions";
 import { useEffect } from 'react';
 
 const Users = (props) => {
