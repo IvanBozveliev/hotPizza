@@ -3,7 +3,7 @@ import './Register.css';
 import { useNavigate } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { fetchRegisterUser } from '../../actions/userAuthActions';
+import { fetchRegisterUser } from '../../redux/actions/userAuthActions';
 import { useEffect } from 'react';
 
 const Register = (props) => {

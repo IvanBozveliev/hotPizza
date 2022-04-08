@@ -1,6 +1,6 @@
 import './MyOrders.css';
 import { connect } from 'react-redux';
-import { getProductsByOrderId } from '../../actions/orderedProductsAction';
+import { getProductsByOrderId } from '../../redux/actions/orderedProductsAction';
 
 const MyOrders = (props) => {
 

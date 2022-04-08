@@ -1,8 +1,8 @@
 import './AllProducts.css';
 import Card from '../Main/Card/Card';
 import { useEffect, useState } from 'react';
-import { addCart } from '../../actions/cartActions';
-import { fetchProducts } from '../../actions/productsActions';
+import { addCart } from '../../redux/actions/cartActions';
+import { fetchProducts } from '../../redux/actions/productsActions';
 import { connect } from 'react-redux';
 
 

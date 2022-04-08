@@ -1,6 +1,6 @@
 import { LOADING_PRODUCTS, GET_PRODUCTS_BY_ORDER_ID_SUCCESS, ORDERED_PRODUCTS_ERROR, } from '../types/actionTypes'
 
-import { api } from '../services/api';
+import { api } from '../../services/api';
 
 
 export const getProductsByOrderId = (orderId) => {

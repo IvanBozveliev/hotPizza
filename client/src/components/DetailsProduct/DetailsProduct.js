@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { addCart } from '../../actions/cartActions';
-import { deleteProduct } from '../../actions/productsActions';
+import { addCart } from '../../redux/actions/cartActions';
+import { deleteProduct } from '../../redux/actions/productsActions';
 import { useNavigate } from 'react-router-dom';
 
 const DetailsProduct = (props) => {

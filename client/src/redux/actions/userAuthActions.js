@@ -1,6 +1,6 @@
 import { FETCH_USER, FETCH_USER_SUCCESS, FETCH_USER_ERROR, LOGOUT, LOGOUT_ERROR, LOGOUT_SUCCESS } from '../types/actionTypes';
-import * as storageService from '../services/storageService';
-import { api } from '../services/api';
+import * as storageService from '../../services/storageService';
+import { api } from '../../services/api';
 
 export const fetchRegisterUser = (data) => {
     return async dispatch => {

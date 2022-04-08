@@ -1,5 +1,5 @@
 import "./EditFeedback.css";
-import { editCommentAction } from "../../actions/feedbackActions";
+import { editCommentAction } from "../../redux/actions/feedbackActions";
 import { useState } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 import { connect } from "react-redux";

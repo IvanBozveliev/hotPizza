@@ -1,8 +1,8 @@
 import './Cart.css';
 import Product from './Product/Product';
 import { connect } from 'react-redux';
-import { increaseQty, decreaseQty, deleteCart, deleteAllCartProducts } from '../../actions/cartActions';
-import { createOrders } from '../../actions/orderActions';
+import { increaseQty, decreaseQty, deleteCart, deleteAllCartProducts } from '../../redux/actions/cartActions';
+import { createOrders } from '../../redux/actions/orderActions';
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';

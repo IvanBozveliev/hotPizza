@@ -3,8 +3,8 @@ import Card from './Card/Card.js';
 import AllProducts from '../AllProducts/AllProducts.js';
 import { useEffect, useState } from 'react';
 
-import { addCart } from '../../actions/cartActions';
-import { fetchProducts } from '../../actions/productsActions';
+import { addCart } from '../../redux/actions/cartActions';
+import { fetchProducts } from '../../redux/actions/productsActions';
 import { connect } from 'react-redux';
 
 

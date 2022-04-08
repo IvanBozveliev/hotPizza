@@ -1,6 +1,6 @@
 import './EditProduct.css'
 import { useNavigate, useParams } from 'react-router-dom';
-import { editProduct } from '../../actions/productsActions';
+import { editProduct } from '../../redux/actions/productsActions';
 import { connect } from 'react-redux';
 
 const EditProduct = (props) => {

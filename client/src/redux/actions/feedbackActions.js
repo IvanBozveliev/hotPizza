@@ -1,7 +1,7 @@
 import { ALL_COMMENTS_SUCCESS, CREATE_COMMENT, DELETE_COMMENT, EDIT_COMMENT, COMMENTS_ERROR, LOADING_COMMENTS } from '../types/actionTypes'
 
-import { api } from '../services/api';
-import { getLocalStorage } from '../services/storageService';
+import { api } from '../../services/api';
+import { getLocalStorage } from '../../services/storageService';
 
 
 export const getCommentsAction = () => {

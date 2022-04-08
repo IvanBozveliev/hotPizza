@@ -1,6 +1,6 @@
 import { CREATE_PRODUCT, DELETE_PRODUCT, FETCH_PRODUCTS_LOADING, FETCH_PRODUCTS_SUCCESS, FETCH_PRODUCTS_ERROR, UPDATE_PRODUCT } from '../types/actionTypes';
-import { api } from '../services/api';
-import { getLocalStorage } from '../services/storageService';
+import { api } from '../../services/api';
+import { getLocalStorage } from '../../services/storageService';
 
 export const deleteProduct = (id, history) => {
     return async dispatch => {

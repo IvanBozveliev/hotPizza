@@ -1,10 +1,8 @@
 import './Login.css';
-// import * as authServices from '../../services/authServices.js';
-// import { setLocalStorage } from '../../services/storageService.js';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { fetchLoginUser } from '../../actions/userAuthActions'
+import { fetchLoginUser } from '../../redux/actions/userAuthActions'
 import { useEffect } from 'react';
 
 let Login = (props) => {

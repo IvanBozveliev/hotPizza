@@ -1,7 +1,7 @@
 import './CreatePizza.css';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { createProduct } from '../../actions/productsActions';
+import { createProduct } from '../../redux/actions/productsActions';
 
 const CreatePizza = (props) => {
 

@@ -1,8 +1,8 @@
 import './Nav.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchLogout } from '../../../actions/userAuthActions';
-import { getOrdersByUserId } from '../../../actions/orderActions';
+import { fetchLogout } from '../../../redux/actions/userAuthActions';
+import { getOrdersByUserId } from '../../../redux/actions/orderActions';
 
 const Nav = (props) => {
 

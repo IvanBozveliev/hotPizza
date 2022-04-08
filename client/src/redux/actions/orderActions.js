@@ -1,7 +1,7 @@
 import { LOADING_ORDERS, POST_ORDERS_SUCCESS, GET_ORDERS_SUCCESS, ORDERS_ERROR, } from '../types/actionTypes';
 
-import { api } from '../services/api';
-import { getLocalStorage } from '../services/storageService';
+import { api } from '../../services/api';
+import { getLocalStorage } from '../../services/storageService';
 import { v4 as uuid } from "uuid";
 
 
