@@ -169,3 +169,38 @@ ul {
         color: rgb(128, 0, 0)
     }
 }
+
+.loaderContent {
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+    width: 400px;
+    height: 300px;
+    padding: auto;
+    padding-top: 100px;
+    background-color: white;
+}
+
+.errorContent {
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+    width: 400px;
+    height: 200px;
+    padding: auto;
+    padding-top: 100px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+/* .loaderOrders {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #030303;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+    margin: auto;
+    margin-top: 144px;
+    margin-left: 166px;
+} */

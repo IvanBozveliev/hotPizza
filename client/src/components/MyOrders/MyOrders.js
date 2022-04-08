@@ -7,10 +7,18 @@ const MyOrders = (props) => {
     const { isLoading, data, error } = props.orders;
 
     if (isLoading) {
-        return <h2>Loading list...</h2>
+        return <div className='loaderContent'>
+            {/* <div className="loaderOrders" /> */}
+            <p><b>Loading...</b></p>
+            <img src="https://codemyui.com/wp-content/uploads/2019/01/Rotating-Pizza-Slice-Preloader.gif" width={400} />
+        </div>
     }
     if (error) {
-        return <h2>Ooops, something went wrong!</h2>
+
+        return <div className='errorContent'>
+            <h2>Ooops, something went wrong!</h2>
+        </div>
+
     }
 
     return (
@@ -21,17 +29,15 @@ const MyOrders = (props) => {
                     <p id='TextOrder'>Your order list is empty</p> :
                     <div className='ordersList'>
                         <ul>
-                            {
-                                data.map(function (item, index) {
+                            {data.map((item, index) =>
+                                <li className='listOrders' key={index} onClick={() => props.getProductsByOrderId(item.orderId)}>
+                                    <p>OrderId: {item.orderId}</p>
+                                    <p>Created Date: {item.createdDate}</p>
+                                    <p>Total: {item.orderTotal} lv</p>
+                                    <p className='status'>Status: {item.status}</p>
+                                </li>
+                            )}
 
-                                    return <li className='listOrders' key={index} onClick={() => props.getProductsByOrderId(item.orderId)}>
-                                        <p>OrderId: {item.orderId}</p>
-                                        <p>Created Date: {item.createdDate}</p>
-                                        <p>Total: {item.orderTotal} lv</p>
-                                        <p className='status'>Status: {item.status}</p>
-                                    </li>;
-                                })
-                            }
                         </ul>
                     </div>
                 }

@@ -26,9 +26,7 @@ let Login = (props) => {
         if (props.isLogged) {
             navigate('/')
         }
-        // }else{
-        //    setError(props.error)
-        // }
+
     }, [props])
 
 
