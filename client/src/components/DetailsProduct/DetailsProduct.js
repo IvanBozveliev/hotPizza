@@ -1,9 +1,7 @@
 import './DetailsProduct.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import * as productService from '../../services/productServices';
-import * as userService from '../../services/userSerivces';
-import * as storageService from '../../services/storageService';
+
 import { connect } from 'react-redux';
 import { addCart } from '../../actions/cartActions';
 import { deleteProduct } from '../../actions/productsActions';
