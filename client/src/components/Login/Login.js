@@ -1,6 +1,5 @@
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import { connect } from 'react-redux';
 import { fetchLoginUser } from '../../redux/actions/userAuthActions'
 import { useEffect } from 'react';
@@ -8,7 +7,6 @@ import { useEffect } from 'react';
 let Login = (props) => {
 
     let navigate = useNavigate();
-    // let [error, setError] = useState('');
 
     const loginHandler = (e) => {
         e.preventDefault();
