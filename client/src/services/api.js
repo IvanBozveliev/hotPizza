@@ -29,9 +29,7 @@ export const api = {
             method,
             headers: {
                 'Content-Type': 'application/json',
-                ...headers,
-                //  'Access-Control-Allow-Origin': 'http://localhost:5000',
-                // 'Access-Control-Allow-Credentials': 'true'
+                ...headers
             },
 
             body: data ? JSON.stringify(data) : null

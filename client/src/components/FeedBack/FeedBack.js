@@ -3,14 +3,13 @@ import { getLocalStorage } from '../../services/storageService';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getCommentsAction, createCommentAction, deleteCommentAction, editCommentAction } from '../../redux/actions/feedbackActions';
-import { useNavigate } from 'react-router-dom';
+
 
 import Comment from './Comment/Comment';
 
 const FeedBack = (props) => {
 
   let userInfo = getLocalStorage();
-  let history = useNavigate();
 
   useEffect(() => {
     props.getCommentsAction();

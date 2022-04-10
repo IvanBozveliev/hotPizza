@@ -12,9 +12,9 @@ const Nav = (props) => {
     props.fetchLogout(history)
   }
 
-  const loadOrders = () => {
-    props.getOrdersByUserId(props.user.id)
-  }
+  // const loadOrders = () => {
+  //   props.getOrdersByUserId(props.user.id)
+  // }
 
   return (
     <>
@@ -30,7 +30,7 @@ const Nav = (props) => {
           {props.isLogged ?
             <>
               <p className='userName'>
-                <Link to='/orders' id='userNameLink' onClick={loadOrders}>
+                <Link to='/orders' id='userNameLink'>
                   Welcome, {props.user.username}
                 </Link>
               </p>

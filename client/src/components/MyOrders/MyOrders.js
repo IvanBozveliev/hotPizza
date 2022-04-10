@@ -1,14 +1,23 @@
 import './MyOrders.css';
 import { connect } from 'react-redux';
 import { getProductsByOrderId } from '../../redux/actions/orderedProductsAction';
+import { editOrder, getOrdersByUserId } from '../../redux/actions/orderActions';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const MyOrders = (props) => {
 
     const { isLoading, data, error } = props.orders;
+    const history = useNavigate();
+
+    useEffect(() => {
+
+        props.getOrdersByUserId(props.user.id)
+    }, []);
+
 
     if (isLoading) {
         return <div className='loaderContent'>
-            {/* <div className="loaderOrders" /> */}
             <p><b>Loading...</b></p>
             <img src="https://codemyui.com/wp-content/uploads/2019/01/Rotating-Pizza-Slice-Preloader.gif" width={400} />
         </div>
@@ -21,6 +30,17 @@ const MyOrders = (props) => {
 
     }
 
+    const orderUpdateHandler = (order) => {
+
+        if (props.user.role == 'admin') {
+
+            let newOrder = { ...order, status: 'Processed' }
+            props.editOrder(newOrder, history)
+            props.getOrdersByUserId(props.user.id)
+        }
+    }
+
+
     return (
         <>
             <div className='myOrdersContent'>
@@ -30,11 +50,11 @@ const MyOrders = (props) => {
                     <div className='ordersList'>
                         <ul>
                             {data.map((item, index) =>
-                                <li className='listOrders' key={index} onClick={() => props.getProductsByOrderId(item.orderId)}>
-                                    <p>OrderId: {item.orderId}</p>
+                                <li className='listOrders' key={index} >
+                                    <p onClick={() => props.getProductsByOrderId(item.orderId)}>OrderId: {item.orderId}</p>
                                     <p>Created Date: {item.createdDate}</p>
                                     <p>Total: {item.orderTotal} lv</p>
-                                    <p className='status'>Status: {item.status}</p>
+                                    <p className={`${item.status == 'In Progress' ? 'status' : 'statusOK'}`} onClick={() => orderUpdateHandler(item)}>Status: {item.status}</p>
                                 </li>
                             )}
 
@@ -65,9 +85,10 @@ const MyOrders = (props) => {
 const mapStateToProps = (state) => {
     return {
         orders: state.orders,
-        orderedProducts: state.orderedProducts.data
+        orderedProducts: state.orderedProducts.data,
+        user: state.auth.user
     }
 
 }
 
-export default connect(mapStateToProps, { getProductsByOrderId })(MyOrders)
+export default connect(mapStateToProps, { getProductsByOrderId, getOrdersByUserId, editOrder })(MyOrders)

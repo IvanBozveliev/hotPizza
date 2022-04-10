@@ -1,4 +1,4 @@
-import { LOADING_ORDERS, POST_ORDERS_SUCCESS, GET_ORDERS_SUCCESS, ORDERS_ERROR, } from '../types/actionTypes';
+import { LOADING_ORDERS, POST_ORDERS_SUCCESS, GET_ORDERS_SUCCESS, ORDERS_ERROR, UPDATE_ORDER } from '../types/actionTypes';
 
 import { api } from '../../services/api';
 import { getLocalStorage } from '../../services/storageService';
@@ -29,6 +29,25 @@ export const createOrders = (data, userId, orderTotal) => {
 
         } catch (error) {
             dispatch(ordersError(error.message))
+        }
+    }
+}
+
+export const editOrder = (data, history) => {
+    return async dispatch => {
+        try {
+            dispatch(loadingOrders())
+            const res = await api.put(`/orders/${data._id}`, data, {
+                'Authorization': 'Bearer ' + getLocalStorage()?.token,
+                'Content-Type': 'application/json',
+
+            });
+
+            dispatch(putOrderSuccess(res))
+            history('/orders')
+
+        } catch (error) {
+            dispatch(ordersError(error))
         }
     }
 }
@@ -71,6 +90,13 @@ const getOrderSuccess = (orders) => {
     return {
         type: GET_ORDERS_SUCCESS,
         payload: orders
+    }
+}
+
+const putOrderSuccess = (order) => {
+    return {
+        type: UPDATE_ORDER,
+        payload: order
     }
 }
 

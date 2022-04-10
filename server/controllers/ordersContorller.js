@@ -16,7 +16,7 @@ router.get('/list/:orderId', (req, res) => {
 
 router.put(`/:id`, (req, res) => {
     ordersService.putOrders(req.params.id, req.body)
-        .then(orders => res.json(orders))
+        .then(order => res.json(order))
 })
 
 router.post(`/`, async (req, res) => {

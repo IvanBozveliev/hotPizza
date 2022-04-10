@@ -9,9 +9,9 @@ const getAllOrders = async (userId) => {
     return filteredOrders;
 }
 
-// function putOrders(orderId, data) {
-//     return Orders.updateOne({ _id: orderId }, data)
-// }
+const putOrders = async (orderId, data) => {
+    return await Orders.updateOne({ _id: orderId }, data)
+}
 
 const getProductsByOrderId = async (orderId) => {
     const allProducts = await OrderedProducts.find({});
@@ -40,7 +40,7 @@ const createOrder = (order) => {
 
 module.exports = {
     getAllOrders,
-    // putOrders,
+    putOrders,
     createOrder,
     getProductsByOrderId,
 }

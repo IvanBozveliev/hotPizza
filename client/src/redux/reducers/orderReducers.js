@@ -1,4 +1,4 @@
-import { LOADING_ORDERS, POST_ORDERS_SUCCESS, GET_ORDERS_SUCCESS, ORDERS_ERROR, } from '../types/actionTypes';
+import { LOADING_ORDERS, POST_ORDERS_SUCCESS, GET_ORDERS_SUCCESS, ORDERS_ERROR, UPDATE_ORDER } from '../types/actionTypes';
 let initialState = {
     data: [], // all orders by userId
     error: null,
@@ -28,7 +28,14 @@ export const ordersReducers = (state = initialState, action) => {
                 error: null,
                 data: action.payload,
             };
-
+        case UPDATE_ORDER:
+            let ordersArr = state.data.map(order => order._id === action.payload._id ? action.payload : order)
+            return {
+                ...state,
+                data: ordersArr,
+                error: null,
+                isLoading: false
+            }
         case ORDERS_ERROR:
             return {
                 ...state,
