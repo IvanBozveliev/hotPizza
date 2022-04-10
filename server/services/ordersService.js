@@ -1,12 +1,19 @@
 const OrderedProducts = require('../models/OrderedProducts');
 const Orders = require('../models/Orders');
+const User = require('../models/User');
+
 const { getCurrentDate } = require('../utils');
 
 const getAllOrders = async (userId) => {
     const allOrders = await Orders.find({});
+    const user = await User.findById(userId)
+    if (user.roles !== 'admin') {
+        const filteredOrders = allOrders.filter((order) => order.userId === userId)
+        return filteredOrders;
+    } else {
+        return allOrders
+    }
 
-    const filteredOrders = allOrders.filter((order) => order.userId === userId)
-    return filteredOrders;
 }
 
 const putOrders = async (orderId, data) => {
