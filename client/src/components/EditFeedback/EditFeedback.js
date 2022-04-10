@@ -7,9 +7,10 @@ import { connect } from "react-redux";
 const EditFeedback = (props) => {
 
   const history = useNavigate();
-  const { commentId } = useParams();
+  const { id } = useParams();
+  console.log(id)
 
-  const currentComment = props.comments.find(comment => comment.id === commentId);
+  const currentComment = props.comments.find(comment => comment._id === id);
 
 
   const onEditFeedbackHandler = (e) => {

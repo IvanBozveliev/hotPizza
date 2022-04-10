@@ -53,6 +53,7 @@ const FeedBack = (props) => {
               key={commentData._id}
               comment={commentData}
               deleteComment={deleteCommentHandler}
+              role={props.auth?.role}
             />)
           ) : <p>Still don`t have comments...</p>
         }

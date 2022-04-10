@@ -2,12 +2,9 @@ import * as storageService from '../../../services/storageService';
 import { useNavigate } from 'react-router-dom';
 
 const Comment = ({
-    // user,
-    // data,
     comment,
-    // date,
-    // id,
-    deleteComment
+    deleteComment,
+    role
 }) => {
 
     let userName = storageService.getLocalStorage()?.username;
@@ -22,7 +19,7 @@ const Comment = ({
                 <p id='dateComment'>{comment.date}</p>
 
                 {userName &&
-                    userName == comment.user ?
+                    (userName == comment.user || role == 'admin') ?
                     <>
                         <button id='editbtn' onClick={() => navigate(`/feedback/edit/${comment._id}`)}>Edit</button>
                         <button id='deletebtn' onClick={() => deleteComment(comment._id)}>Delete</button>
