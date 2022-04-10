@@ -6,7 +6,8 @@ const { getCurrentDate } = require('../utils');
 
 const getAllOrders = async (userId) => {
     const allOrders = await Orders.find({});
-    const user = await User.findById(userId)
+
+    const user = await User.findOne({ userId })
     if (user.roles !== 'admin') {
         const filteredOrders = allOrders.filter((order) => order.userId === userId)
         return filteredOrders;
